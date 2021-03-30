@@ -35,7 +35,7 @@ $OS.playSound = function (noise, volume = 0.2) {
 
 $(".desktop.icon").draggable();
 
-let fartsUntilBootUp = ['netsurf', 'niftydex', 'power']
+let fartsUntilBootUp = ['niftydex', 'netsurf', 'power']
 
 $(".desktop.fart.icon").on("dblclick", function () {
 
@@ -47,19 +47,19 @@ $(".desktop.fart.icon").on("dblclick", function () {
 	setTimeout(function () {
 		Sounds.fart.play();
 		var icon = fartsUntilBootUp.pop();
-		$('.system.icon.' + icon).show();
+		$('.system.icon.' + icon).slideDown();
 	}, 900);
 
 	setTimeout(function () {
 		Sounds.fart.play();
 		var icon = fartsUntilBootUp.pop();
-		$('.system.icon.' + icon).show();
+		$('.system.icon.' + icon).slideDown();
 	}, 3000);
 
 	setTimeout(function () {
 		Sounds.fart.play();
 		var icon = fartsUntilBootUp.pop();
-		$('.system.icon.' + icon).show();
+		$('.system.icon.' + icon).slideDown();
 	}, 5000);
 })
 

@@ -21,3 +21,6 @@ collections:
     permalink: /:path/
 
 collections_dir: collections
+
+
+cachedz: 9

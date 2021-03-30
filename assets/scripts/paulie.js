@@ -30,13 +30,11 @@ $paulie.update = function () {
 	$paulie.css("left", offsetX)
 	$paulie.css("top", offsetY)
 }
-$paulie.jump = function (resetDuration) {
+$paulie.jump = function () {
+
 	$paulie.addClass("jump");
 
-	if (!resetDuration) return;
-	setTimeout(function () {
-		$paulie.removeClass("jump")
-	}, resetDuration)
+	// delay( 500 ).removeClass("jump");
 }
 const recordMousePosition = (e) => {
 	$paulie.x = e.pageX;
@@ -53,26 +51,16 @@ $paulie.followUser = function () {
 // ---- Wake Up!! -----
 
 $paulie.wakeUp = function () {
-
-	setTimeout(function() {
 	
-	},200)
-	
-
 	$paulie.jump()
 	$paulie.addClass("awake");
 	$paulie.removeClass("sleeping")
 
-
 	$paulie.addClass("transitioning")
 	
-
-
 	$paulie.offsetX = 0;
 	$paulie.offsetY = -2;
 	$paulie.update();
-
-
 
 
 	// $paulie.removeClass("transitioning")
@@ -95,7 +83,6 @@ $paulie.wakeUp = function () {
 
 $paulie.update()
 
-
 $(document).on('mousemove', recordMousePosition);
 
 
@@ -103,7 +90,6 @@ $("body").on('mousedown', ".sleeping.paulie", function (e) {
 	$paulie.wakeUp()
 });
 
-// $(".sleeping.paulie").on("click", $paulie.wakeUp)
 
 
 const mouseUp = e => {

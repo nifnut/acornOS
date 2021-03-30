@@ -11,17 +11,8 @@ $shadowClicked: drop-shadow(0px 2px 0px rgba(0, 0, 0, 0.1));
 
 body.awake {
 	cursor: none !important;
-	.sleeping.cursor {
-		// display: none;
-	}
-	cursor: none !important;
 }
 
-body.sleeping {
-	.awake.cursor {
-		// display: none;
-	}
-}
 
 $OFFSET: -2px; // Avoid clicking actual cursor image
 
@@ -90,7 +81,7 @@ $OFFSET: -2px; // Avoid clicking actual cursor image
 
 	// MOUSE DOWN
 
-	&.clickinf {
+	&.clicking {
 		.face {
 			top: -5px;
 			left: -2px;

@@ -1,5 +1,5 @@
 
-const INITIAL_BEAT = 1;
+
 
 const storyBeats = [
 	{
@@ -46,7 +46,7 @@ const storyBeats = [
 ];
 
 const StoryManager = {
-	currentIndex: INITIAL_BEAT,
+	currentIndex: 0,
 	nextBeat: function () {
 		this.currentIndex++;
 		let beat = storyBeats[this.currentIndex]
