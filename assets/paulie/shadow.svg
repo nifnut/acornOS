@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 12 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>Shadow</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-18.0%" y="-11.2%" width="136.0%" height="122.5%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="0.6" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="svg" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M1,1.5 L2,1.5 M1,2.5 L3,2.5 M1,3.5 L4,3.5 M1,4.5 L5,4.5 M1,5.5 L6,5.5 M1,6.5 L7,6.5 M1,7.5 L8,7.5 M1,8.5 L9,8.5 M1,9.5 L10,9.5 M1,10.5 L11,10.5 M1,11.5 L7,11.5 M1,12.5 L4,12.5 M5,12.5 L7,12.5 M1,13.5 L3,13.5 M6,13.5 L8,13.5 M1,14.5 L2,14.5 M6,14.5 L8,14.5 M7,15.5 L9,15.5 M7,16.5 L9,16.5" id="Shadow" stroke="#5B5B5B" fill="#000000" fill-rule="nonzero" filter="url(#filter-1)"></path>
+    </g>
+</svg>

@@ -1,0 +1,177 @@
+@import "acorn/cursor";
+body {
+	@include flex();
+	background-color: $green;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+
+$header: #eeeeee;
+$content: #d8d8d8;
+$close: #ff0000;
+
+.navbar {
+	height: 125px;
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+
+	display: flex;
+	justify-content: flex-start;
+
+	&::after {
+		content: "";
+		bottom: 0px;
+		background-color: #eeeeee;
+		border-top: solid 5px black;
+		width: 100%;
+		height: 80px;
+		position: absolute;
+		z-index: 0;
+	}
+}
+
+.window.error {
+	width: 400px;
+	left: 50%;
+	margin-left: -200px;
+	top: 10vh;
+
+	.header {
+		background-color: #007aff;
+	}
+	h2,
+	p {
+		text-align: center;
+	}
+
+	p {
+		font-size: 20px;
+		margin: 30px 40px;
+		line-height: 1.4em;
+	}
+}
+
+@include not-phone() {
+	.ui.window.error {
+		display: none;
+	}
+	.acornoverlay {
+		display: none;
+	}
+}
+@include phone() {
+	* {
+		cursor: pointer !important;
+	}
+	#Paulie {
+		display: none;
+	}
+	.navbar {
+		.paint,
+		.netsurf,
+		.niftydex,
+		.clock {
+			display: none;
+		}
+	}
+
+	.window.error {
+		width: 90vw;
+		left: 5vw;
+		top: 20vh;
+		margin-left: 0;
+
+		.header {
+			background-color: #007aff;
+		}
+		h2,
+		p,
+		h1 {
+			text-align: center;
+			margin: 0;
+		}
+		h1 {
+			font-size: 50px;
+			line-height: 1em;
+			margin: 20px 0 10px 0;
+		}
+		h2 {
+			margin: 20px 0 0 0;
+		}
+		p {
+			font-size: 20px;
+			margin: 0px 30px 20px 30px;
+			line-height: 1.4em;
+		}
+	}
+
+	.acornoverlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		opacity: 0;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+
+		transition: 100ms background-color ease-out;
+
+		&.full {
+			opacity: 1;
+			background-color: black;
+			z-index: 100;
+			p {
+			}
+		}
+		p {
+			color: white;
+			font-family: Courier;
+			text-align: center;
+			font-weight: 100;
+			margin: 0;
+		}
+	}
+}
+
+.overlay {
+	cursor: default !important;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	// opacity: 0;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	// transition: 100ms background-color ease-out;
+
+	// &.black {
+	// 	opacity: 1;
+	// 	background-color: black;
+	// 	z-index: 100;
+	// }
+	p {
+		color: white;
+		font-family: Courier;
+		text-align: center;
+		font-weight: 100;
+		margin: 0;
+		font-size: 2vw;
+	}
+}
