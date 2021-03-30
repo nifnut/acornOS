@@ -69,7 +69,7 @@
 
 
 
-<!-- <div class="ui window error">
+<div class="ui window error">
 
 	<div class="ui header system border">
 		<div class="ui close system border"></div>
@@ -86,30 +86,25 @@
 
 		</div>
 	</div>
-
-</div> -->
-
-
-<!-- <div class="acornoverlay">
-	<img src="/assets/preview/acorn-square.png" />
+</div>
+<div class="acornoverlay">
+	<img src="/assets/images/acorn-square.png" />
 	<p>offline</p>
-</div> -->
-
-
+</div>
 <script>
-	// $(function () {
-	// 	$('.ui.window.error .close').on('click', function () {
-	// 		$(".acornoverlay").addClass("full");
-	// 		localStorage.setItem("offline", true)
-	// 	});
+	$(function () {
+		$('.ui.window.error .close').on('click', function () {
+			$(".acornoverlay").addClass("full");
+			// localStorage.setItem("offline", true)
+		});
 
-	// 	const previouslyOffline = localStorage.getItem("offline");
+		const previouslyOffline = localStorage.getItem("offline");
 
-	// 	if (previouslyOffline) {
-	// 		$(".acornoverlay").addClass("full");
-	// 	}
+		if (previouslyOffline) {
+			$(".acornoverlay").addClass("full");
+		}
 
-	// })
+	})
 
 	let currentZ = 13;
 
@@ -147,14 +142,14 @@
 
 	// makeWindowDynamic("fart", 330, 290, 30, 30, 800, 900)
 	makeWindowDynamic("netsurf", 300, 400, 20, 70, 800, 900)
-	// makePortal("paint", 400, 500, 40, 30, 210, 210)
+	makeWindowDynamic("paint", 400, 500, 40, 30, 210, 210)
 
 	const $paintWindow = $("#Paint");
 
 	$.get("/paint", function (data) {
 		$("#Paint .content").prepend(data)
-		}).fail(function (err) {
-			console.log(err.statusText)
-		})
+	}).fail(function (err) {
+		console.log(err.statusText)
+	})
 
 </script>

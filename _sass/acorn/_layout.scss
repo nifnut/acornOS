@@ -35,31 +35,9 @@ $close: #ff0000;
 	}
 }
 
-.window.error {
-	width: 400px;
-	left: 50%;
-	margin-left: -200px;
-	top: 10vh;
-
-	.header {
-		background-color: #007aff;
-	}
-	h2,
-	p {
-		text-align: center;
-	}
-
-	p {
-		font-size: 20px;
-		margin: 30px 40px;
-		line-height: 1.4em;
-	}
-}
 
 @include not-phone() {
-	.ui.window.error {
-		display: none;
-	}
+
 	.acornoverlay {
 		display: none;
 	}
@@ -159,13 +137,13 @@ $close: #ff0000;
 	align-items: center;
 	flex-direction: column;
 
-	// transition: 100ms background-color ease-out;
+	transition: 100ms background-color ease-out;
 
-	// &.black {
-	// 	opacity: 1;
-	// 	background-color: black;
-	// 	z-index: 100;
-	// }
+	&.black {
+		opacity: 1;
+		background-color: black;
+		z-index: 100;
+	}
 	p {
 		color: white;
 		font-family: Courier;
