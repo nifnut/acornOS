@@ -1,7 +1,6 @@
 $shadow: drop-shadow(-10px 10px 0px rgba(0, 0, 0, 0.1));
 $shadowClicked: drop-shadow(0px 2px 0px rgba(0, 0, 0, 0.1));
 
-body,
 .ui-resizable-se,
 .ui-resizable-e,
 .ui-resizable-w,
@@ -10,41 +9,62 @@ body,
 	// cursor: none !important;
 }
 
-body.powered-on {
+body.awake {
 	cursor: none !important;
 	.sleeping.cursor {
-		display: none;
+		// display: none;
 	}
+	cursor: none !important;
 }
 
 body.sleeping {
 	.awake.cursor {
-		display: none;
+		// display: none;
 	}
-	// cursor: none !important;
 }
 
-.sleeping.cursor {
-	height: 200px;
-	width: 126px;
-	left: 50%;
-	margin-left: -66px;
-	top: 40%;
-	// border: solid 1px red;
-	z-index: 100;
-}
-.awake.cursor {
-	pointer-events: none;
-}
 $OFFSET: -2px; // Avoid clicking actual cursor image
 
 .cursor {
 	position: absolute;
 	z-index: 100;
 	// perspective: 100px;
+
 	top: 0px;
 	left: $OFFSET;
 
+	&.awake {
+		pointer-events: none;
+		img.face.asleep {
+			display: none;
+		}
+		img.body {
+			display: none;
+		}
+	}
+
+	&.sleeping {
+		height: 200px;
+		width: 126px;
+		z-index: 100;
+		img.face.smirk {
+			display: none;
+		}
+	}
+
+	&.transitioning {
+		@include transition(all 400ms ease-in-out);
+	}
+
+	img.face {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 100;
+		@include transition(all 100ms ease-out);
+	}
 	img.body {
 		position: absolute;
 		top: 0px;
@@ -56,8 +76,8 @@ $OFFSET: -2px; // Avoid clicking actual cursor image
 	}
 	img.shadow {
 		position: absolute;
-		top: 10px;
-		left: -17px;
+		top: 13px;
+		left: -18px;
 		opacity: 0.7;
 		width: 110%;
 		height: 110%;
@@ -70,9 +90,9 @@ $OFFSET: -2px; // Avoid clicking actual cursor image
 
 	// MOUSE DOWN
 
-	&.clicking {
-		.body {
-			top: -3px;
+	&.clickinf {
+		.face {
+			top: -5px;
 			left: -2px;
 			@include transform(scale(0.98));
 		}
@@ -80,5 +100,71 @@ $OFFSET: -2px; // Avoid clicking actual cursor image
 			top: -3px;
 			left: -8px;
 		}
+	}
+}
+
+.sleeping.cursor {
+	$duration: 4s;
+	.big.face {
+		opacity: 0;
+		@include animation(sleeping-face-big $duration infinite ease-in);
+	}
+	.small.face {
+		opacity: 0;
+		@include animation(sleeping-face-small $duration infinite ease-in);
+	}
+}
+
+@keyframes sleeping-face-small {
+	0% {
+		opacity: 1;
+	}
+	60% {
+		opacity: 1;
+	}
+	61% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@keyframes sleeping-face-big {
+	0% {
+		opacity: 0;
+	}
+	60% {
+		opacity: 0;
+	}
+	61% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.jump {
+	align-self: flex-end;
+	animation-iteration-count: 1;
+
+	img.body {
+		@include animation(jump 400ms ease-in);
+	}
+
+	img.face {
+		@include animation(jump 400ms ease-in);
+	}
+}
+
+@keyframes jump {
+	0% {
+		transform: scale(1);
+	}
+	40% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
 	}
 }

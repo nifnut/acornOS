@@ -1,87 +1,144 @@
+const SCREEN_WIDTH = document.body.clientWidth;
+const SCREEN_HEIGHT = document.body.clientHeight;
 const COMPUTED_SCALE = invlerp(900, 2000, document.body.clientWidth);
 const ASPECT_RATIO = 1.410256
 const WIDTH_MIN = 40; // SCALE = 0
 const WIDTH_MAX = 70; // SCALE = 1
-// const WIDTH = lerp(WIDTH_MIN, WIDTH_MAX, COMPUTED_SCALE)
-// const HEIGHT = WIDTH * ASPECT_RATIO;
-
 const HEIGHT = 200;
 const WIDTH = 126;
-// const SHADOW = "/assets/paulie/shadow.svg";
 
-const Sounds = {
-	down: document.getElementById("ClickDownSound"),
-	up: document.getElementById("ClickUpSound"),
-	fart: document.getElementById("FartSound"),
-}
 
-Sounds.down.load();
-Sounds.up.load();
-
-// ============================================ 
-//					Paulie
-// ============================================
+// =======================================
+//			Initialize Paulie
+// =======================================
 
 let $paulie = $("#Paulie");
 
 $paulie.width(WIDTH).height(HEIGHT)
 $paulie.isClicking = false;
-// $paulie.append($("<img>").addClass("body").attr("src", BODY));
-// $paulie.append($("<img>").addClass("shadow").attr("src", SHADOW));
+$paulie.allowRightClicking = false
 
+$paulie.offsetX = SCREEN_WIDTH / 2 - WIDTH / 2
+$paulie.offsetY = SCREEN_HEIGHT / 2 - HEIGHT / 2
+$paulie.x = 0
+$paulie.y = 0
 
-// $paulie.playSound = function (noise, volume = 0.2) {
-// 	Sounds[noise].volume = volume;
-// 	Sounds[noise].play()
-// }
-$paulie.setTranslate = function (x, y) {
-	$(this).css("transform", `translate(${x}px, ${y}px)`)
+$paulie.update = function () {
+	const { x, y, offsetX, offsetY } = $paulie;
+	$(this).css("transform", `translate(${x}px, ${y}px)`);
+
+	$paulie.css("left", offsetX)
+	$paulie.css("top", offsetY)
+}
+$paulie.jump = function (resetDuration) {
+	$paulie.addClass("jump");
+
+	if (!resetDuration) return;
+	setTimeout(function () {
+		$paulie.removeClass("jump")
+	}, resetDuration)
+}
+const recordMousePosition = (e) => {
+	$paulie.x = e.pageX;
+	$paulie.y = e.pageY;
+};
+$paulie.followUser = function () {
+	$paulie.offsetX = 0;
+	$paulie.offsetY = -2;
+
+	$(document).on('mousemove', () => $paulie.update());
 }
 
-const mousemove = (e) => {
-	console.log("asdf")
-	$paulie.setTranslate(e.pageX, e.pageY)
-};
 
-$(document).on('mousemove', mousemove);
+// ---- Wake Up!! -----
 
+$paulie.wakeUp = function () {
+
+	setTimeout(function() {
+	
+	},200)
+	
+
+	$paulie.jump()
+	$paulie.addClass("awake");
+	$paulie.removeClass("sleeping")
+
+
+	$paulie.addClass("transitioning")
+	
+
+
+	$paulie.offsetX = 0;
+	$paulie.offsetY = -2;
+	$paulie.update();
+
+
+
+
+	// $paulie.removeClass("transitioning")
+
+
+	// setTimeout(function () {
+	// 	$paulie.offsetX = 0;
+	// 	$paulie.offsetY = -2;
+	// 	$paulie.update();
+	// 	$OS.powerOn();
+	// }, 100)
+
+	setTimeout(function () {
+		$paulie.removeClass("transitioning")
+		$OS.playSound("tada")
+		$OS.powerOn();
+		$paulie.followUser()
+	}, 440)
+}
+
+$paulie.update()
+
+
+$(document).on('mousemove', recordMousePosition);
+
+
+$("body").on('mousedown', ".sleeping.paulie", function (e) {
+	$paulie.wakeUp()
+});
+
+// $(".sleeping.paulie").on("click", $paulie.wakeUp)
 
 
 const mouseUp = e => {
-	// if (e.which !== 1) return; // only handle left click
-	// $paulie.playSound("up")
-	// $paulie.isClicking = false;
-	// $paulie.removeClass("clicking");
+	if (e.which !== 1) return; // only handle left click
+	$OS.playSound("up")
+	$paulie.isClicking = false;
+	$paulie.removeClass("clicking");
 };
 const mouseDown = e => {
-	// if (e.which !== 1) return
-	// $paulie.playSound("down")
-	// $paulie.isClicking = true;
-	// $paulie.addClass("clicking")
-};
-const stopEvent = e => {
-	e.preventDefault()
-	return false
+	if (e.which !== 1) return; // only handle left click
+	$OS.playSound("down")
+	$paulie.isClicking = true;
+	$paulie.addClass("clicking")
 };
 
 
-// ----- Navbar Icons ------
-
-$(".niftydex.icon").on("click", function () { $(".niftydex.window").show() })
-$(".netsurf.icon").on("click", function () { $(".netsurf.window").show() })
-$(".paint.icon").on("click", function () { $(".paint.window").show() })
-
-$(document).on('mousedown', mouseDown)
-$(document).on('mouseup', mouseUp)
-
-$(document).on('contextmenu', stopEvent); // no right clicking
-$('.scroll-bar').on('mousedown', function (e) { if (e.which === 1) mouseDown(e); })
-$('img').on('dragstart', function () { return false; }); // no drag
-$('a').on('dragstart', function () { return false; }) // no drag
-// $("#Desktop").on('mousedown', handleIconHighlight);
 
 
+const element = document.getElementById('some-element-you-want-to-animate');
+let start;
 
+function step(timestamp) {
+	if (start === undefined)
+		start = timestamp;
+	const elapsed = timestamp - start;
+
+	// `Math.min()` is used here to make sure that the element stops at exactly 200px.
+	element.style.transform = 'translateX(' + Math.min(0.1 * elapsed, 200) + 'px)';
+
+	if (elapsed < 2000) { // Stop the animation after 2 seconds
+		window.requestAnimationFrame(step);
+	}
+}
+
+// window.requestAnimationFrame(step);
 
 
 
@@ -109,4 +166,27 @@ let netStack = [];
 // 		// $content.html("<h1>gart</h1>")
 // 	});
 // });
+
+// ----- Navbar Icons ------
+
+$(".niftydex.icon").on("click", function () { $(".niftydex.window").show() })
+$(".netsurf.icon").on("click", function () { $(".netsurf.window").show() })
+$(".paint.icon").on("click", function () { $(".paint.window").show() })
+
+$(document).on('mousedown', mouseDown)
+$(document).on('mouseup', mouseUp)
+
+
+$('.scroll-bar').on('mousedown', function (e) { if (e.which === 1) mouseDown(e); })
+$('img').on('dragstart', function () { return false; }); // no drag
+$('a').on('dragstart', function () { return false; }) // no drag
+// $("#Desktop").on('mousedown', handleIconHighlight);
+
+
+// Other Clicking Types
+$(document).on('contextmenu', (e) => {
+	if (!$paulie.allowRightClicking) return
+	e.preventDefault()
+	return false
+}); // no right clicking
 

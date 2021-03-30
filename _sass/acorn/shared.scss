@@ -188,7 +188,7 @@
 
 // FLEX
 @mixin flex($value: 1) {
-	@include css3-prefix("box-flex", $value);
+	// @include css3-prefix("box-flex", $value);
 }
 
 // FLIP

@@ -1,83 +1,70 @@
 
-// const OS = {
-// 	name: "acornOS",
-// 	files: {
-// 		fart:{ filename: "fart.gif", x: 20, y: 30, window: "fart" }
-// 	},
-// 	windows: [
-// 		{ header: "fart.gif", x: 70, y: 30, window: "fart" }
-// 	]
 
-// }
-
-const initialState = {
-	powerMode: "sleeping",
-
+const Sounds = {
+	down: document.getElementById("ClickDownSound"),
+	up: document.getElementById("ClickUpSound"),
+	fart: document.getElementById("FartSound"),
+	tada: document.getElementById("TadaSound"),
+	power: document.getElementById("PowerSound"),
 }
 
-
-function OS(name, state = initialState) {
-	this.name = name;
-	this.powerMode = state.powerMode;
-	// this.$files = {}
-	// this.windows = [];
-	// this.files = [];
-	// this.icons = [];
-	// this.root = document
-	// this.status = initialStatus;
-	// this.powerMode = "sleeping";
+Sounds.down.load();
+Sounds.up.load();
+Sounds.tada.load();
+Sounds.power.load();
 
 
-
-	return this;
-}
-
+/// ==========================
 
 const $OS = $("body");
 
-
-
-
-
-// $(".window.ui").hide()
 
 $(".window.ui.fart").hide()
 
 
 $OS.powerOn = function () {
 	$OS.removeClass("sleeping")
-	$OS.addClass("powered-on")
+	$OS.addClass("awake")
 }
-$OS.hideAllWindows = function () {
-	$(".ui.window").hide()
+$OS.playSound = function (noise, volume = 0.2) {
+	Sounds[noise].volume = volume;
+	Sounds[noise].play()
 }
-
-
-$(".sleeping.cursor").on("click", $OS.powerOn)
-
-
 
 // =========== fart.gif ===============
 
 $(".desktop.icon").draggable();
 
+let fartsUntilBootUp = ['netsurf', 'niftydex', 'power']
 
 $(".desktop.fart.icon").on("dblclick", function () {
+
+	// Play gif
 	$(".fart.window").show();
-	// repeatFart = setInterval(function () { Sounds.fart.play() }, 960);
+
+	if (fartsUntilBootUp.length === 0) return
+
+	setTimeout(function () {
+		Sounds.fart.play();
+		var icon = fartsUntilBootUp.pop();
+		$('.system.icon.' + icon).show();
+	}, 900);
+
+	setTimeout(function () {
+		Sounds.fart.play();
+		var icon = fartsUntilBootUp.pop();
+		$('.system.icon.' + icon).show();
+	}, 3000);
+
+	setTimeout(function () {
+		Sounds.fart.play();
+		var icon = fartsUntilBootUp.pop();
+		$('.system.icon.' + icon).show();
+	}, 5000);
 })
-// $(".fart.window .close").on("click", function () { clearInterval(repeatFart) })
 
-
-// 	let repeatFart;
-// const $fart_gif = makeIcon("fart.gif", 10, 60);
-// $fart_gif.on("dblclick", function () {
-// 	$(".fart.window").show();
-// 	repeatFart = setInterval(function () { Sounds.fart.play() }, 960);
-// })
-// $(".fart.window .close").on("click", function () { clearInterval(repeatFart) })
-// $(".icon").draggable();
-
+$(".fart.icon").css("left", "70%").css("top", "20%")
+$(".fart.window").css("left", "10%").css("bottom", "30%")
 
 
 $("body").on('mousedown', ".desktop.icon", function (e) {
@@ -94,38 +81,69 @@ $("body").on('mousedown', function (e) {
 });
 
 
+//  ====== System Icons =======
 
-$("body").on('mousedown', ".system.icon", function (e) {
-	$(this).addClass("pressing");
-	if ($(this).hasClass("pressed")) {
-		$(this).removeClass("pressed");
-	} else {
-		$(this).addClass("pressed");
 
-		const props = { detail: $(this).text() }
-		const event = new CustomEvent('pressedOn', props);
-		document.body.dispatchEvent(event);
-	}
+$(".system.icon").hide(); // by default
 
-});
-$("body").on('mouseup', ".system.icon", function (e) {
-	$(this).removeClass("pressing");
 
-	if (!$(this).hasClass("pressed")) {
+$(function () {
+	$(".system.icon.power").on("click",function() {
+		console.log("p[lay")
+		$OS.playSound("power")
+	}); // by default
+})
 
-		const props = { detail: $(this).text() }
-		const event = new CustomEvent('pressedOff', props);
-		document.body.dispatchEvent(event);
-	}
-});
+
 
 
 document.body.addEventListener('pressedOn', function (e) {
-	console.log("show")
 	$(".ui.window." + e.detail).show()
 }, false);
 
 document.body.addEventListener('pressedOff', function (e) {
-	console.log("off")
 	$(".ui.window." + e.detail).hide()
 }, false);
+
+
+$(function () {
+	$('.ui.window.error .close').on('click', function () {
+		$(".acornoverlay").addClass("full");
+		// localStorage.setItem("offline", true)
+	});
+
+	const previouslyOffline = localStorage.getItem("offline");
+
+	if (previouslyOffline) {
+		$(".acornoverlay").addClass("full");
+	}
+
+})
+
+let currentZ = 13;
+
+
+{
+
+	$(".ui.window").draggable({ handle: '.header', containment: "body", cursor: "none" });
+	$('.ui.window .scrollbar-inner').scrollbar();
+
+	$('.ui.window .close').on('click', function () {
+		$(this).parent().parent().hide()
+	})
+	$('.ui.header').on('mousedown', function () {
+		$(this).parent().css("zIndex", currentZ++);
+	});
+
+}
+
+
+
+
+// const $paintWindow = $("#Paint");
+
+// $.get("/paint", function (data) {
+// 	$("#Paint .content").prepend(data)
+// }).fail(function (err) {
+// 	console.log(err.statusText)
+// })

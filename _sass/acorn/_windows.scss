@@ -321,3 +321,35 @@ $contentPadding: 10px;
 		display: none;
 	}
 }
+
+
+
+.window.error {
+	width: 90vw;
+	left: 5vw;
+	top: 20vh;
+	margin-left: 0;
+
+	.header {
+		background-color: #007aff;
+	}
+	h2,
+	p,
+	h1 {
+		text-align: center;
+		margin: 0;
+	}
+	h1 {
+		font-size: 50px;
+		line-height: 1em;
+		margin: 20px 0 10px 0;
+	}
+	h2 {
+		margin: 20px 0 0 0;
+	}
+	p {
+		font-size: 20px;
+		margin: 0px 30px 20px 30px;
+		line-height: 1.4em;
+	}
+}

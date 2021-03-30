@@ -1,0 +1,34 @@
+---
+---
+
+<div class="ui window {{ page.window_name }}">
+	<div class="ui header system border">
+		<div class="ui close system border"></div>
+		<span class="ui system text">{{ page.window_header }}</span>
+	</div>
+	<div class="ui scroll-baby system border">
+		<div class="ui scrollbar-inner">
+			{{ content }}
+		</div>
+	</div>
+</div>
+
+
+<script>
+	var props = {
+		helper: "ui-resizable-helper",
+		minHeight: "{{ page.height.min }}",
+		maxHeight: "{{ page.height.max }}",
+		minWidth: "{{ page.width.min }}",
+		maxWidth: "{{ page.width.max }}"
+	}
+
+	$(".window.{{ page.window_name }}")
+		.resizable(props)
+		.height("{{ page.height.initial }}").width("{{ page.width.initial }}")
+		.css("top", "{{ page.top }}")
+		.css("left", "{{ page.left }}")
+		.hide()
+
+
+</script>
