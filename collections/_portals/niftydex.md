@@ -12,7 +12,7 @@ width:
   max: 500
   min: 300
 top: 30%
-left: 10%
+left: 30%
 ---
 
 

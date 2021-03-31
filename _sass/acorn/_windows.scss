@@ -2,7 +2,7 @@ $header: #eeeeee;
 $content: #d8d8d8;
 $close: #ff0000;
 
-.ui.window {
+.window {
 	z-index: 10;
 	position: absolute;
 	display: flex;
@@ -261,6 +261,15 @@ $contentPadding: 10px;
 	top: -12px;
 }
 
+canvas {
+	position:absolute;
+	top: 10%;
+	left: 10%;
+	border:2px solid black;
+	width: 400px;
+	height: 500px;
+}
+
 // ---- paint ----\
 .paint.window {
 	.content {
@@ -271,12 +280,7 @@ $contentPadding: 10px;
 		background-image: url(../images/qr.png);
 		background-repeat: no-repeat;
 		background-position: center;
-		canvas {
-			// position:absolute;
-			top: 10%;
-			left: 10%;
-			// border:2px solid;
-		}
+
 	}
 }
 

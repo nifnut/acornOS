@@ -19,6 +19,9 @@ collections:
   portals:
     output: true
     permalink: /:path/
+  webpage:
+    output: true
+    permalink: /:path/
 
 collections_dir: collections
 

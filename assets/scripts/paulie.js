@@ -41,8 +41,8 @@ const recordMousePosition = (e) => {
 	$paulie.y = e.pageY;
 };
 $paulie.followUser = function () {
-	$paulie.offsetX = 0;
-	$paulie.offsetY = -2;
+	$paulie.offsetX = 2;
+	$paulie.offsetY = 0;
 
 	$(document).on('mousemove', () => $paulie.update());
 }
@@ -62,16 +62,6 @@ $paulie.wakeUp = function () {
 	$paulie.offsetY = -2;
 	$paulie.update();
 
-
-	// $paulie.removeClass("transitioning")
-
-
-	// setTimeout(function () {
-	// 	$paulie.offsetX = 0;
-	// 	$paulie.offsetY = -2;
-	// 	$paulie.update();
-	// 	$OS.powerOn();
-	// }, 100)
 
 	setTimeout(function () {
 		$paulie.removeClass("transitioning")
@@ -130,16 +120,16 @@ function step(timestamp) {
 
 let netStack = [];
 
-// $('body').on('click', '.ui.window.netsurf .content a', function (e) {
+$('body').on('click', '.ui.window.netsurf .scroll-content a', function (e) {
 
-// 	e.preventDefault(e);
-// 	var destination = $(this).attr('href');
-// 	console.log(destination)
-// 	netStack.push(destination);
-// 	// $("#NetSurf button").attr('disabled', false);
-// 	var $content = $(".netsurf .content");
-// 	$.get(destination, (data) => $content.html(data));
-// });
+	e.preventDefault(e);
+	var destination = $(this).attr('href');
+	console.log(destination)
+	netStack.push(destination);
+	// $("#NetSurf button").attr('disabled', false);
+	var $content = $(".netsurf .scroll-content");
+	$.get(destination, (data) => $content.html(data));
+});
 
 // $('.netsurf button').on('click', function (e) {
 // 	e.preventDefault(e);

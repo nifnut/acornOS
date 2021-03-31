@@ -15,4 +15,4 @@ top: 30%
 left: 10%
 ---
 
-<img src="/fart.gif" />
+![fart](/fart.gif)

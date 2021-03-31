@@ -35,7 +35,7 @@ $OS.playSound = function (noise, volume = 0.2) {
 
 $(".desktop.icon").draggable();
 
-let fartsUntilBootUp = ['niftydex', 'netsurf', 'power']
+let fartsUntilBootUp = ['niftydex', 'netsurf', 'paint','power']
 
 $(".desktop.fart.icon").on("dblclick", function () {
 
@@ -61,6 +61,12 @@ $(".desktop.fart.icon").on("dblclick", function () {
 		var icon = fartsUntilBootUp.pop();
 		$('.system.icon.' + icon).slideDown();
 	}, 5000);
+
+	setTimeout(function () {
+		Sounds.fart.play();
+		var icon = fartsUntilBootUp.pop();
+		$('.system.icon.' + icon).slideDown();
+	}, 7000);
 })
 
 $(".fart.icon").css("left", "70%").css("top", "20%")
@@ -147,3 +153,4 @@ let currentZ = 13;
 // }).fail(function (err) {
 // 	console.log(err.statusText)
 // })
+
