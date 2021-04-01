@@ -1,5 +1,3 @@
-
-
 <div class="ui window kennel" id="Kennel">
 	<div class="ui header system border">
 		<div class="ui close system border"></div>
@@ -18,23 +16,27 @@
 
 <script>
 
+	$(function () {
+		var transform = {
+			top: "40%",
+			left: "50%",
+			height: 200,
+			width: 300,
+			marginLeft: -150
+		}
 
-	var transform = {
-		bottom: "10%",
-		left: "10%",
-		height: 200,
-		width: 300
-	}
+		var props = {
+			helper: "ui-resizable-helper",
+			minHeight: 300,
+			maxHeight: 600,
+			minWidth: 300,
+			maxWidth: 600
+		}
 
-	var props = {
-		helper: "ui-resizable-helper",
-		minHeight: 300,
-		maxHeight: 600,
-		minWidth: 300,
-		maxWidth: 600
-	}
+		$("#Kennel").resizable(props).css(transform)
 
-	$(".window.kennel").resizable(props).css(transform)
+	})
+
 
 
 </script>

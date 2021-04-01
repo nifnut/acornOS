@@ -16,13 +16,15 @@ const storyBeats = [
 		}
 	},
 	{
-		name: "powered on",
+		name: "playing around part 1",
 		onStart: function () {
 			$("#PoweredOff").hide();
 			$("#Desktop").show();
 			$("#Paint").show();
+			$("#Music").show();
+			$("#Hyro").show();
 			$("#PaulieIntro").show();
-			$("#Dialog").text("i bet you can draw better than me. you take over")
+			$("#Dialog").text("i bet you can draw better than me. click me to take control")
 
 			$("#PaulieIntro").on("click", function () {
 				StoryManager.nextBeat()
@@ -30,21 +32,21 @@ const storyBeats = [
 		}
 	},
 	{
-		name: "paulie is alive",
+		name: "playing around part 2",
 		onStart: function () {
 			$("body").addClass("paulie");
 			$("#PaulieIntro").hide();
-			$("#Dialog").text("lets do this")
+			$("#Dialog").text("heck yeah lets do this together");
 			setTimeout(function () {
 				StoryManager.nextBeat()
-			}, 1000)
+			}, 5000)
 		}
 	},
 	{
-		name: "first updater",
+		name: "updater threat level 0%",
 		onStart: function () {
 			$("#Updater1").show();
-			$("#Dialog").text("i am so sick of the updater")
+			$("#Dialog").text("ugh, i am so sick of the updater")
 			$("#Updater1 button").on("click", function () {
 				StoryManager.nextBeat()
 			});
@@ -109,6 +111,8 @@ const storyBeats = [
 
 			$(".poop.qr").on("click", function () {
 				$(this).hide();
+				$("#Kennel").css("zIndex",1);
+
 				poops--;
 				if (poops === 0) StoryManager.nextBeat(); 
 			});
@@ -149,6 +153,7 @@ const storyBeats = [
 		name: "Final",
 		onStart: function () {
 			$("#Desktop").hide();
+			$("#PoweredOff").hide();
 			$("#Final").show();
 			$("body").removeClass("paulie");
 
@@ -170,14 +175,17 @@ const StoryManager = {
 
 function dev() {
 	// $("body").addClass("paulie");
+	
+	// $("#Paint").show();
+	// $("#Music").show();
+	// $("#Hyro").show();
 }
 
 
 function main() {
 
-	// $("body > div").hide();
-
 	$("#PaulieIntro").hide();
+	$("#Netsurf").hide();
 	$("#Updater1").hide();
 	$("#Sparky").hide();
 	$("#Kennel").hide();
