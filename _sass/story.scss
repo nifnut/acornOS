@@ -62,13 +62,12 @@ $on-laptop: 800px !default;
 @import "acorn/shared";
 @import "acorn/base";
 
-@import "acorn/story";
 
 // @import "acorn/layout";
 
 // @import "acorn/icons";
 // @import "acorn/cursor";
-// @import "acorn/windows";
+@import "acorn/windows";
 
 // "acorn/syntax-highlighting";
 
@@ -79,3 +78,120 @@ $on-laptop: 800px !default;
 //     padding-left: $spacing-unit / 2;
 //   }
 // }
+
+
+body.paulie {
+	cursor: url("/assets/paulie/cursor1.png"), auto !important;
+
+	button {
+		cursor: url("/assets/paulie/cursor1.png"), auto !important;
+	}
+	#Desktop {
+		cursor: url("/assets/paulie/cursor1.png"), auto !important;
+	}
+}
+
+#PoweredOff {
+	background-color: black;
+}
+
+#Desktop {
+	background-color: $green;
+	height: 100vh;
+	width: 100vw;
+	top:0;
+	left:0;
+	position: absolute;
+}
+
+#Final {
+	background-color: red;
+	height: 100vh;
+}
+
+.window {
+
+	div {
+		text-align: center;
+	}
+	
+}
+
+
+// PAULIE
+#PaulieIntro {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top:40%;
+	left:40%;
+	img.face {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 100;
+		@include transition(all 100ms ease-out);
+	}
+	img.body {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 100;
+		@include transition(all 100ms ease-out);
+	}
+	img.shadow {
+		position: absolute;
+		top: 13px;
+		left: -18px;
+		opacity: 0.7;
+		width: 110%;
+		height: 110%;
+		@include transition(all 100ms ease-out);
+	}
+
+}
+
+
+// DIALOG
+#Dialog {
+	position: absolute;
+	top:1%;
+	left: 5%;
+	width: 90%;
+	height: 5%;
+	background-color: #eee;
+	border: inset 4px;
+}
+
+
+// PET
+.pet {
+	position: absolute;
+	border: solid 1px;
+	text-align: center;
+	padding: 10px;
+}
+
+// POOP
+.poop {
+	position: absolute;
+	z-index: 200;
+}
+
+.window {
+	img {
+		max-width: 200px;
+	}
+}
+
+#Updater1 {
+	z-index: 200;
+}
+
+#Updater2 {
+	z-index: 200;
+}

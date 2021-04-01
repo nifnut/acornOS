@@ -6,6 +6,7 @@ const storyBeats = [
 		mode: ""
 	},
 	{
+		name: "powered off",
 		onStart: function () {
 			$("#PoweredOff").show();
 			$("#Desktop").hide();
@@ -15,27 +16,32 @@ const storyBeats = [
 		}
 	},
 	{
+		name: "powered on",
 		onStart: function () {
 			$("#PoweredOff").hide();
 			$("#Desktop").show();
+			$("#Paint").show();
+			$("#PaulieIntro").show();
 			$("#Dialog").text("i bet you can draw better than me. you take over")
-			
-			$("#StaticPaulie").on("click", function () {
+
+			$("#PaulieIntro").on("click", function () {
 				StoryManager.nextBeat()
 			});
 		}
 	},
 	{
+		name: "paulie is alive",
 		onStart: function () {
 			$("body").addClass("paulie");
-			$("#StaticPaulie").hide();
-			$("#Dialog").text("")
+			$("#PaulieIntro").hide();
+			$("#Dialog").text("lets do this")
 			setTimeout(function () {
 				StoryManager.nextBeat()
-			}, 5000)
+			}, 1000)
 		}
 	},
 	{
+		name: "first updater",
 		onStart: function () {
 			$("#Updater1").show();
 			$("#Dialog").text("i am so sick of the updater")
@@ -45,77 +51,92 @@ const storyBeats = [
 		}
 	},
 	{
+		name: "sparky is loose",
 		onStart: function () {
 			$("#Updater1").hide();
-			$("#Pet").show();
+
+			$("#Hyro").show();
 			$("#Kennel").show();
 			$("#Dialog").text("oh no sparky got loose")
-			
 
-			let poops = 0;
+			$("#Sparky").delay(100).slideDown(0);
 
-			$("#Poop1 button").on("click", function () {
+			$("#Poop1").delay(2000).slideDown(0);
+			$("#Poop2").delay(4000).slideDown(0);
+
+			let poops = 2;
+
+			$("#Poop1").on("click", function () {
 				$(this).hide();
-				poops++;
-				if (poops > 1) {
-					StoryManager.nextBeat()
-				}
+				poops--;
+				if (poops === 0) StoryManager.nextBeat(); 
 			});
-			setTimeout(function () {
-				$("#Poop1").show();
-			}, 1000)
-			
+
+			$("#Poop2").on("click", function () {
+				$(this).hide();
+				poops--;
+				if (poops === 0) StoryManager.nextBeat(); 
+			});
+
 		}
 	},
 	{
+		name: "paulie explains part 1",
 		onStart: function () {
-			// explains QR
-			$("#Dialog").text("oh that, yeah im not sure what it is. i can tell its important though")
-			$("#Hydro").show();
 
-			$("#Hydro button").on("click", function () {
-				$(this).hide();
+			$("#Dialog").text("oh that, yeah im not sure what it is. i can tell its important though");
+			$("#Hyro").show();
+
+			setTimeout(function () {
 				StoryManager.nextBeat()
-			});
+			},2000);
 		}
 	},
 	{
+		name: "chasing down the dog and cleaning poop",
 		onStart: function () {
 			$("#Dialog").text("what the heck did my dog eat")
-			$("#PoopFiles").show();
 
-			let poops = 0;
+			$("#Poop3").delay(1000).slideDown(0);
+			$("#Poop4").delay(1500).slideDown(0);
+			$("#Poop5").delay(2000).slideDown(0);
+			$("#Poop6").delay(2500).slideDown(0);
+			$("#Poop7").delay(3000).slideDown(0);
+			$("#Poop8").delay(3500).slideDown(0);
+			$("#Poop9").delay(4000).slideDown(0);
 
-			$("#PoopFiles button").on("click", function () {
+			let poops = 7;
+
+			$(".poop.qr").on("click", function () {
 				$(this).hide();
-				poops++;
-				if (poops === 7) {
-					StoryManager.nextBeat();
-					poops++;
-				}
+				poops--;
+				if (poops === 0) StoryManager.nextBeat(); 
 			});
 
 		}
 	},
 	{
+		name: "readme.txt",
 		onStart: function () {
-			// poops READ ME .txt
-			$("#ReadMeFile").show();
-			$("#ReadMeFile").on("click", function () {
+			$("#Poop10").show();
+			$("#Poop10").on("click", function () {
+				$(this).hide();
 				StoryManager.nextBeat();
 			})
 		}
 	},
 	{
+		name: "final moments before the final update",
 		onStart: function () {
-			$("#ReadMeWindow").show();
-			// final updater pops up
+			$("#Readme").show();
+
 			setTimeout(function () {
 				StoryManager.nextBeat()
-			}, 4000)
+			}, 1000)
 		}
 	},
 	{
+		name: "the final update is here",
 		onStart: function () {
 			$("#Updater2").show();
 
@@ -137,31 +158,40 @@ const storyBeats = [
 ];
 
 const StoryManager = {
-	currentIndex: 1,
+	currentIndex: 0,
 	nextBeat: function () {
 		this.currentIndex++;
 		let beat = storyBeats[this.currentIndex];
 
-		// console.log(beat)
+		console.log(beat.name)
 		beat.onStart()
 	}
+}
+
+function dev() {
+	// $("body").addClass("paulie");
 }
 
 
 function main() {
 
-	$("body > div").hide()
+	// $("body > div").hide();
+
+	$("#PaulieIntro").hide();
 	$("#Updater1").hide();
-	$("#Pet").hide();
+	$("#Sparky").hide();
 	$("#Kennel").hide();
-	$("#Poop1").hide();
-	$("#Hydro").hide();
+	$(".poop").hide();
+	$("#Hyro").hide();
 	$("#PoopFiles").hide();
-	$("#ReadMeFile").hide();
+	$("#Readme").hide();
 	$("#ReadMeWindow").hide();
 	$("#Updater2").hide();
+	$("#Final").hide();
 
-	StoryManager.nextBeat()
+	StoryManager.nextBeat();
+
+	dev();
 }
 
 main()

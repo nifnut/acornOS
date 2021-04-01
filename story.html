@@ -9,75 +9,23 @@ title: paulie OS
 </div>
 
 <div id="Desktop">
-	<pre id="Dialog">i</pre>
-	<button id="StaticPaulie">paulie</button>
+	<pre id="Dialog"></pre>
 
-	<div id="MusicPlayer" class="window">
-		<p>MusicPlayer</p>
-	</div>
-	<div id="Paint" class="window">
-		<p>Outdoor scene</p>
-	</div>
-	<div id="Netsurf" class="window">
-		<p>netsurf</p>
-	</div>
-	<div id="NiftyDex" class="window">
-		<p>niftydex</p>
-	</div>
+	{%- include paulie_intro.html -%}
 
-	
+	{%- include updater_1.html -%}
+	{%- include updater_2.html -%}
 
-	<div id="Updater1">
-		<p>first updater</p>
-		<button>Cancel Update</button>
-	</div>
+	{%- include window_musicplayer.html -%}
+	{%- include window_netsurf.html -%}
+	{%- include window_paint.html -%}
+	{%- include window_niftydex.html -%}
+	{%- include window_kennel.html -%}
+	{%- include window_hyro.html -%}
+	{%- include window_readme.html -%}
 
-	<div id="Kennel" class="window">
-		<p>kennel.exe</p>
-	</div>
-
-	<div id="Pet">
-		<p>dog</p>
-	</div>
-
-	<div id="Poop1">
-		<button>poop (1).png</button>
-		<button>poop (2).png</button>
-	</div>
-
-
-	<div id="Hydro">
-		<p>hierglyph</p>
-		<button>poop (3).png</button>
-	</div>
-
-
-
-	<div id="PoopFiles">
-		<p>QR poop files</p>
-		<button>poop (3).png</button>
-		<button>poop (4).png</button>
-		<button>poop (5).png</button>
-		<button>poop (6).png</button>
-		<button>poop (7).png</button>
-		<button>poop (8).png</button>
-		<button>poop (9).png</button>
-	</div>
-
-	<div id="ReadMeFile">
-		<button>README.txt</button>
-	</div>
-
-	<div id="ReadMeWindow">
-		<div class="window">Paulie i entrusted sparky with...</div>
-	</div>
-
-	
-
-	<div id="Updater2">
-		<p>Updater2</p>
-		<button>cancel</button>
-	</div>
+	{%- include pet_sparky.html -%}
+	{%- include poop.html -%}
 
 </div>
 

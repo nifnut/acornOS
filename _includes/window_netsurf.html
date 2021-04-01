@@ -1,0 +1,40 @@
+<div class="ui window netsurf" id="Netsurf">
+	<div class="ui header system border">
+		<div class="ui close system border"></div>
+		<span class="ui system text">netsurf</span>
+	</div>
+	<div class="ui scroll-baby system border">
+		<div class="ui scrollbar-inner">
+			asdfas
+		</div>
+	</div>
+</div>
+
+
+<script>
+
+	$(function () {
+		var transform = {
+			top: "10%",
+			left: "60%",
+			height: 400,
+			width: 300
+		}
+
+		var props = {
+			helper: "ui-resizable-helper",
+			minHeight: 300,
+			maxHeight: 600,
+			minWidth: 300,
+			maxWidth: 600
+		}
+
+		$(".window.netsurf").resizable(props).css(transform)
+
+	})
+
+
+
+
+
+</script>
