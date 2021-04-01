@@ -1,0 +1,21 @@
+body.paulie {
+	cursor: url("/assets/paulie/cursor1.png"), auto !important;
+
+	button {
+		cursor: url("/assets/paulie/cursor1.png"), auto !important;
+	}
+}
+
+#PoweredOff {
+	background-color: black;
+}
+
+#Desktop {
+	background-color: $green;
+	height: 100vh;
+}
+
+#Final {
+	background-color: red;
+	height: 100vh;
+}
