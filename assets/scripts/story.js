@@ -28,7 +28,7 @@ const storyBeats = [
 	{
 		onStart: function () {
 			$("body").addClass("paulie");
-			$("#StaticPaulie").hide()
+			$("#StaticPaulie").hide();
 			$("#Dialog").text("")
 			setTimeout(function () {
 				StoryManager.nextBeat()
@@ -38,6 +38,7 @@ const storyBeats = [
 	{
 		onStart: function () {
 			$("#Updater1").show();
+			$("#Dialog").text("i am so sick of the updater")
 			$("#Updater1 button").on("click", function () {
 				StoryManager.nextBeat()
 			});
@@ -47,7 +48,9 @@ const storyBeats = [
 		onStart: function () {
 			$("#Updater1").hide();
 			$("#Pet").show();
-			$("#Poop1").show();
+			$("#Kennel").show();
+			$("#Dialog").text("oh no sparky got loose")
+			
 
 			let poops = 0;
 
@@ -58,16 +61,19 @@ const storyBeats = [
 					StoryManager.nextBeat()
 				}
 			});
+			setTimeout(function () {
+				$("#Poop1").show();
+			}, 1000)
+			
 		}
 	},
 	{
 		onStart: function () {
 			// explains QR
-			console.log("QR")
+			$("#Dialog").text("oh that, yeah im not sure what it is. i can tell its important though")
 			$("#Hydro").show();
 
 			$("#Hydro button").on("click", function () {
-				console.log("clicked")
 				$(this).hide();
 				StoryManager.nextBeat()
 			});
@@ -75,7 +81,7 @@ const storyBeats = [
 	},
 	{
 		onStart: function () {
-			// poops 8 of 9 QR images
+			$("#Dialog").text("what the heck did my dog eat")
 			$("#PoopFiles").show();
 
 			let poops = 0;
@@ -83,7 +89,7 @@ const storyBeats = [
 			$("#PoopFiles button").on("click", function () {
 				$(this).hide();
 				poops++;
-				if (poops === 3) {
+				if (poops === 7) {
 					StoryManager.nextBeat();
 					poops++;
 				}
@@ -94,16 +100,15 @@ const storyBeats = [
 	{
 		onStart: function () {
 			// poops READ ME .txt
-			$("#ReadMe").show();
-			$("#Readme p").hide();
-			$("#ReadMe button").on("click", function () {
+			$("#ReadMeFile").show();
+			$("#ReadMeFile").on("click", function () {
 				StoryManager.nextBeat();
 			})
 		}
 	},
 	{
 		onStart: function () {
-			$("#Readme p").show();
+			$("#ReadMeWindow").show();
 			// final updater pops up
 			setTimeout(function () {
 				StoryManager.nextBeat()
@@ -137,7 +142,7 @@ const StoryManager = {
 		this.currentIndex++;
 		let beat = storyBeats[this.currentIndex];
 
-		console.log(beat)
+		// console.log(beat)
 		beat.onStart()
 	}
 }
@@ -148,10 +153,12 @@ function main() {
 	$("body > div").hide()
 	$("#Updater1").hide();
 	$("#Pet").hide();
+	$("#Kennel").hide();
 	$("#Poop1").hide();
 	$("#Hydro").hide();
 	$("#PoopFiles").hide();
-	$("#ReadMe").hide();
+	$("#ReadMeFile").hide();
+	$("#ReadMeWindow").hide();
 	$("#Updater2").hide();
 
 	StoryManager.nextBeat()
