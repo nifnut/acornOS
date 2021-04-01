@@ -18,7 +18,9 @@ const storyBeats = [
 		onStart: function () {
 			$("#PoweredOff").hide();
 			$("#Desktop").show();
-			$("#Paulie").on("click", function () {
+			$("#Dialog").text("i bet you can draw better than me. you take over")
+			
+			$("#StaticPaulie").on("click", function () {
 				StoryManager.nextBeat()
 			});
 		}
@@ -26,9 +28,11 @@ const storyBeats = [
 	{
 		onStart: function () {
 			$("body").addClass("paulie");
+			$("#StaticPaulie").hide()
+			$("#Dialog").text("")
 			setTimeout(function () {
 				StoryManager.nextBeat()
-			}, 1000)
+			}, 5000)
 		}
 	},
 	{
@@ -128,7 +132,7 @@ const storyBeats = [
 ];
 
 const StoryManager = {
-	currentIndex: 0,
+	currentIndex: 1,
 	nextBeat: function () {
 		this.currentIndex++;
 		let beat = storyBeats[this.currentIndex];
@@ -142,8 +146,13 @@ const StoryManager = {
 function main() {
 
 	$("body > div").hide()
-
-	$("#Desktop > div").hide()
+	$("#Updater1").hide();
+	$("#Pet").hide();
+	$("#Poop1").hide();
+	$("#Hydro").hide();
+	$("#PoopFiles").hide();
+	$("#ReadMe").hide();
+	$("#Updater2").hide();
 
 	StoryManager.nextBeat()
 }
