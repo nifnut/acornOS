@@ -46,6 +46,7 @@ const storyBeats = [
 		name: "updater threat level 0%",
 		onStart: function () {
 			$("#Updater1").show();
+			$("#Updater1Overlay").show();
 			$("#Dialog").text("ugh, i am so sick of the updater")
 			$("#Updater1 button").on("click", function () {
 				StoryManager.nextBeat()
@@ -56,6 +57,7 @@ const storyBeats = [
 		name: "sparky is loose",
 		onStart: function () {
 			$("#Updater1").hide();
+			$("#Updater1Overlay").hide();
 
 			$("#Hyro").show();
 			$("#Kennel").show();
@@ -163,7 +165,7 @@ const storyBeats = [
 ];
 
 const StoryManager = {
-	currentIndex: 1,
+	currentIndex: 3,
 	nextBeat: function () {
 		this.currentIndex++;
 		let beat = storyBeats[this.currentIndex];
@@ -174,7 +176,7 @@ const StoryManager = {
 }
 
 function dev() {
-	// $("body").addClass("paulie");
+	$("body").addClass("paulie");
 	
 	// $("#Paint").show();
 	// $("#Music").show();
@@ -187,6 +189,7 @@ function main() {
 	$("#PaulieIntro").hide();
 	$("#Netsurf").hide();
 	$("#Updater1").hide();
+	$("#Updater1Overlay").hide();
 	$("#Sparky").hide();
 	$("#Kennel").hide();
 	$(".poop").hide();
