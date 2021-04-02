@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: " en" }}">
 
+	{% assign version = site.version %}
+	{% assign timestamp = site.time | date: '%M%S' %}
+	{% capture cachedz %}v{{ version }}{{ timestamp }}{% endcapture %}
 
 <head>
 	<meta charset="utf-8">
@@ -8,7 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- <link rel="stylesheet" href="/assets/stylesheets/main.css"> -->
-	<link rel="stylesheet" href="/assets/stylesheets/story.css">
+	<link rel="stylesheet" href="/assets/stylesheets/story.css?cachedz={{ cachedz}}">
 
 	{%- if jekyll.environment == 'production' and site.google_analytics -%}
 	{%- include google-analytics.html -%}
@@ -25,18 +28,17 @@
 	<script src="/assets/scripts/lib/jquery-ui-1.10.4.js"></script>
 	<script src="/assets/scripts/lib/jquery.scrollbar.js"></script>
 
-	<title>acornOS</title>
+	<title>{{page.title}}</title>
 
 </head>
 
 <body>
 
-
-	{{ content }}
+{{ content }}
 
 	<script src="/assets/scripts/helpers.js"></script>
-
-	<script src="/assets/scripts/story.js?cachedz={{ site.cachedz}}"></script>
+	<script src="/assets/scripts/ui.js?cachedz={{ cachedz }}"></script>
+	<script src="/assets/scripts/story.js?cachedz={{ cachedz }}"></script>
 
 </body>
 

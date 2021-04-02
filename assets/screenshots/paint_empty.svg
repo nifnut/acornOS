@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="108px" height="111px" viewBox="0 0 108 111" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>Group 13</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-10.000000, -141.000000)">
+            <g id="Group-13" transform="translate(10.000000, 141.000000)">
+                <g id="Group-27">
+                    <g id="Group-16">
+                        <g id="Group-14">
+                            <g id="Group-9">
+                                <rect id="Rectangle" stroke="#000000" fill="#FFFFFF" x="0.5" y="0.5" width="107" height="110" rx="3"></rect>
+                                <path d="M0.5,11.5 L107.5,11.5 L107.5,3 C107.5,1.61928813 106.380712,0.5 105,0.5 L3,0.5 C1.61928813,0.5 0.5,1.61928813 0.5,3 L0.5,11.5 Z" id="Rectangle" stroke="#000000" fill="#EEEEEE"></path>
+                                <circle id="Oval" stroke="#000000" fill="#FF0000" cx="6.5" cy="6" r="2.5"></circle>
+                                <text id="micropaint" font-family="Terminal-Grotesque, Terminal Grotesque" font-size="6" font-weight="normal" fill="#000000">
+                                    <tspan x="11.5" y="8">micropaint</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(104.500000, 107.500000) rotate(-45.000000) translate(-104.500000, -107.500000) translate(103.000000, 106.000000)" stroke="#A2A2A2" stroke-linecap="round">
+                            <path d="M0,0.5 L3,0.5" id="Line-2"></path>
+                            <path d="M1,2 L2,2" id="Line-2"></path>
+                        </g>
+                    </g>
+                    <path d="M15.5,12.49 L15.5,109.51" id="Line" stroke="#C4C4C4" stroke-linecap="square"></path>
+                </g>
+                <image id="paint" x="4" y="42" width="8" height="10" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAABGdBTUEAALGOfPtRkwAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAACKADAAQAAAABAAAACgAAAADvRCgyAAAAc0lEQVQYGWNkAIInT578B9HoQEZGhpEFJLlz5050OTAfJMcCYiWfSsKuwP0pA8gEhie1qPIyzdJggWfPnjGATQAxUAFEAUiMCVUCwjuVfBouzHjixIn/TExY1YEV4ZaBmgHUjF8NI0jhqVOnsAaUmZkZIwCjjiTbcqmXoAAAAABJRU5ErkJggg=="></image>
+                <image id="eraser" x="4" y="29" width="8" height="9" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAJCAYAAAAPU20uAAAABGdBTUEAALGOfPtRkwAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAACKADAAQAAAABAAAACQAAAACo5FLiAAAAJUlEQVQYGWP833r4PwMewIRHDiw1GBSwMKgJ4XUnZY5kDNVmBADm9QQUV6uRjQAAAABJRU5ErkJggg=="></image>
+                <image id="pencil" x="4" y="15" width="8" height="10" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAABGdBTUEAALGOfPtRkwAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAACKADAAQAAAABAAAACgAAAADvRCgyAAAASUlEQVQYGWP8/4nhPwMewASWewkkQRgGkPgQBTAJLDQdFDD+P9iN1xeMIHfhUsRoX8oIVgBSpKysjGLS3bt34XIgeTAAKUJXCAC6OxS94Cy53QAAAABJRU5ErkJggg=="></image>
+                <g id="Group-3" transform="translate(5.000000, 57.000000)">
+                    <rect id="Rectangle" fill="#000000" x="0" y="0" width="6" height="6"></rect>
+                    <rect id="Rectangle" fill="#FF00F0" x="0" y="7" width="6" height="6"></rect>
+                    <rect id="Rectangle" fill="#0013FF" x="0" y="14" width="6" height="6"></rect>
+                    <rect id="Rectangle" fill="#00FFFD" x="0" y="21" width="6" height="6"></rect>
+                    <rect id="Rectangle" fill="#00FF19" x="0" y="28" width="6" height="6"></rect>
+                    <rect id="Rectangle" fill="#FFE900" x="0" y="35" width="6" height="6"></rect>
+                    <rect id="Rectangle" fill="#FF0000" x="0" y="42" width="6" height="6"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

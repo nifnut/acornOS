@@ -13,4 +13,4 @@ collections:
     output: true
     permalink: /:path/
 
-cachedz: 4
+version: 4 

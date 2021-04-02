@@ -1,7 +1,33 @@
 <div id='PaulieIntro' class="cursor paulie">
-	<img class="shadow" src="/assets/paulie/shadow.svg" />
+	<!-- <img class="shadow" src="/assets/paulie/shadow.svg" /> -->
 	<img class="body" src="/assets/paulie/body.svg" />
 	<img class="face smirk" src="/assets/paulie/body-smirk.svg" />
+
+	<div id="IntroSpeechbubble" class="speech bubble left-carot">
+		i bet you can draw better than me. <br />click me to take control
+	</div>
 </div>
 
 
+
+
+
+
+<script>
+	$(function () {
+
+		$("#PaulieIntro").css({
+			top: "43%",
+			left: "35%"
+		})
+
+		$("#IntroSpeechbubble").css({
+			width: 260,
+			position: 'absolute',
+			top: -20,
+			left: 80,
+			zIndex: 300
+		})
+	})
+
+</script>

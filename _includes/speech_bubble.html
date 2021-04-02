@@ -1,31 +1,42 @@
-<img id="Speechbubble" src="/assets/screenshots/speechbubble.svg" />
+<!-- <img id="Speechbubble" src="/assets/screenshots/speechbubble.svg" /> -->
 
+<div id="Speechbubble" class="speech bubble">
+
+</div>
 
 
 <script>
 
 	$(function () {
+
+
+		const width = 300;
+		const offsetX = 70 //60;
+		const offsetY = -20 //-40;
+
 		$("#Speechbubble").css({
 			position: "absolute",
-			top: -40,
-			left: 60,
-			width: 300,
+			width,
 			zIndex: 300
 		})
 
 
-
-
 		$(document).on('mousemove', (e) => {
+			// if(!cursor.isTracking) return;
 
-
-			const { x, y } = cursor;
+			const y = Math.max((UI.cursor.y + offsetY), 0);
+			let x = UI.cursor.x + offsetX;
+			var viewportWidth = (window.innerWidth || document.documentElement.clientWidth)
+			if (UI.cursor.x > (viewportWidth - width - offsetX)) {
+				x = UI.cursor.x - width - offsetX;
+				$("#Speechbubble").addClass("right-carot")
+				$("#Speechbubble").removeClass("left-carot")
+			} else {
+				$("#Speechbubble").addClass("left-carot")
+				$("#Speechbubble").removeClass("right-carot")
+			}
 			$("#Speechbubble").css("transform", `translate(${x}px, ${y}px)`);
-
-			// $paulie.css("left", offsetX)
-			// $paulie.css("top", offsetY)
 		});
-
 
 	})
 

@@ -105,7 +105,6 @@ body.paulie {
 		font-size: 20px;
 	}
 }
-
 #Desktop {
 	background-color: $green;
 	height: 100vh;
@@ -115,24 +114,29 @@ body.paulie {
 	position: absolute;
 }
 
-#Final {
-	background-color: red;
-	height: 100vh;
-}
-
 .window {
 	div {
 		text-align: center;
 	}
 }
 
+$z-intropaulie: 250;
+$z-poop: 200;
+$z-pet: 300;
+$z-kennel: 300;
+$z-updater1: 210;
+$z-updater2: 210;
+$z-updater1overlay: 200;
+$z-updater2overlay: 200;
+
 // PAULIE
 #PaulieIntro {
 	width: 100px;
 	height: 100px;
 	position: absolute;
-	top: 40%;
-	left: 40%;
+	top: 43%;
+	left: 47%;
+	z-index: $z-intropaulie;
 	img.face {
 		position: absolute;
 		top: 0px;
@@ -163,8 +167,6 @@ body.paulie {
 }
 
 
-$z-poop: 200;
-$z-pet: 300;
 
 // DIALOG
 #Dialog {
@@ -184,9 +186,20 @@ $z-pet: 300;
 	text-align: center;
 	padding: 10px;
 	z-index: $z-pet;
+	img {
+		max-width: 100%;
+	}
+	&.left img {
+		transform: scaleX(1);
+	}
+	&.right img {
+		transform: scaleX(-1);
+	}
 }
 
-
+#Kennel {
+	z-index: $z-kennel;
+}
 
 // POOP
 .poop {
@@ -197,41 +210,78 @@ $z-pet: 300;
 		content: "";
 
 		position: absolute;
-		width: 70px;
+		width: 50px;
 		left: 50%;
-		margin-left: -35px;
+		margin-left: -25px;
 		bottom: 27px;
 
 		// border: solid 2px blue;
 		background-image: url(../screenshots/poop.svg);
-		height: 70px;
+		height: 50px;
 
 		background-color: transparent;
 		background-size: contain;
 	}
 }
 
-.window {
-	img {
-		// max-width: 200px;
-	}
-}
-
 #Updater1 {
-	z-index: 200;
+	z-index: $z-updater1;
 }
 
 #Updater2 {
-	z-index: 200;
+	z-index: $z-updater2;
 }
 
-// overlay
-#Updater1Overlay {
-	background: rgba(255, 255, 255, 0.17);
+.overlay {
+	background: rgba(0, 0, 0, 0.01);
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	left: 0;
 	top: 0;
+	z-index: $z-updater1overlay;
+	&.updater1 {
+		z-index: $z-updater1overlay;
+	}
+	&.updater2 {
+		z-index: $z-updater2overlay;
+	}
+}
 
+.speech.bubble {
+	background: white;
+	border: solid 3px black;
+	border-radius: 5px;
+	line-height: 1.2em;
+	padding: 5px 10px;
+	min-height: 50px;
+	width: 100px;
+
+	display: flex;
+	align-items: center;
+
+	&::after {
+		content: " ";
+		position: absolute;
+		bottom: 20%;
+		z-index: 900;
+		width: 40px;
+		height: 50px;
+		background-image: url(../screenshots/carot.svg);
+		background-repeat: no-repeat;
+		background-size: 30px;
+		background-position: bottom right;
+	}
+
+	&.left-carot::after {
+		left: -40px;
+		// right: ;
+		// transform: scaleX(-1);
+	}
+
+	&.right-carot::after {
+		left: unset;
+		right: -40px;
+		transform: scaleX(-1);
+	}
 }

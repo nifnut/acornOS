@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="119px" height="31px" viewBox="0 0 119 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>speech bubble</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-384.000000, -45.000000)" fill="#FFFDFD" stroke="#000000">
+            <g id="speech-bubble" transform="translate(384.000000, 45.000000)">
+                <path d="M1.50177922,21.9640076 L9.5,21.9640076 L9.5,28 C9.5,29.3807119 10.6192881,30.5 12,30.5 L116,30.5 C117.380712,30.5 118.5,29.3807119 118.5,28 L118.5,3 C118.5,1.61928813 117.380712,0.5 116,0.5 L12,0.5 C10.6192881,0.5 9.5,1.61928813 9.5,3 L9.5,15.974222 L1.50177922,21.9640076 Z" id="Rectangle"></path>
+            </g>
+        </g>
+    </g>
+</svg>
