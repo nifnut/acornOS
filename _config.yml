@@ -13,6 +13,4 @@ collections:
     output: true
     permalink: /:path/
 
-cachedz: 3
-
-github: [metadata]
+cachedz: 4
