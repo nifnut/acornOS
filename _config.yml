@@ -7,8 +7,6 @@ baseurl: ""
 url: ""
 twitter_username: nifnut
 theme: minima
-plugins:
-  - jekyll-feed
 
 collections:
   windows:
@@ -16,3 +14,5 @@ collections:
     permalink: /:path/
 
 cachedz: 3
+
+github: [metadata]

@@ -206,4 +206,19 @@ function main() {
 	dev();
 }
 
-main()
+main();
+
+
+
+// ------ Global Stuff ------
+
+let cursor = {
+	x: null,
+	y: null
+}
+
+document.addEventListener('mousemove', e => {
+	cursor.x = e.pageX;
+	cursor.y = e.pageY;
+});
+

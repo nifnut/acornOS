@@ -1,0 +1,32 @@
+<img id="Speechbubble" src="/assets/screenshots/speechbubble.svg" />
+
+
+
+<script>
+
+	$(function () {
+		$("#Speechbubble").css({
+			position: "absolute",
+			top: -40,
+			left: 60,
+			width: 300,
+			zIndex: 300
+		})
+
+
+
+
+		$(document).on('mousemove', (e) => {
+
+
+			const { x, y } = cursor;
+			$("#Speechbubble").css("transform", `translate(${x}px, ${y}px)`);
+
+			// $paulie.css("left", offsetX)
+			// $paulie.css("top", offsetY)
+		});
+
+
+	})
+
+</script>
