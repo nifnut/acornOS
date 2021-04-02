@@ -1,0 +1,34 @@
+---
+---
+
+<div class="ui window updater" id="Updater2">
+
+
+	<img src="/assets/screenshots/updater2.svg" width="600" />
+
+</div>
+
+
+
+<script>
+
+	$(function () {
+
+
+		$("#Updater2")
+			.draggable({
+				revert: true,
+				revertDuration: 5000,
+				containment: 'body'
+			}).css({
+				top: "20%",
+				left: "50%",
+				height: 500,
+				width: 600,
+				marginLeft: -300
+			})
+
+	})
+
+
+</script>

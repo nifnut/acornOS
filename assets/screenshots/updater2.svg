@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="102px" height="109px" viewBox="0 0 102 109" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>updater_full</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-397.000000, -349.000000)">
+            <g id="updater_full" transform="translate(397.000000, 349.000000)">
+                <rect id="Rectangle" fill="#D8D8D8" x="95" y="102" width="6" height="6"></rect>
+                <rect id="Rectangle" stroke="#000000" fill="#D8D8D8" x="0.5" y="0.5" width="101" height="108" rx="3"></rect>
+                <rect id="Rectangle" fill="#2F2F2F" x="1" y="12" width="100" height="40"></rect>
+                <g id="Group-24" transform="translate(24.000000, 26.000000)" fill="#636363">
+                    <rect id="Rectangle" x="15" y="10" width="25" height="2" rx="1"></rect>
+                    <rect id="Rectangle" x="0" y="0" width="21" height="2" rx="1"></rect>
+                    <rect id="Rectangle" x="33" y="0" width="21" height="2" rx="1"></rect>
+                    <circle id="Oval" cx="41.5" cy="2.5" r="1.5"></circle>
+                    <circle id="Oval" cx="13.5" cy="2.5" r="1.5"></circle>
+                </g>
+                <path d="M0.5,11.5 L101.5,11.5 L101.5,3 C101.5,1.61928813 100.380712,0.5 99,0.5 L3,0.5 C1.61928813,0.5 0.5,1.61928813 0.5,3 L0.5,11.5 Z" id="Rectangle" stroke="#000000" fill="#EEEEEE"></path>
+                <circle id="Oval" stroke="#000000" fill="#C6C6C6" cx="6.5" cy="6" r="2.5"></circle>
+                <text id="the-updater" font-family="Terminal-Grotesque, Terminal Grotesque" font-size="6" font-weight="normal" fill="#000000">
+                    <tspan x="11.5" y="8">the updater</tspan>
+                </text>
+                <rect id="Rectangle" fill="#EEEEEE" transform="translate(51.000000, 100.000000) rotate(90.000000) translate(-51.000000, -100.000000) " x="47" y="54" width="8" height="92"></rect>
+                <text id="2%-complete" font-family="Terminal-Grotesque, Terminal Grotesque" font-size="6" font-weight="normal" fill="#000000">
+                    <tspan x="35.9941406" y="102">2% complete</tspan>
+                </text>
+                <rect id="Rectangle" fill="#AAAAAA" transform="translate(6.500000, 100.000000) rotate(90.000000) translate(-6.500000, -100.000000) " x="2.5" y="98.5" width="8" height="3"></rect>
+                <text id="v0.69-released-Dec-2" font-family="Terminal-Grotesque, Terminal Grotesque" font-size="6" font-weight="normal" fill="#000000">
+                    <tspan x="18.0292969" y="81">v0.69 released Dec 21 1997</tspan>
+                    <tspan x="16.7519531" y="87"> You are 67 updates behind!</tspan>
+                </text>
+                <image id="New-Piskel-3" x="44" y="60" width="14" height="13" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAANCAYAAACZ3F9/AAAABGdBTUEAALGOfPtRkwAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAADqADAAQAAAABAAAADQAAAAD6UEMqAAAAeUlEQVQoFZ2SgQ6AIAhEofr/P24YzWN4hrXcmoIcz2OpPC+jtFIsGycQ2yniX7WmTlehsUD3Wz7UlsSKhPzQJdM6JZ7L1N/ELJy84Vm+d98x7SzMda9neFzSchd4LYlegAFlIc4u/ExzEbwe6MA7/wR87x5jUny5ihvixR7/0ij2XQAAAABJRU5ErkJggg=="></image>
+            </g>
+        </g>
+    </g>
+</svg>

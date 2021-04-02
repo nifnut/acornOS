@@ -137,14 +137,14 @@ const storyBeats = [
 			$("#Readme").show();
 
 			setTimeout(function () {
-				StoryManager.nextBeat()
+				// StoryManager.nextBeat()
 			}, 1000)
 		}
 	},
 	{
 		name: "the final update is here",
 		onStart: function () {
-			$("#Updater2").show();
+			$("#Updater2").delay(200).slideDown(500);
 
 			$("#Updater2 button").on("click", function () {
 				StoryManager.nextBeat();
@@ -154,18 +154,16 @@ const storyBeats = [
 	{
 		name: "Final",
 		onStart: function () {
-			$("#Desktop").hide();
+			$("#Updater2").show();
 			$("#PoweredOff").hide();
-			$("#Final").show();
 			$("body").removeClass("paulie");
-
 		}
 	},
 
 ];
 
 const StoryManager = {
-	currentIndex: 3,
+	currentIndex: 7,
 	nextBeat: function () {
 		this.currentIndex++;
 		let beat = storyBeats[this.currentIndex];

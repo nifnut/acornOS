@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="85px" viewBox="0 0 80 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>notes</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-233.000000, -13.000000)">
+            <g id="notes" transform="translate(233.000000, 13.000000)">
+                <g id="Group-10">
+                    <rect id="Rectangle" stroke="#000000" fill="#FFF5AD" x="0.5" y="0.5" width="79" height="84" rx="3"></rect>
+                    <rect id="Rectangle" fill-opacity="0.5" fill="#FFFFFF" style="mix-blend-mode: overlay;" x="1" y="20" width="78" height="8"></rect>
+                    <rect id="Rectangle" fill-opacity="0.5" fill="#FFFFFF" style="mix-blend-mode: overlay;" x="1" y="36" width="78" height="8"></rect>
+                    <rect id="Rectangle" fill-opacity="0.5" fill="#FFFFFF" style="mix-blend-mode: overlay;" x="1" y="52" width="78" height="8"></rect>
+                    <rect id="Rectangle" fill-opacity="0.5" fill="#FFFFFF" style="mix-blend-mode: overlay;" x="1" y="68" width="78" height="8"></rect>
+                    <path d="M0.5,11.5 L79.5,11.5 L79.5,3 C79.5,1.61928813 78.3807119,0.5 77,0.5 L3,0.5 C1.61928813,0.5 0.5,1.61928813 0.5,3 L0.5,11.5 Z" id="Rectangle" stroke="#000000" fill="#C97F00"></path>
+                    <ellipse id="Oval" stroke="#000000" fill="#FF0000" cx="6.58227848" cy="6" rx="2.53797468" ry="2.5"></ellipse>
+                    <text id="notepad" font-family="Terminal-Grotesque, Terminal Grotesque" font-size="6" font-weight="normal" fill="#000000">
+                        <tspan x="11.6455696" y="8">notepad</tspan>
+                    </text>
+                    <text id="this-is-a-note-*-bul" font-family="Terminal-Grotesque, Terminal Grotesque" font-size="6" font-weight="normal" line-spacing="8" fill="#381300">
+                        <tspan x="2" y="17">this is a note</tspan>
+                        <tspan x="2" y="25">* bulleted list</tspan>
+                    </text>
+                </g>
+                <path d="M73,12 L79,12 L79,82 C79,83.1045695 78.1045695,84 77,84 L73,84 L73,12 Z" id="Rectangle" fill="#D9D090"></path>
+                <g id="Group" transform="translate(76.500000, 81.500000) rotate(-45.000000) translate(-76.500000, -81.500000) translate(75.000000, 80.000000)" stroke="#000000" stroke-linecap="round">
+                    <path d="M0,0.5 L3,0.5" id="Line-2"></path>
+                    <path d="M1,2 L2,2" id="Line-2"></path>
+                </g>
+                <g id="Group-11" transform="translate(73.000000, 12.000000)">
+                    <g id="Group-12">
+                        <rect id="Rectangle" fill="#FFDC00" x="0" y="5" width="6" height="14"></rect>
+                        <polygon id="Rectangle" fill="#FFE0C4" points="3 0 6 5 0 5"></polygon>
+                        <polygon id="Rectangle" fill="#000000" points="3 -1.33226763e-15 4.20870844 2 1.79718806 2"></polygon>
+                        <rect id="Rectangle" fill="#D8D8D8" x="0" y="19" width="6" height="2"></rect>
+                        <path d="M0,21 L6,21 L6,23 C6,24.1045695 5.1045695,25 4,25 L2,25 C0.8954305,25 1.3527075e-16,24.1045695 0,23 L0,21 Z" id="Rectangle" fill="#FFB3B3"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
