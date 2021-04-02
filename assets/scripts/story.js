@@ -37,9 +37,9 @@ const storyBeats = [
 			$("body").addClass("paulie");
 			$("#PaulieIntro").hide();
 			$("#Dialog").text("heck yeah lets do this together");
-			setTimeout(function () {
-				StoryManager.nextBeat()
-			}, 5000)
+			// setTimeout(function () {
+			// 	StoryManager.nextBeat()
+			// }, 5000)
 		}
 	},
 	{
@@ -163,7 +163,7 @@ const storyBeats = [
 ];
 
 const StoryManager = {
-	currentIndex: 0,
+	currentIndex: 1,
 	nextBeat: function () {
 		this.currentIndex++;
 		let beat = storyBeats[this.currentIndex];

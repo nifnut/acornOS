@@ -15,13 +15,14 @@ title: paulie OS
 	{%- include updater_1.html -%}
 	{%- include updater_2.html -%}
 
-	{%- include window_musicplayer.html -%}
 	{%- include window_netsurf.html -%}
-	{%- include window_paint.html -%}
 	{%- include window_niftydex.html -%}
 	{%- include window_kennel.html -%}
-	{%- include window_hyro.html -%}
 	{%- include window_readme.html -%}
+
+	{% for window in site.windows %}
+	{{ window }}
+	{% endfor %}
 
 	{%- include pet_sparky.html -%}
 	{%- include poop.html -%}

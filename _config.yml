@@ -1,29 +1,18 @@
 
-title: acornOS
+title: paulieOS
 # description:  update now
 
 email: kevin@kevaid.com
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
-
-# Build settings
+baseurl: "" 
+url: ""
+twitter_username: nifnut
 theme: minima
 plugins:
   - jekyll-feed
 
-
-
 collections:
-  portals:
+  windows:
     output: true
     permalink: /:path/
-  webpage:
-    output: true
-    permalink: /:path/
-
-collections_dir: collections
-
 
 cachedz: 2
