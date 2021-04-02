@@ -12,6 +12,7 @@
 			<canvas id="PaintCanvas" width="300" height="350"></canvas>
 		</div>
 	</div>
+	<!-- <img src="/assets/screenshots/paint.svg" width="400" /> -->
 </div>
 
 
@@ -34,7 +35,7 @@
 			ctx.lineCap = "round"
 			ctx.moveTo(prevX, prevY);
 			ctx.lineTo(x, y);
-			ctx.strokeStyle = "black";
+			ctx.strokeStyle = "blue";
 			ctx.lineWidth = 6;
 			ctx.stroke();
 			ctx.closePath();
@@ -45,7 +46,7 @@
 		$("#PaintCanvas").on('mouseup', (e) => { makeLine = false });
 		$("#Desktop").on('mouseup', (e) => { makeLine = false });
 
-		$("canvas").on('mousemove', (e) => {
+		$("#PaintCanvas").on('mousemove', (e) => {
 			prevX = e.offsetX;
 			prevY = e.offsetY;
 			setTimeout(function () {

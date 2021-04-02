@@ -37,9 +37,9 @@ const storyBeats = [
 			$("body").addClass("paulie");
 			$("#PaulieIntro").hide();
 			$("#Dialog").text("heck yeah lets do this together");
-			// setTimeout(function () {
-			// 	StoryManager.nextBeat()
-			// }, 5000)
+			setTimeout(function () {
+				StoryManager.nextBeat()
+			}, 5000)
 		}
 	},
 	{
@@ -48,7 +48,7 @@ const storyBeats = [
 			$("#Updater1").show();
 			$("#Updater1Overlay").show();
 			$("#Dialog").text("ugh, i am so sick of the updater")
-			$("#Updater1 button").on("click", function () {
+			$("#Updater1").on("click", function () {
 				StoryManager.nextBeat()
 			});
 		}
@@ -73,13 +73,13 @@ const storyBeats = [
 			$("#Poop1").on("click", function () {
 				$(this).hide();
 				poops--;
-				if (poops === 0) StoryManager.nextBeat(); 
+				if (poops === 0) StoryManager.nextBeat();
 			});
 
 			$("#Poop2").on("click", function () {
 				$(this).hide();
 				poops--;
-				if (poops === 0) StoryManager.nextBeat(); 
+				if (poops === 0) StoryManager.nextBeat();
 			});
 
 		}
@@ -93,7 +93,7 @@ const storyBeats = [
 
 			setTimeout(function () {
 				StoryManager.nextBeat()
-			},2000);
+			}, 2000);
 		}
 	},
 	{
@@ -102,21 +102,23 @@ const storyBeats = [
 			$("#Dialog").text("what the heck did my dog eat")
 
 			$("#Poop3").delay(1000).slideDown(0);
-			$("#Poop4").delay(1500).slideDown(0);
-			$("#Poop5").delay(2000).slideDown(0);
-			$("#Poop6").delay(2500).slideDown(0);
-			$("#Poop7").delay(3000).slideDown(0);
-			$("#Poop8").delay(3500).slideDown(0);
-			$("#Poop9").delay(4000).slideDown(0);
+			$("#Poop4").delay(2500).slideDown(0);
+			$("#Poop5").delay(4000).slideDown(0);
+			$("#Poop6").delay(5500).slideDown(0);
+			$("#Poop7").delay(6000).slideDown(0);
+			$("#Poop8").delay(8500).slideDown(0);
+			$("#Poop9").delay(9000).slideDown(0);
 
 			let poops = 7;
 
 			$(".poop.qr").on("click", function () {
 				$(this).hide();
-				$("#Kennel").css("zIndex",1);
+				$("#Kennel").css("zIndex", 1);
+
+				$("#Quantumrectangle").fadeTo("slow", "+=0.2");
 
 				poops--;
-				if (poops === 0) StoryManager.nextBeat(); 
+				if (poops === 0) StoryManager.nextBeat();
 			});
 
 		}
@@ -137,8 +139,8 @@ const storyBeats = [
 			$("#Readme").show();
 
 			setTimeout(function () {
-				// StoryManager.nextBeat()
-			}, 1000)
+				StoryManager.nextBeat()
+			}, 5000)
 		}
 	},
 	{
@@ -163,7 +165,7 @@ const storyBeats = [
 ];
 
 const StoryManager = {
-	currentIndex: 7,
+	currentIndex: 0,
 	nextBeat: function () {
 		this.currentIndex++;
 		let beat = storyBeats[this.currentIndex];
@@ -174,8 +176,8 @@ const StoryManager = {
 }
 
 function dev() {
-	$("body").addClass("paulie");
-	
+	// $("body").addClass("paulie");
+
 	// $("#Paint").show();
 	// $("#Music").show();
 	// $("#Hyro").show();
@@ -197,6 +199,7 @@ function main() {
 	$("#ReadMeWindow").hide();
 	$("#Updater2").hide();
 	$("#Final").hide();
+	$("#Quantumrectangle").hide()
 
 	StoryManager.nextBeat();
 

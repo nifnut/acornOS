@@ -88,10 +88,22 @@ body.paulie {
 	#Desktop {
 		cursor: url("/assets/paulie/cursor1.png"), auto !important;
 	}
+	#PaintCanvas {
+		cursor: url("/assets/paulie/cursor-with-pencil.png") 8 8, auto !important;
+	}
 }
 
 #PoweredOff {
 	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	button {
+		width: 100px;
+		height: 32px;
+		font-size: 20px;
+	}
 }
 
 #Desktop {
@@ -150,6 +162,10 @@ body.paulie {
 	}
 }
 
+
+$z-poop: 200;
+$z-pet: 300;
+
 // DIALOG
 #Dialog {
 	position: absolute;
@@ -164,21 +180,35 @@ body.paulie {
 // PET
 .pet {
 	position: absolute;
-	border: solid 1px;
+	// border: solid 1px;
 	text-align: center;
 	padding: 10px;
+	z-index: $z-pet;
 }
+
+
 
 // POOP
 .poop {
 	position: absolute;
-	z-index: 200;
-	// border: solid 2px blue;
-	// background-image: url(../assets/screenshots/poop.png);
-	// height: 100px;
-	// width: 100px;
-	// background-color: transparent;
-	// background-size: contain;
+	z-index: $z-poop;
+
+	&::after {
+		content: "";
+
+		position: absolute;
+		width: 70px;
+		left: 50%;
+		margin-left: -35px;
+		bottom: 27px;
+
+		// border: solid 2px blue;
+		background-image: url(../screenshots/poop.svg);
+		height: 70px;
+
+		background-color: transparent;
+		background-size: contain;
+	}
 }
 
 .window {
@@ -195,8 +225,6 @@ body.paulie {
 	z-index: 200;
 }
 
-$overlay1z: 200;
-
 // overlay
 #Updater1Overlay {
 	background: rgba(255, 255, 255, 0.17);
@@ -205,5 +233,5 @@ $overlay1z: 200;
 	height: 100%;
 	left: 0;
 	top: 0;
-	z-index: $overlay1z;
+
 }
