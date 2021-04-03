@@ -1,21 +1,95 @@
 ---
 ---
 
-<div class="ui window updater" id="Quantumrectangle">
-	<img src="/assets/screenshots/paint.svg" width="300" />
+<div class="ui window paint" id="Quantumrectangle">
+	<div class="ui header border">
+		<div class="ui close system border"></div>
+		<span class="ui system text">micropaint</span>
+	</div>
+	<div class="ui body border">
+		<div class="ui content">
+			<div class="options">
+				<img class="icon" src="/assets/images/icon-pencil.svg" />
+				<img class="icon" src="/assets/images/icon-eraser.svg" />
+				<img class="icon" src="/assets/images/icon-bucket.png" />
+			</div>
+			<canvas id="QuantumCanvas" width="350" height="350"></canvas>
+		</div>
+	</div>
+	<!-- <img src="/assets/screenshots/paint_empty.svg" width="300" /> -->
 </div>
 
+
 <script>
+
 	$(function () {
+
+		let prevX = 0;
+		let prevY = 0;
+		let makeLine = false;
+
+		let color = "black";
+		let size = 6;
+
+		var canvas = document.getElementById('QuantumCanvas');
+		var ctx = canvas.getContext('2d');
+
+		function drawLine(x, y) {
+			ctx.beginPath();
+			ctx.lineCap = "round"
+			ctx.moveTo(prevX, prevY);
+			ctx.lineTo(x, y);
+			ctx.strokeStyle = color;
+			ctx.lineWidth = size;
+			ctx.stroke();
+			ctx.closePath();
+		}
+
+		function drawPoint(x, y) {
+			ctx.beginPath();
+			ctx.strokeStyle = color
+			ctx.lineWidth = size;
+			ctx.lineCap = "round"
+			ctx.moveTo(x, y);
+			ctx.lineTo(x, y);
+			ctx.stroke();
+		}
+
+
+		$("#QuantumCanvas").on('mousedown', (e) => {
+			prevX = e.offsetX;
+			prevY = e.offsetY;
+			makeLine = true
+			drawPoint(e.offsetX, e.offsetY)
+		});
+
+		$("#QuantumCanvas").on('mouseup', (e) => {
+			makeLine = false
+		});
+		$("#Desktop").on('mouseup', (e) => {
+			makeLine = false
+		});
+
+		$("#QuantumCanvas").on('mousemove', (e) => {
+			if (makeLine) {
+				drawLine(e.offsetX, e.offsetY);
+				prevX = e.offsetX;
+				prevY = e.offsetY;
+			}
+		});
+
 		$("#Quantumrectangle")
-			.draggable({
-				containment: 'body'
-			}).css({
-				top: "30%",
+			.css({
+				top: "20%",
 				left: "50%",
-				// height: 200,
-				width: 300,
-				marginLeft: -150
+				height: 407, // !important
+				width: 413, // !important
+				marginLeft: -205,
 			})
-	})
+			// .draggable({
+			// 	handle: '.header',
+			// 	containment: "body",
+			// 	// cursor: "none"
+			// });
+	});
 </script>

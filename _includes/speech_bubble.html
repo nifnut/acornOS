@@ -1,6 +1,6 @@
-<!-- <img id="Speechbubble" src="/assets/screenshots/speechbubble.svg" /> -->
 
-<div id="Speechbubble" class="speech bubble">
+
+<div id="Speechbubble" class="speech bubble left-carot">
 
 </div>
 
@@ -26,15 +26,22 @@
 
 			const y = Math.max((UI.cursor.y + offsetY), 0);
 			let x = UI.cursor.x + offsetX;
-			var viewportWidth = (window.innerWidth || document.documentElement.clientWidth)
-			if (UI.cursor.x > (viewportWidth - width - offsetX)) {
-				x = UI.cursor.x - width - offsetX;
-				$("#Speechbubble").addClass("right-carot")
-				$("#Speechbubble").removeClass("left-carot")
-			} else {
-				$("#Speechbubble").addClass("left-carot")
-				$("#Speechbubble").removeClass("right-carot")
+			var viewportWidth = (window.innerWidth || document.documentElement.clientWidth);
+
+			if ($("#Speechbubble").hasClass("left-carot")) {
+				if (UI.cursor.x > (viewportWidth - width - offsetX)) {
+					x = UI.cursor.x - width - offsetX;
+					$("#Speechbubble").toggleClass("right-carot left-carot")
+				} 
 			}
+
+			if ($("#Speechbubble").hasClass("right-carot")) {
+				x = UI.cursor.x - width - offsetX;
+				if (UI.cursor.x < (width + offsetX)) {
+					$("#Speechbubble").toggleClass("right-carot left-carot")
+				} 
+			}
+
 			$("#Speechbubble").css("transform", `translate(${x}px, ${y}px)`);
 		});
 
