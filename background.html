@@ -1,0 +1,593 @@
+---
+title: paulieOS
+---
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+	<style>
+
+		body {
+			font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+			color: #111;
+			background-color: #68ffbb;
+			-webkit-text-size-adjust: 100%;
+			-webkit-font-feature-settings: "kern"1;
+			-moz-font-feature-settings: "kern"1;
+			-o-font-feature-settings: "kern"1;
+			font-feature-settings: "kern"1;
+			font-kerning: normal;
+			display: flex;
+			min-height: 100vh;
+			flex-direction: column;
+		}
+
+		* {
+			box-sizing: border-box;
+			font-family: terminal;
+		}
+
+		html {
+			box-sizing: border-box;
+			height: 100%;
+		}
+
+		body {
+			margin: 0;
+			height: 100%;
+			min-height: 100vh;
+			min-width: 100vw;
+			background-color: black;
+			overflow: hidden;
+		}
+
+		*,
+		*::before,
+		*::after {
+			box-sizing: border-box;
+		}
+
+		:focus {
+			outline: none;
+		}
+
+		*::selection {
+			background-color: transparent;
+		}
+
+		a {
+			text-decoration: none;
+			cursor: none;
+			-webkit-transition: 100ms;
+			-khtml-transition: 100ms;
+			-moz-transition: 100ms;
+			-ms-transition: 100ms;
+			-o-transition: 100ms;
+			transition: 100ms;
+			padding: 5px;
+			margin: -5px;
+		}
+
+		a:hover {
+			text-decoration: underline;
+			color: red;
+		}
+
+		audio {
+			display: none;
+		}
+
+		.window {
+			z-index: 10;
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+		}
+
+		.window .header {
+			margin: 0;
+			background: #eeeeee;
+			height: 52px;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			border-left: solid 5px black;
+			border-top: solid 5px black;
+			border-bottom: 5px black solid;
+			border-right: solid 5px black;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+		}
+
+		.window .header .text {
+			font-size: 22px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.window .close {
+			width: 27px !important;
+			height: 27px !important;
+			min-width: 27px !important;
+			min-height: 27px !important;
+			z-index: 100;
+			border-color: black;
+			border-style: solid;
+			border-width: 5px;
+			background: #ff0000;
+			margin: 4px;
+			margin: 0 10px;
+			-webkit-border-radius: 40px;
+			-khtml-border-radius: 40px;
+			-moz-border-radius: 40px;
+			-ms-border-radius: 40px;
+			-o-border-radius: 40px;
+			border-radius: 40px;
+			-webkit-transition: all 100ms;
+			-khtml-transition: all 100ms;
+			-moz-transition: all 100ms;
+			-ms-transition: all 100ms;
+			-o-transition: all 100ms;
+			transition: all 100ms;
+		}
+
+		.window .close:hover {
+			-webkit-transform: scale(1.1);
+			-khtml-transform: scale(1.1);
+			-moz-transform: scale(1.1);
+			-ms-transform: scale(1.1);
+			-o-transform: scale(1.1);
+			transform: scale(1.1);
+		}
+
+		.window .body {
+			border-right: solid 5px black;
+			border-bottom: solid 5px black;
+			border-left: solid 5px black;
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			background: #d8d8d8;
+			flex: 1;
+		}
+
+		.window .body .content {
+			height: 100%;
+		}
+
+		.paint.window .body {
+			background-color: white;
+		}
+
+		.paint.window .body .options {
+			border-right: solid 3px #ccc;
+			width: 53px;
+			float: left;
+			height: 100%;
+		}
+
+		.paint.window .body .options .icon {
+			width: 30px;
+			margin: 10px;
+		}
+
+		.paint.window .body .content canvas {
+			float: right;
+		}
+
+		#Quantumrectangle canvas {
+			background-image: url(../images/qr-puzzle.svg);
+			background-repeat: no-repeat;
+			background-size: 70%;
+			background-position: center;
+		}
+
+		body.paulie {
+			cursor: url("/assets/paulie/body-smirk.svg"), auto !important;
+		}
+
+		body.paulie button {
+			cursor: url("/assets/paulie/cursor1.png"), auto !important;
+		}
+
+		body.paulie #Desktop {
+			cursor: url("/assets/paulie/cursor1.png"), auto !important;
+		}
+
+		#PoweredOff {
+			background-color: black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		#PoweredOff button {
+			width: 100px;
+			height: 32px;
+			font-size: 20px;
+		}
+
+		#Desktop {
+			background-color: #68ffbb;
+			height: 100vh;
+			width: 100vw;
+			top: 0;
+			left: 0;
+			position: absolute;
+		}
+
+		.window div {
+			text-align: center;
+		}
+
+		#PaulieIntro {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 43%;
+			left: 47%;
+			z-index: 250;
+		}
+
+		#PaulieIntro svg.face {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			z-index: 100;
+			-webkit-transition: all 100ms ease-out;
+			-khtml-transition: all 100ms ease-out;
+			-moz-transition: all 100ms ease-out;
+			-ms-transition: all 100ms ease-out;
+			-o-transition: all 100ms ease-out;
+			transition: all 100ms ease-out;
+		}
+
+		#PaulieIntro svg.body {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			z-index: 100;
+			-webkit-transition: all 100ms ease-out;
+			-khtml-transition: all 100ms ease-out;
+			-moz-transition: all 100ms ease-out;
+			-ms-transition: all 100ms ease-out;
+			-o-transition: all 100ms ease-out;
+			transition: all 100ms ease-out;
+		}
+
+		#PaulieIntro svg.shadow {
+			position: absolute;
+			top: 13px;
+			left: -18px;
+			opacity: 0.7;
+			width: 110%;
+			height: 110%;
+			-webkit-transition: all 100ms ease-out;
+			-khtml-transition: all 100ms ease-out;
+			-moz-transition: all 100ms ease-out;
+			-ms-transition: all 100ms ease-out;
+			-o-transition: all 100ms ease-out;
+			transition: all 100ms ease-out;
+		}
+
+		#Dialog {
+			position: absolute;
+			top: 1%;
+			left: 5%;
+			width: 90%;
+			height: 5%;
+			background-color: #eee;
+			border: inset 4px;
+		}
+
+		.pet {
+			position: absolute;
+			text-align: center;
+			padding: 10px;
+			z-index: 300;
+		}
+
+		.pet img {
+			max-width: 100%;
+		}
+
+		.pet.left img {
+			transform: scaleX(1);
+		}
+
+		.pet.right img {
+			transform: scaleX(-1);
+		}
+
+		#Kennel {
+			z-index: 300;
+		}
+
+		.poop {
+			position: absolute;
+			z-index: 200;
+		}
+
+		.poop::after {
+			content: "";
+			position: absolute;
+			width: 50px;
+			left: 50%;
+			margin-left: -25px;
+			bottom: 27px;
+			background-image: url(../screenshots/poop.svg);
+			height: 50px;
+			background-color: transparent;
+			background-size: contain;
+		}
+
+		#Updater1 {
+			z-index: 210;
+		}
+
+		#Updater2 {
+			z-index: 210;
+		}
+
+		.overlay {
+			background: rgba(0, 0, 0, 0.01);
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			z-index: 200;
+		}
+
+		.overlay.updater1 {
+			z-index: 200;
+		}
+
+		.overlay.updater2 {
+			z-index: 200;
+		}
+
+		.speech.bubble {
+			background: white;
+			border: solid 3px black;
+			border-radius: 5px;
+			line-height: 1.2em;
+			padding: 5px 10px;
+			min-height: 50px;
+			width: 100px;
+			display: flex;
+			align-items: center;
+		}
+
+		.speech.bubble::after {
+			content: " ";
+			position: absolute;
+			bottom: 20%;
+			z-index: 900;
+			width: 40px;
+			height: 50px;
+			background-repeat: no-repeat;
+			background-size: 30px;
+			background-position: bottom right;
+		}
+
+		.speech.bubble.left-carot::after {
+			left: -40px;
+		}
+
+		.speech.bubble.right-carot::after {
+			left: unset;
+			right: -40px;
+			transform: scaleX(-1);
+		}
+	</style>
+
+
+	<!-- Meta Craps -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<meta name="vt" content="width=device-width" />
+
+	<!-- Javascript Libraries -->
+
+	<title>{{page.title}}</title>
+
+</head>
+
+<body>
+
+
+
+	<div id="Desktop">
+		<pre id="Dialog"></pre>
+
+		<div id='PaulieIntro' class="cursor paulie">
+			<!-- <img class="shadow" src="/assets/paulie/shadow.svg" /> -->
+
+
+			<svg class="body" xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 12 19" shape-rendering="crispEdges">
+				<metadata>Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj</metadata>
+				<path stroke="#000000" d="M0 0h1M0 1h2M0 2h1M2 2h1M0 3h1M3 3h1M0 4h1M4 4h1M0 5h1M5 5h1M0 6h1M6 6h1M0 7h1M7 7h1M0 8h1M8 8h1M0 9h1M9 9h1M0 10h1M10 10h1M0 11h1M11 11h1M0 12h1M7 12h5M0 13h1M4 13h1M7 13h1M0 14h1M3 14h1M5 14h1M8 14h1M0 15h1M2 15h1M5 15h1M8 15h1M0 16h2M6 16h1M9 16h1M6 17h1M9 17h1M7 18h2" />
+				<path stroke="#ffffff" d="M1 2h1M1 3h2M1 4h3M1 5h4M1 6h5M1 7h6M1 8h7M1 9h8M1 10h9M1 11h10M1 12h6M1 13h3M5 13h2M1 14h2M6 14h2M1 15h1M6 15h2M7 16h2M7 17h2" />
+				</svg>
+
+
+				<svg class="face smirk"   viewBox="0 0 12 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+					<title>Group</title>
+					<desc>Created with Sketch.</desc>
+					<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<g id="Artboard" transform="translate(0.000000, -1.000000)" fill="#000000" fill-rule="nonzero">
+							<g id="Group" transform="translate(0.000000, 1.000000)">
+								<path d="M0,0.5 L1,0.5 M0,1.5 L2,1.5 M0,2.5 L1,2.5 M2,2.5 L3,2.5 M0,3.5 L1,3.5 M3,3.5 L4,3.5 M0,4.5 L1,4.5 M4,4.5 L5,4.5 M0,5.5 L1,5.5 M5,5.5 L6,5.5 M0,6.5 L1,6.5 M6,6.5 L7,6.5 M0,7.5 L1,7.5 M7,7.5 L8,7.5 M0,8.5 L1,8.5 M8,8.5 L9,8.5 M0,9.5 L1,9.5 M9,9.5 L10,9.5 M0,10.5 L1,10.5 M10,10.5 L11,10.5 M0,11.5 L1,11.5 M11,11.5 L12,11.5 M0,12.5 L1,12.5 M7,12.5 L12,12.5 M0,13.5 L1,13.5 M4,13.5 L5,13.5 M7,13.5 L8,13.5 M0,14.5 L1,14.5 M3,14.5 L4,14.5 M5,14.5 L6,14.5 M8,14.5 L9,14.5 M0,15.5 L1,15.5 M2,15.5 L3,15.5 M5,15.5 L6,15.5 M8,15.5 L9,15.5 M0,16.5 L2,16.5 M6,16.5 L7,16.5 M9,16.5 L10,16.5 M6,17.5 L7,17.5 M9,17.5 L10,17.5 M7,18.5 L9,18.5" id="Shape" stroke="#000000"></path>
+								<path d="M1,2.5 L2,2.5 M1,3.5 L3,3.5 M1,4.5 L4,4.5 M1,5.5 L5,5.5 M1,6.5 L6,6.5 M1,7.5 L7,7.5 M1,8.5 L8,8.5 M1,9.5 L9,9.5 M1,10.5 L10,10.5 M1,11.5 L11,11.5 M1,12.5 L7,12.5 M1,13.5 L4,13.5 M5,13.5 L7,13.5 M1,14.5 L3,14.5 M6,14.5 L8,14.5 M1,15.5 L2,15.5 M6,15.5 L8,15.5 M7,16.5 L9,16.5 M7,17.5 L9,17.5" id="Shape" stroke="#FFFFFF"></path>
+								<g id="Face" transform="translate(2.000000, 7.000000)" stroke="#000000">
+									<path d="M3,0.5 L4,0.5" id="Path"></path>
+									<path d="M3,1.5 L4,1.5" id="Path"></path>
+									<path d="M1,0.5 L2,0.5" id="Path"></path>
+									<path d="M1,1.5 L2,1.5" id="Path"></path>
+									<path d="M0,2.5 L1,2.5" id="Path"></path>
+									<path d="M1,3.5 L2,3.5" id="Path"></path>
+									<path d="M2,3.5 L3,3.5" id="Path"></path>
+									<path d="M3,3.5 L4,3.5" id="Path"></path>
+								</g>
+							</g>
+						</g>
+					</g>
+				</svg>
+		
+			<div id="IntroSpeechbubble" class="speech bubble left-carot">
+				i bet you can draw better than me. <br />click me to take control
+			</div>
+		</div>
+		
+		
+		
+	
+
+	</div>
+
+	<script>
+
+
+		const lerp = (x, y, a) => x * (1 - a) + y * a;
+		const clamp = (a, min = 0, max = 1) => Math.min(max, Math.max(min, a));
+		const invlerp = (x, y, a) => clamp((a - x) / (y - x));
+		const range = (x1, y1, x2, y2, a) => lerp(x2, y2, invlerp(x1, y1, a));
+
+		function randomRange(min, max) {
+			return min + Math.random() * (max - min);
+		}
+		function randomInt(min, max) {
+			var diff = max - min;
+			var rand = Math.random() * diff;
+
+			rand += min;
+
+			return Math.floor(rand);
+		}
+
+		function setCookie(name, value, days) {
+			var expires = "";
+			if (days) {
+				var date = new Date();
+				date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+				expires = "; expires=" + date.toUTCString();
+			}
+			document.cookie = name + "=" + (value || "") + expires + "; path=/";
+		}
+		function getCookie(name) {
+			var nameEQ = name + "=";
+			var ca = document.cookie.split(';');
+			for (var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+				if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+			}
+			return null;
+		}
+		function eraseCookie(name) {
+			document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		}
+
+
+		function createSound(filename, callback = function () { }) {
+
+			var src = "/assets/sounds/" + filename;
+
+			var sound = document.createElement('audio');
+			sound.controls = 'controls';
+			sound.src = src;
+			sound.style.display = "none";
+			sound.type = 'audio/mpeg';
+			sound.preload = "auto"
+			document.body.appendChild(sound);
+
+
+			sound.addEventListener('loadeddata', function () {
+
+				if (sound.readyState >= 2) {
+					// sound.play();
+				}
+
+				callback()
+			});
+			return sound;
+
+		}
+
+		function getOS() {
+			var userAgent = window.navigator.userAgent,
+				platform = window.navigator.platform,
+				macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+				windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+				iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+				os = null;
+
+			if (macosPlatforms.indexOf(platform) !== -1) {
+				os = 'Mac OS';
+			} else if (iosPlatforms.indexOf(platform) !== -1) {
+				os = 'iOS';
+			} else if (windowsPlatforms.indexOf(platform) !== -1) {
+				os = 'Windows';
+			} else if (/Android/.test(userAgent)) {
+				os = 'Android';
+			} else if (!os && /Linux/.test(platform)) {
+				os = 'Linux';
+			}
+
+			return os;
+		}
+
+		function isOSValid() {
+			var userAgent = window.navigator.userAgent,
+				platform = window.navigator.platform,
+				macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+				windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+				iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+				os = null;
+
+
+			if (macosPlatforms.indexOf(platform) !== -1) {
+				os = 'Mac OS';
+				return true
+			} else if (iosPlatforms.indexOf(platform) !== -1) {
+				os = 'iOS';
+				return false;
+			} else if (windowsPlatforms.indexOf(platform) !== -1) {
+				os = 'Windows';
+				return true;
+			} else if (/Android/.test(userAgent)) {
+				os = 'Android';
+				return false
+			} else if (!os && /Linux/.test(platform)) {
+				os = 'Linux';
+				return true;
+			}
+
+			return os;
+		}
+
+
+	</script>
+
+
+</body>
+
+</html>
