@@ -60,4 +60,4 @@ function main() {
 	StoryManager.nextBeat()
 }
 
-main()
+

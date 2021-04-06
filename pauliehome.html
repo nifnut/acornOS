@@ -39,10 +39,23 @@ layout: empty
 </div>
 
 
-{{ content }}
 
-<script src="//os.nifnut.com/assets/scripts/helpers.js"></script>
-<script src="//os.nifnut.com/assets/scripts/os.js?cachedz={{ site.cachedzv}}"></script>
-<script src="//os.nifnut.com/assets/scripts/paulie.js?cachedz={{ site.cachedzv}}"></script>
+<script src="//os.nifnut.com/assets/scripts/background.js?cachedz=3"></script>
 
-<script src="//os.nifnut.com/assets/scripts/main.js?cachedz={{ site.cachedzv}}"></script>
+
+
+<script>
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+
+	main()
+	loadPaulie();
+	loadOS()
+});
+
+window.addEventListener('load', (event) => {
+  console.log('page is fully loaded');
+});
+
+</script>
