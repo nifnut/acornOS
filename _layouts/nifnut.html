@@ -1,7 +1,3 @@
----
-title: paulieOS
----
-
 <!DOCTYPE html>
 <html>
 
@@ -10,9 +6,16 @@ title: paulieOS
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-
 	<style>
+		@font-face {
+			font-family: VT323;
+			src: url(../VT323.ttf);
+		}
+
+		@font-face {
+			font-family: terminal;
+			src: url(../acorn/terminal-grotesque.ttf);
+		}
 
 		body {
 			font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -240,7 +243,7 @@ title: paulieOS
 			z-index: 250;
 		}
 
-		#PaulieIntro svg.face {
+		#PaulieIntro img.face {
 			position: absolute;
 			top: 0px;
 			left: 0px;
@@ -255,7 +258,7 @@ title: paulieOS
 			transition: all 100ms ease-out;
 		}
 
-		#PaulieIntro svg.body {
+		#PaulieIntro img.body {
 			position: absolute;
 			top: 0px;
 			left: 0px;
@@ -270,7 +273,7 @@ title: paulieOS
 			transition: all 100ms ease-out;
 		}
 
-		#PaulieIntro svg.shadow {
+		#PaulieIntro img.shadow {
 			position: absolute;
 			top: 13px;
 			left: -18px;
@@ -381,6 +384,7 @@ title: paulieOS
 			z-index: 900;
 			width: 40px;
 			height: 50px;
+			background-image: url(../screenshots/carot.svg);
 			background-repeat: no-repeat;
 			background-size: 30px;
 			background-position: bottom right;
@@ -404,190 +408,312 @@ title: paulieOS
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 	<meta name="vt" content="width=device-width" />
 
-	<!-- Javascript Libraries -->
 
 	<title>{{page.title}}</title>
+
+
+	<!-- general style -->
+	<style>
+		body {}
+
+		.showcase-content {
+			background-color: rgba(0, 0, 0, 0);
+			overflow-x: hidden;
+			object-fit: contain;
+			--poster-color: rgba(0, 0, 0, 0);
+			margin: auto;
+			width: 100%;
+			height: 42vh;
+		}
+
+		h1 {
+			color: white;
+			font-family: 'Inter', sans-serif;
+			font-weight: bold;
+			text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5)
+		}
+
+		p {
+			color: white;
+			font-family: 'Inter', sans-serif;
+		}
+
+		.btn-primary {
+			margin: auto;
+			background-color: #FFFC00;
+
+			border: none;
+			color: black;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			font-family: 'Inter', sans-serif;
+			font-size: 16px;
+			margin: 12px 12px;
+			margin-top: 12px;
+			margin-bottom: 0px;
+			min-width: 120px;
+			max-height: 64px;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		.alignment {
+			text-align: center;
+			justify-content: center;
+		}
+
+		#nutView {
+			width: 92vw;
+			margin: auto;
+			margin-top: 12px;
+		}
+
+		#explodedView {
+			width: 92vw;
+			margin: auto;
+		}
+
+		#explodedView p {
+			color: black;
+		}
+
+
+		.header {
+			width: 95%;
+			margin: auto;
+			margin-top: 2vw;
+			display: flex;
+			margin-bottom: 2vw;
+		}
+
+		.header #left {
+			float: left;
+			width: 50%;
+			display: flex;
+			justify-content: left;
+			/* align horizontal */
+			align-items: center;
+			/* align vertical */
+		}
+
+		.header #right {
+			float: right;
+			width: 50%;
+		}
+
+		.header img {
+			max-width: 48px;
+			max-height: 48px;
+		}
+
+		.header #right img {
+			float: right;
+		}
+
+		.header #left p {
+			color: white;
+			font-weight: bold;
+			font-size: 12pt;
+			line-height: normal;
+			margin-left: 2vw;
+		}
+
+		@media (min-width: 576px) {
+			.header {
+				width: 95%;
+			}
+
+			#nutView {
+				width: 100%;
+			}
+
+			#explodedView {
+				width: 95%;
+			}
+		}
+	</style>
+
+	<!-- gallery -->
+	<style>
+		ul,
+		li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.gallery {
+			display: flex;
+			flex-wrap: wrap;
+			overflow-y: auto;
+			flex-basis: 100%;
+			flex-grow: 0;
+			flex-shrink: 0;
+			justify-content: flex-start;
+
+		}
+
+		.content {
+			/* @include flex-container-wrap-items(320px) */
+			width: 42vw;
+			height: 42vw;
+			align-items: flex-start;
+			background-color: white;
+			position: relative;
+			margin: 2vw;
+			/* border-style: solid;
+      border-width: 1px;
+      border-color: red; */
+		}
+
+		.inner {
+			align-items: flex-start;
+			background-color: transparent;
+			height: 42vw;
+			width: 42vw;
+
+			border-style: solid;
+			border-width: 1px;
+			border-color: lightgray;
+
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+
+		figure {
+			margin: auto;
+			/* border: 1px solid #555; */
+		}
+
+		figcaption {
+			text-align: center;
+			font-family: 'Inter', sans-serif;
+		}
+
+		.button {
+			background-color: white;
+			border: none;
+			color: black;
+			padding: 20px 40px;
+			text-align: center;
+			text-decoration: none;
+			font-family: 'Inter', sans-serif;
+			font-weight: bold;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			border-radius: 24px;
+			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+		}
+
+		.button:active {
+			box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+			transform: translateY(1px);
+		}
+
+		@media (min-width: 576px) {
+			.content {
+				width: auto;
+				max-height: 160px;
+			}
+
+			.inner {
+				position: static;
+				max-width: 160px;
+				max-height: 160px;
+			}
+		}
+
+		.icon {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			max-width: 96px;
+			max-height: 96px;
+		}
+
+
+
+		#title_text {}
+
+		#title_logo {
+			min-width: 128px;
+			height: auto;
+		}
+
+		#explainer {
+			text-align: center;
+		}
+	</style>
+
+
+	<style>
+		#Background {
+
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+	</style>
 
 </head>
 
 <body>
 
 
+	<div id="header" class="header">
+		<div id="left">
+			<div id="title">
 
-	<div id="Desktop">
-		<pre id="Dialog"></pre>
+				<img id="title_logo">
+				<p id="title_text"></p>
 
-		<div id='PaulieIntro' class="cursor paulie">
-			<!-- <img class="shadow" src="/assets/paulie/shadow.svg" /> -->
-
-
-			<svg class="body" xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 12 19" shape-rendering="crispEdges">
-				<metadata>Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj</metadata>
-				<path stroke="#000000" d="M0 0h1M0 1h2M0 2h1M2 2h1M0 3h1M3 3h1M0 4h1M4 4h1M0 5h1M5 5h1M0 6h1M6 6h1M0 7h1M7 7h1M0 8h1M8 8h1M0 9h1M9 9h1M0 10h1M10 10h1M0 11h1M11 11h1M0 12h1M7 12h5M0 13h1M4 13h1M7 13h1M0 14h1M3 14h1M5 14h1M8 14h1M0 15h1M2 15h1M5 15h1M8 15h1M0 16h2M6 16h1M9 16h1M6 17h1M9 17h1M7 18h2" />
-				<path stroke="#ffffff" d="M1 2h1M1 3h2M1 4h3M1 5h4M1 6h5M1 7h6M1 8h7M1 9h8M1 10h9M1 11h10M1 12h6M1 13h3M5 13h2M1 14h2M6 14h2M1 15h1M6 15h2M7 16h2M7 17h2" />
-				</svg>
-
-
-				<svg class="face smirk"   viewBox="0 0 12 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-					<!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
-					<title>Group</title>
-					<desc>Created with Sketch.</desc>
-					<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-						<g id="Artboard" transform="translate(0.000000, -1.000000)" fill="#000000" fill-rule="nonzero">
-							<g id="Group" transform="translate(0.000000, 1.000000)">
-								<path d="M0,0.5 L1,0.5 M0,1.5 L2,1.5 M0,2.5 L1,2.5 M2,2.5 L3,2.5 M0,3.5 L1,3.5 M3,3.5 L4,3.5 M0,4.5 L1,4.5 M4,4.5 L5,4.5 M0,5.5 L1,5.5 M5,5.5 L6,5.5 M0,6.5 L1,6.5 M6,6.5 L7,6.5 M0,7.5 L1,7.5 M7,7.5 L8,7.5 M0,8.5 L1,8.5 M8,8.5 L9,8.5 M0,9.5 L1,9.5 M9,9.5 L10,9.5 M0,10.5 L1,10.5 M10,10.5 L11,10.5 M0,11.5 L1,11.5 M11,11.5 L12,11.5 M0,12.5 L1,12.5 M7,12.5 L12,12.5 M0,13.5 L1,13.5 M4,13.5 L5,13.5 M7,13.5 L8,13.5 M0,14.5 L1,14.5 M3,14.5 L4,14.5 M5,14.5 L6,14.5 M8,14.5 L9,14.5 M0,15.5 L1,15.5 M2,15.5 L3,15.5 M5,15.5 L6,15.5 M8,15.5 L9,15.5 M0,16.5 L2,16.5 M6,16.5 L7,16.5 M9,16.5 L10,16.5 M6,17.5 L7,17.5 M9,17.5 L10,17.5 M7,18.5 L9,18.5" id="Shape" stroke="#000000"></path>
-								<path d="M1,2.5 L2,2.5 M1,3.5 L3,3.5 M1,4.5 L4,4.5 M1,5.5 L5,5.5 M1,6.5 L6,6.5 M1,7.5 L7,7.5 M1,8.5 L8,8.5 M1,9.5 L9,9.5 M1,10.5 L10,10.5 M1,11.5 L11,11.5 M1,12.5 L7,12.5 M1,13.5 L4,13.5 M5,13.5 L7,13.5 M1,14.5 L3,14.5 M6,14.5 L8,14.5 M1,15.5 L2,15.5 M6,15.5 L8,15.5 M7,16.5 L9,16.5 M7,17.5 L9,17.5" id="Shape" stroke="#FFFFFF"></path>
-								<g id="Face" transform="translate(2.000000, 7.000000)" stroke="#000000">
-									<path d="M3,0.5 L4,0.5" id="Path"></path>
-									<path d="M3,1.5 L4,1.5" id="Path"></path>
-									<path d="M1,0.5 L2,0.5" id="Path"></path>
-									<path d="M1,1.5 L2,1.5" id="Path"></path>
-									<path d="M0,2.5 L1,2.5" id="Path"></path>
-									<path d="M1,3.5 L2,3.5" id="Path"></path>
-									<path d="M2,3.5 L3,3.5" id="Path"></path>
-									<path d="M3,3.5 L4,3.5" id="Path"></path>
-								</g>
-							</g>
-						</g>
-					</g>
-				</svg>
-		
-			<div id="IntroSpeechbubble" class="speech bubble left-carot">
-				i bet you can draw better than me. <br />click me to take control
 			</div>
 		</div>
-		
-		
-		
-	
-
+		<div id="right">
+		</div>
 	</div>
 
-	<script>
+	<div id="nutView">
+
+		<div id="Background">
+			{{ content }}
+		</div>
 
 
-		const lerp = (x, y, a) => x * (1 - a) + y * a;
-		const clamp = (a, min = 0, max = 1) => Math.min(max, Math.max(min, a));
-		const invlerp = (x, y, a) => clamp((a - x) / (y - x));
-		const range = (x1, y1, x2, y2, a) => lerp(x2, y2, invlerp(x1, y1, a));
+		<div class="container alignment">
+			<h1>Paulie</h1>
+			<p>he's a cursor</p>
 
-		function randomRange(min, max) {
-			return min + Math.random() * (max - min);
-		}
-		function randomInt(min, max) {
-			var diff = max - min;
-			var rand = Math.random() * diff;
+			<div id="button_placeholder">
 
-			rand += min;
+			</div>
 
-			return Math.floor(rand);
-		}
+			<br>
+			<p>more places to go with your NFTs soon..</p>
 
-		function setCookie(name, value, days) {
-			var expires = "";
-			if (days) {
-				var date = new Date();
-				date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-				expires = "; expires=" + date.toUTCString();
-			}
-			document.cookie = name + "=" + (value || "") + expires + "; path=/";
-		}
-		function getCookie(name) {
-			var nameEQ = name + "=";
-			var ca = document.cookie.split(';');
-			for (var i = 0; i < ca.length; i++) {
-				var c = ca[i];
-				while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-				if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-			}
-			return null;
-		}
-		function eraseCookie(name) {
-			document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-		}
+		</div>
+	</div>
+
+	<div id="explodedView">
 
 
-		function createSound(filename, callback = function () { }) {
+		<br>
+		<div id="explainer">
+			<p id="explainer">this is the 'exploded view' of an NFT where you can access the files within</p>
+		</div>
 
-			var src = "/assets/sounds/" + filename;
-
-			var sound = document.createElement('audio');
-			sound.controls = 'controls';
-			sound.src = src;
-			sound.style.display = "none";
-			sound.type = 'audio/mpeg';
-			sound.preload = "auto"
-			document.body.appendChild(sound);
-
-
-			sound.addEventListener('loadeddata', function () {
-
-				if (sound.readyState >= 2) {
-					// sound.play();
-				}
-
-				callback()
-			});
-			return sound;
-
-		}
-
-		function getOS() {
-			var userAgent = window.navigator.userAgent,
-				platform = window.navigator.platform,
-				macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
-				windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
-				iosPlatforms = ['iPhone', 'iPad', 'iPod'],
-				os = null;
-
-			if (macosPlatforms.indexOf(platform) !== -1) {
-				os = 'Mac OS';
-			} else if (iosPlatforms.indexOf(platform) !== -1) {
-				os = 'iOS';
-			} else if (windowsPlatforms.indexOf(platform) !== -1) {
-				os = 'Windows';
-			} else if (/Android/.test(userAgent)) {
-				os = 'Android';
-			} else if (!os && /Linux/.test(platform)) {
-				os = 'Linux';
-			}
-
-			return os;
-		}
-
-		function isOSValid() {
-			var userAgent = window.navigator.userAgent,
-				platform = window.navigator.platform,
-				macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
-				windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
-				iosPlatforms = ['iPhone', 'iPad', 'iPod'],
-				os = null;
-
-
-			if (macosPlatforms.indexOf(platform) !== -1) {
-				os = 'Mac OS';
-				return true
-			} else if (iosPlatforms.indexOf(platform) !== -1) {
-				os = 'iOS';
-				return false;
-			} else if (windowsPlatforms.indexOf(platform) !== -1) {
-				os = 'Windows';
-				return true;
-			} else if (/Android/.test(userAgent)) {
-				os = 'Android';
-				return false
-			} else if (!os && /Linux/.test(platform)) {
-				os = 'Linux';
-				return true;
-			}
-
-			return os;
-		}
-
-
-	</script>
-
-
+	</div>
 </body>
 
 </html>

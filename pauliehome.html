@@ -1,0 +1,48 @@
+---
+title: nutview
+layout: empty
+---
+
+
+
+
+
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+
+
+<!-- Javascript Libraries -->
+<script src="//os.nifnut.com/assets/scripts/lib/jquery-1.10.2.js"></script>
+<script src="//os.nifnut.com/assets/scripts/lib/jquery-ui-1.10.4.js"></script>
+<script src="//os.nifnut.com/assets/scripts/lib/jquery.scrollbar.js"></script>
+
+
+
+{%- include cursor.html -%}
+	{%- include windows.html -%}
+
+{%- include audio.html -%}
+{%- include icons.html -%}
+
+<div class="system navbar">
+	<div class="system icon power"></div>
+	<div class="system icon updater"></div>
+	<div class="system icon paint">paint</div>
+	<div class="system icon netsurf"></div>
+	<div class="system icon niftydex">niftydex</div>
+	<div class=" icon spacer"></div>
+	<div class="icon clock" style="max-width: 600px;">
+		<span class="temp">74F°</span>
+		<span class="time">4:59pm</span>
+		<img src="/assets/images/icon-wifi.png" />
+	</div>
+
+</div>
+
+
+{{ content }}
+
+<script src="//os.nifnut.com/assets/scripts/helpers.js"></script>
+<script src="//os.nifnut.com/assets/scripts/os.js?cachedz={{ site.cachedzv}}"></script>
+<script src="//os.nifnut.com/assets/scripts/paulie.js?cachedz={{ site.cachedzv}}"></script>
+
+<script src="//os.nifnut.com/assets/scripts/main.js?cachedz={{ site.cachedzv}}"></script>
