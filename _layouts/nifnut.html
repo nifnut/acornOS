@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+		@font-face {
+			font-family: VT323;
+			src: url(../VT323.ttf);
+		}
+
+		@font-face {
+			font-family: terminal;
+			src: url(../acorn/terminal-grotesque.ttf);
+		}
+
+		body {
+			font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+			color: #111;
+			background-color: #68ffbb;
+			-webkit-text-size-adjust: 100%;
+			-webkit-font-feature-settings: "kern"1;
+			-moz-font-feature-settings: "kern"1;
+			-o-font-feature-settings: "kern"1;
+			font-feature-settings: "kern"1;
+			font-kerning: normal;
+			display: flex;
+			min-height: 100vh;
+			flex-direction: column;
+		}
+
+		* {
+			box-sizing: border-box;
+			font-family: terminal;
+		}
+
+		html {
+			box-sizing: border-box;
+			height: 100%;
+		}
+
+		body {
+			margin: 0;
+			height: 100%;
+			min-height: 100vh;
+			min-width: 100vw;
+			background-color: black;
+			overflow: hidden;
+		}
+
+		*,
+		*::before,
+		*::after {
+			box-sizing: border-box;
+		}
+
+		:focus {
+			outline: none;
+		}
+
+		*::selection {
+			background-color: transparent;
+		}
+
+		a {
+			text-decoration: none;
+			cursor: none;
+			-webkit-transition: 100ms;
+			-khtml-transition: 100ms;
+			-moz-transition: 100ms;
+			-ms-transition: 100ms;
+			-o-transition: 100ms;
+			transition: 100ms;
+			padding: 5px;
+			margin: -5px;
+		}
+
+		a:hover {
+			text-decoration: underline;
+			color: red;
+		}
+
+		audio {
+			display: none;
+		}
+
+		.window {
+			z-index: 10;
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+		}
+
+		.window .header {
+			margin: 0;
+			background: #eeeeee;
+			height: 52px;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			border-left: solid 5px black;
+			border-top: solid 5px black;
+			border-bottom: 5px black solid;
+			border-right: solid 5px black;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+		}
+
+		.window .header .text {
+			font-size: 22px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.window .close {
+			width: 27px !important;
+			height: 27px !important;
+			min-width: 27px !important;
+			min-height: 27px !important;
+			z-index: 100;
+			border-color: black;
+			border-style: solid;
+			border-width: 5px;
+			background: #ff0000;
+			margin: 4px;
+			margin: 0 10px;
+			-webkit-border-radius: 40px;
+			-khtml-border-radius: 40px;
+			-moz-border-radius: 40px;
+			-ms-border-radius: 40px;
+			-o-border-radius: 40px;
+			border-radius: 40px;
+			-webkit-transition: all 100ms;
+			-khtml-transition: all 100ms;
+			-moz-transition: all 100ms;
+			-ms-transition: all 100ms;
+			-o-transition: all 100ms;
+			transition: all 100ms;
+		}
+
+		.window .close:hover {
+			-webkit-transform: scale(1.1);
+			-khtml-transform: scale(1.1);
+			-moz-transform: scale(1.1);
+			-ms-transform: scale(1.1);
+			-o-transform: scale(1.1);
+			transform: scale(1.1);
+		}
+
+		.window .body {
+			border-right: solid 5px black;
+			border-bottom: solid 5px black;
+			border-left: solid 5px black;
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			background: #d8d8d8;
+			flex: 1;
+		}
+
+		.window .body .content {
+			height: 100%;
+		}
+
+		.paint.window .body {
+			background-color: white;
+		}
+
+		.paint.window .body .options {
+			border-right: solid 3px #ccc;
+			width: 53px;
+			float: left;
+			height: 100%;
+		}
+
+		.paint.window .body .options .icon {
+			width: 30px;
+			margin: 10px;
+		}
+
+		.paint.window .body .content canvas {
+			float: right;
+		}
+
+		#Quantumrectangle canvas {
+			background-image: url(../images/qr-puzzle.svg);
+			background-repeat: no-repeat;
+			background-size: 70%;
+			background-position: center;
+		}
+
+		body.paulie {
+			cursor: url("/assets/paulie/body-smirk.svg"), auto !important;
+		}
+
+		body.paulie button {
+			cursor: url("/assets/paulie/cursor1.png"), auto !important;
+		}
+
+		body.paulie #Desktop {
+			cursor: url("/assets/paulie/cursor1.png"), auto !important;
+		}
+
+		#PoweredOff {
+			background-color: black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		#PoweredOff button {
+			width: 100px;
+			height: 32px;
+			font-size: 20px;
+		}
+
+		#Desktop {
+			background-color: #68ffbb;
+			height: 100vh;
+			width: 100vw;
+			top: 0;
+			left: 0;
+			position: absolute;
+		}
+
+		.window div {
+			text-align: center;
+		}
+
+		#PaulieIntro {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 43%;
+			left: 47%;
+			z-index: 250;
+		}
+
+		#PaulieIntro img.face {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			z-index: 100;
+			-webkit-transition: all 100ms ease-out;
+			-khtml-transition: all 100ms ease-out;
+			-moz-transition: all 100ms ease-out;
+			-ms-transition: all 100ms ease-out;
+			-o-transition: all 100ms ease-out;
+			transition: all 100ms ease-out;
+		}
+
+		#PaulieIntro img.body {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			z-index: 100;
+			-webkit-transition: all 100ms ease-out;
+			-khtml-transition: all 100ms ease-out;
+			-moz-transition: all 100ms ease-out;
+			-ms-transition: all 100ms ease-out;
+			-o-transition: all 100ms ease-out;
+			transition: all 100ms ease-out;
+		}
+
+		#PaulieIntro img.shadow {
+			position: absolute;
+			top: 13px;
+			left: -18px;
+			opacity: 0.7;
+			width: 110%;
+			height: 110%;
+			-webkit-transition: all 100ms ease-out;
+			-khtml-transition: all 100ms ease-out;
+			-moz-transition: all 100ms ease-out;
+			-ms-transition: all 100ms ease-out;
+			-o-transition: all 100ms ease-out;
+			transition: all 100ms ease-out;
+		}
+
+		#Dialog {
+			position: absolute;
+			top: 1%;
+			left: 5%;
+			width: 90%;
+			height: 5%;
+			background-color: #eee;
+			border: inset 4px;
+		}
+
+		.pet {
+			position: absolute;
+			text-align: center;
+			padding: 10px;
+			z-index: 300;
+		}
+
+		.pet img {
+			max-width: 100%;
+		}
+
+		.pet.left img {
+			transform: scaleX(1);
+		}
+
+		.pet.right img {
+			transform: scaleX(-1);
+		}
+
+		#Kennel {
+			z-index: 300;
+		}
+
+		.poop {
+			position: absolute;
+			z-index: 200;
+		}
+
+		.poop::after {
+			content: "";
+			position: absolute;
+			width: 50px;
+			left: 50%;
+			margin-left: -25px;
+			bottom: 27px;
+			background-image: url(../screenshots/poop.svg);
+			height: 50px;
+			background-color: transparent;
+			background-size: contain;
+		}
+
+		#Updater1 {
+			z-index: 210;
+		}
+
+		#Updater2 {
+			z-index: 210;
+		}
+
+		.overlay {
+			background: rgba(0, 0, 0, 0.01);
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			z-index: 200;
+		}
+
+		.overlay.updater1 {
+			z-index: 200;
+		}
+
+		.overlay.updater2 {
+			z-index: 200;
+		}
+
+		.speech.bubble {
+			background: white;
+			border: solid 3px black;
+			border-radius: 5px;
+			line-height: 1.2em;
+			padding: 5px 10px;
+			min-height: 50px;
+			width: 100px;
+			display: flex;
+			align-items: center;
+		}
+
+		.speech.bubble::after {
+			content: " ";
+			position: absolute;
+			bottom: 20%;
+			z-index: 900;
+			width: 40px;
+			height: 50px;
+			background-image: url(../screenshots/carot.svg);
+			background-repeat: no-repeat;
+			background-size: 30px;
+			background-position: bottom right;
+		}
+
+		.speech.bubble.left-carot::after {
+			left: -40px;
+		}
+
+		.speech.bubble.right-carot::after {
+			left: unset;
+			right: -40px;
+			transform: scaleX(-1);
+		}
+	</style>
+
+
+	<!-- Meta Craps -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<meta name="vt" content="width=device-width" />
+
+
+	<title>{{page.title}}</title>
+
+
+	<!-- general style -->
+	<style>
+		body {}
+
+		.showcase-content {
+			background-color: rgba(0, 0, 0, 0);
+			overflow-x: hidden;
+			object-fit: contain;
+			--poster-color: rgba(0, 0, 0, 0);
+			margin: auto;
+			width: 100%;
+			height: 42vh;
+		}
+
+		h1 {
+			color: white;
+			font-family: 'Inter', sans-serif;
+			font-weight: bold;
+			text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5)
+		}
+
+		p {
+			color: white;
+			font-family: 'Inter', sans-serif;
+		}
+
+		.btn-primary {
+			margin: auto;
+			background-color: #FFFC00;
+
+			border: none;
+			color: black;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			font-family: 'Inter', sans-serif;
+			font-size: 16px;
+			margin: 12px 12px;
+			margin-top: 12px;
+			margin-bottom: 0px;
+			min-width: 120px;
+			max-height: 64px;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		.alignment {
+			text-align: center;
+			justify-content: center;
+		}
+
+		#nutView {
+			width: 92vw;
+			margin: auto;
+			margin-top: 12px;
+		}
+
+		#explodedView {
+			width: 92vw;
+			margin: auto;
+		}
+
+		#explodedView p {
+			color: black;
+		}
+
+
+		.header {
+			width: 95%;
+			margin: auto;
+			margin-top: 2vw;
+			display: flex;
+			margin-bottom: 2vw;
+		}
+
+		.header #left {
+			float: left;
+			width: 50%;
+			display: flex;
+			justify-content: left;
+			/* align horizontal */
+			align-items: center;
+			/* align vertical */
+		}
+
+		.header #right {
+			float: right;
+			width: 50%;
+		}
+
+		.header img {
+			max-width: 48px;
+			max-height: 48px;
+		}
+
+		.header #right img {
+			float: right;
+		}
+
+		.header #left p {
+			color: white;
+			font-weight: bold;
+			font-size: 12pt;
+			line-height: normal;
+			margin-left: 2vw;
+		}
+
+		@media (min-width: 576px) {
+			.header {
+				width: 95%;
+			}
+
+			#nutView {
+				width: 100%;
+			}
+
+			#explodedView {
+				width: 95%;
+			}
+		}
+	</style>
+
+	<!-- gallery -->
+	<style>
+		ul,
+		li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.gallery {
+			display: flex;
+			flex-wrap: wrap;
+			overflow-y: auto;
+			flex-basis: 100%;
+			flex-grow: 0;
+			flex-shrink: 0;
+			justify-content: flex-start;
+
+		}
+
+		.content {
+			/* @include flex-container-wrap-items(320px) */
+			width: 42vw;
+			height: 42vw;
+			align-items: flex-start;
+			background-color: white;
+			position: relative;
+			margin: 2vw;
+			/* border-style: solid;
+      border-width: 1px;
+      border-color: red; */
+		}
+
+		.inner {
+			align-items: flex-start;
+			background-color: transparent;
+			height: 42vw;
+			width: 42vw;
+
+			border-style: solid;
+			border-width: 1px;
+			border-color: lightgray;
+
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+
+		figure {
+			margin: auto;
+			/* border: 1px solid #555; */
+		}
+
+		figcaption {
+			text-align: center;
+			font-family: 'Inter', sans-serif;
+		}
+
+		.button {
+			background-color: white;
+			border: none;
+			color: black;
+			padding: 20px 40px;
+			text-align: center;
+			text-decoration: none;
+			font-family: 'Inter', sans-serif;
+			font-weight: bold;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			border-radius: 24px;
+			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+		}
+
+		.button:active {
+			box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+			transform: translateY(1px);
+		}
+
+		@media (min-width: 576px) {
+			.content {
+				width: auto;
+				max-height: 160px;
+			}
+
+			.inner {
+				position: static;
+				max-width: 160px;
+				max-height: 160px;
+			}
+		}
+
+		.icon {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			max-width: 96px;
+			max-height: 96px;
+		}
+
+
+
+		#title_text {}
+
+		#title_logo {
+			min-width: 128px;
+			height: auto;
+		}
+
+		#explainer {
+			text-align: center;
+		}
+	</style>
+
+
+	<style>
+		#Background {
+
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+	</style>
+
+</head>
+
+<body>
+
+
+	<div id="header" class="header">
+		<div id="left">
+			<div id="title">
+
+				<img id="title_logo">
+				<p id="title_text"></p>
+
+			</div>
+		</div>
+		<div id="right">
+		</div>
+	</div>
+
+	<div id="nutView">
+
+		<div id="Background">
+			{{ content }}
+		</div>
+
+
+		<div class="container alignment">
+			<h1>Paulie</h1>
+			<p>he's a cursor</p>
+
+			<div id="button_placeholder">
+
+			</div>
+
+			<br>
+			<p>more places to go with your NFTs soon..</p>
+
+		</div>
+	</div>
+
+	<div id="explodedView">
+
+
+		<br>
+		<div id="explainer">
+			<p id="explainer">this is the 'exploded view' of an NFT where you can access the files within</p>
+		</div>
+
+	</div>
+</body>
+
+</html>
