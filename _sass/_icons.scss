@@ -5,117 +5,40 @@
 	}
 }
 
-@mixin size($size) {
-	width: $size;
-	height: $size;
-}
-
-.icon {
-	$SIZE: 80px;
-
-	@include size($SIZE);
-	@include border-radius(20px);
-
+button.icon {
 	border: solid 5px black;
-	background-color: #efefef;
-	background-size: $SIZE;
-	background-position: center;
+	border-radius: 15px;
+	width: 80px;
+	height: 80px;
+	margin: 0 8px;
 
-	position: relative;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-
-	&::after {
-		position: absolute;
-		bottom: -40px;
-		font-size: 25px;
-		line-height: 0.9em;
-		padding: 3px 4px;
-		color: black;
-		@include border-radius(5px);
+	&:hover {
+		background-color: #f0f0f0;
 	}
 
-	// Movable file icons
-
-	&.desktop {
-		z-index: 1;
-
-		&.selected {
-			border-color: $blue;
-			&::after {
-				background-color: $blue;
-				color: white;
-			}
-		}
-	}
-	// Static tray icons
-	&.system {
-		z-index: 1;
-		background-color: #efefef;
-		margin: 0 20px 30px 20px;
-		color: transparent;
-
-		&.pressing {
-			border: solid 3px black!important;
-			box-shadow: 0px 0px 11px 1px rgba(43, 45, 179, 0.353);
-		}
-	}
-
-	// clock +
-
-	&.clock {
-	
-		z-index: 105;
-		border-radius: 15px;
-		width: 300px;
-		height: 82px;
-		margin-right: 50px;
-	
-		flex-direction: row;
-		justify-content: space-evenly;
-		font-size: 25px;
-	
-		&::after {
-			position: absolute;
-			font-size: 25px;
-			line-height: 0.9em;
-			bottom: -39px;
-			content: "clock+";
-		}
-	}
-	
-}
-
-.fart.icon {
-	@include icon("fart.gif", "../images/icon-fart.png");
-}
-.power.icon {
-	@include icon("power", "../images/icon-power.png");
-}
-.paint.icon {
-	@include icon("paint", "../images/icon-paint.png");
-}
-.netsurf.icon {
-	@include icon("netsurf", "../images/icon-netsurf.png");
-}
-.niftydex.icon {
-	@include icon("niftydex", "../images/icon-niftydex.png");
-}
-.updater.icon {
-	@include icon("updater", "../images/icon-updater.png");
-}
-.spacer.icon {
-	flex: 1;
-	opacity: 0;
-}
-
-body {
-	&.sleeping {
-		.desktop.icon {
-			display: none;
-		}
+	&:active {
+		background-color: #e0e0e0;
 	}
 }
+// .fart.icon {
+// 	@include icon("fart.gif", "../images/icon-fart.png");
+// }
+// .power.icon {
+// 	@include icon("power", "../images/icon-power.png");
+// }
+// .paint.icon {
+// 	@include icon("paint", "../images/icon-paint.png");
+// }
+// .netsurf.icon {
+// 	@include icon("netsurf", "../images/icon-netsurf.png");
+// }
+// .niftydex.icon {
+// 	@include icon("niftydex", "../images/icon-niftydex.png");
+// }
+// .updater.icon {
+// 	@include icon("updater", "../images/icon-updater.png");
+// }
+// .spacer.icon {
+// 	flex: 1;
+// 	opacity: 0;
+// }

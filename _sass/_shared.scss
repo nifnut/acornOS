@@ -72,9 +72,11 @@
 	flex-direction: $fd;
 }
 
+.disable-dbl-tap-zoom {
+	-ms-touch-action: manipulation;
+    touch-action: manipulation;
+  }
 
-
-///// .... junk 
 
 
 

@@ -20,15 +20,18 @@ $grey-color: #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark: darken($grey-color, 25%) !default;
 
+@font-face { 
+	font-family: terminal; 
+	src: url('/nft/font/terminal-grotesque.ttf'); 
+} 
 
+
+
+.debug {
+	border: solid 1px red;
+}
 
 
 @import "shared";
-
 @import "base", "layout";
-
-
-// @import "icons";
-// @import "cursor";
-// @import "windows";
-
+@import "icons";

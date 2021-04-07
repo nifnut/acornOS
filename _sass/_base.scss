@@ -23,14 +23,17 @@ html {
 
 body {
 	background-color: $background-color;
-	// -webkit-text-size-adjust: 100%;
-	// -webkit-font-feature-settings: "kern" 1;
-	// -moz-font-feature-settings: "kern" 1;
-	// -o-font-feature-settings: "kern" 1;
-	// font-feature-settings: "kern" 1;
-	// font-kerning: normal;
-
 	margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+button {
+	font-family: terminal;
 }
 
 a {
@@ -48,4 +51,10 @@ a {
 
 audio {
 	display: none;
+}
+
+// Disable double tap to zoom
+
+* {
+	@extend .disable-dbl-tap-zoom;
 }
