@@ -84,9 +84,20 @@ button.icon {
 .credenza.icon {
 	background-image: url(/nft/icons/icon-music.png);
 }
-.paint.icon {
+.micropaint.icon {
 	background-image: url(/nft/icons/icon-paint.png);
 }
 .snapchat.icon {
 	background-image: url(/nft/icons/icon-snap.png);
+}
+.clock.icon {
+	background-image: url(/nft/icons/icon-clock.png);
+    width: 223px;
+    max-width: 300px;
+    flex: unset;
+    right: 20px;
+    position: absolute;
+	@include phone() {
+		display: none;
+	}
 }

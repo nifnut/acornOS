@@ -2,7 +2,66 @@ $header: #eeeeee;
 $content: #d8d8d8;
 $close: #ff0000;
 
-.window {
+.app.window {
+	z-index: 10;
+	position: absolute;
+}
+
+.app.window {
+	position: absolute;
+
+	img {
+		max-width: 100%;
+	}
+}
+
+.niftydex.window {
+	width: 350px;
+
+	@include phone() {
+		width: 70%;
+	}
+}
+
+.micropaint.window {
+	width: 390px;
+	background-image: url(/nft/apps/micropaint.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	// background-color: blue;
+
+	left: 10%;
+	top: 10%;
+
+	canvas {
+		// border: solid 5px red;
+		float: right;
+		margin-top: 40px;
+	}
+
+	pre {
+		margin-top: 60vh;
+		margin-left: 10vw;
+	}
+
+	@include phone() {
+		width: 80%;
+	}
+}
+
+#MicropaintTouchCanvas {
+	// border: solid 5px green;
+	@include not-phone() {
+		display: none;
+	}
+}
+#MicropaintCursorCanvas {
+	@include phone() {
+		display: none;
+	}
+}
+
+.ui.window {
 	z-index: 10;
 	position: absolute;
 	display: flex;
@@ -11,16 +70,11 @@ $close: #ff0000;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
-	@include transition(box-shadow 300ms ease-in);
-
-	&:hover {
-		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-	}
 
 	.header {
 		margin: 0;
 		background: $header;
-		height: 60px;
+		height: 52px;
 		width: 100%;
 		display: flex;
 		align-items: center;
@@ -58,302 +112,21 @@ $close: #ff0000;
 		}
 	}
 
-	.content {
-		$grey: $content;
-		flex-grow: 1;
-		background: $content;
-		overflow: hidden;
-		background: $content;
-		padding: 0 10px;
-	}
+	$grey: #d8d8d8;
 
-	.ui-icon-gripsmall-diagonal-se {
-		height: 8px;
-		width: 8px;
-		bottom: 8px;
-		right: 8px;
-		position: absolute;
-		font-size: 0.1px;
-		display: block;
-		background: url(/assets/images/icon-resize.svg) no-repeat;
-		background-size: 100%;
-		&:hover {
-			filter: brightness(3);
+	.body {
+		border-right: solid 5px black;
+		border-bottom: solid 5px black;
+		border-left: solid 5px black;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		background: $grey;
+
+		// height: 100%;
+		flex: 1;
+
+		.content {
+			height: 100%;
 		}
-	}
-}
-
-.ui-resizable-helper {
-	border: 3px dashed darken($content, 30%);
-}
-
-.ui-resizable-se {
-	transform: scale(1.3);
-	right: 3px;
-	bottom: 3px;
-}
-
-.ui.window.previewResize {
-	.header {
-		border-top-style: dashed;
-	}
-	.content {
-		border-left-style: dashed;
-		border-right-style: dashed;
-		border-bottom-style: dashed;
-	}
-}
-
-$contentPadding: 10px;
-
-.scroll-baby {
-	display: inline;
-	height: 100%;
-	background-color: $content;
-	padding: 0 0 0 $contentPadding;
-	border-right: solid 5px black;
-	border-bottom: solid 5px black;
-	border-left: solid 5px black;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	overflow: hidden !important;
-
-	.scrollbar-inner {
-		.scroll-content.scroll-scrolly_visible {
-			padding-right: 30px;
-			padding-left: 10px;
-		}
-	}
-}
-
-.scroll-wrapper {
-	overflow: hidden !important;
-	padding: 0 !important;
-	position: relative;
-	height: 100%;
-}
-
-.scroll-wrapper > .scroll-content {
-	border: none !important;
-	box-sizing: content-box !important;
-	height: auto;
-	left: 0;
-	margin: 0;
-	max-height: none;
-	max-width: none !important;
-	overflow: scroll !important;
-	padding: 0;
-	position: relative !important;
-	top: 0;
-	width: auto !important;
-}
-
-.scroll-wrapper > .scroll-content::-webkit-scrollbar {
-	height: 0;
-	width: 0;
-}
-
-.scroll-element {
-	display: none;
-}
-.scroll-element,
-.scroll-element div {
-	box-sizing: content-box;
-}
-
-.scroll-element.scroll-x.scroll-scrollx_visible,
-.scroll-element.scroll-y.scroll-scrolly_visible {
-	display: block;
-}
-
-.scroll-element .scroll-bar,
-.scroll-element .scroll-arrow {
-	cursor: none !important;
-}
-
-.scroll-textarea {
-	border: 1px solid #cccccc;
-	border-top-color: #999999;
-}
-.scroll-textarea > .scroll-content {
-	overflow: hidden !important;
-}
-.scroll-textarea > .scroll-content > textarea {
-	border: none !important;
-	box-sizing: border-box;
-	height: 100% !important;
-	margin: 0;
-	max-height: none !important;
-	max-width: none !important;
-	overflow: scroll !important;
-	outline: none;
-	padding: 2px;
-	position: relative !important;
-	top: 0;
-	width: 100% !important;
-}
-.scroll-textarea > .scroll-content > textarea::-webkit-scrollbar {
-	height: 0;
-	width: 0;
-}
-
-/*************** SIMPLE INNER SCROLLBAR ***************/
-
-.scrollbar-inner > .scroll-element,
-.scrollbar-inner > .scroll-element div {
-	border: none;
-	margin: 0;
-	padding: 0;
-	position: absolute;
-	z-index: 10;
-}
-
-.scrollbar-inner > .scroll-element div {
-	display: block;
-	height: 100%;
-	left: 0;
-	top: 0;
-	width: 100%;
-}
-
-.scrollbar-inner > .scroll-element.scroll-x {
-	bottom: 0px;
-	height: 16px;
-	left: 0;
-	width: 100%;
-}
-
-.scrollbar-inner > .scroll-element.scroll-y {
-	height: 100%;
-	right: 0px;
-	top: 0;
-	width: 16px;
-}
-
-.scrollbar-inner > .scroll-element .scroll-element_outer {
-	overflow: hidden;
-}
-.scrollbar-inner > .scroll-element .scroll-element_track {
-	background-color: darken($content, 10%);
-}
-.scrollbar-inner > .scroll-element .scroll-bar {
-	background-color: darken($content, 30%);
-}
-.scrollbar-inner > .scroll-element:hover .scroll-bar {
-	background-color: #919191;
-}
-.scrollbar-inner > .scroll-element.scroll-draggable .scroll-bar {
-	background-color: #919191;
-}
-
-/* update scrollbar offset if both scrolls are visible */
-
-.scrollbar-inner > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_track {
-	left: -12px;
-}
-.scrollbar-inner > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_track {
-	top: -12px;
-}
-.scrollbar-inner > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size {
-	left: -12px;
-}
-.scrollbar-inner > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size {
-	top: -12px;
-}
-
-canvas {
-	position:absolute;
-	top: 10%;
-	left: 10%;
-	border:2px solid black;
-	width: 400px;
-	height: 500px;
-}
-
-// ---- paint ----\
-.paint.window {
-	.content {
-		width: 100%;
-		height: auto;
-		padding: 0;
-		border: solid 5px black;
-		background-image: url(../images/qr.png);
-		background-repeat: no-repeat;
-		background-position: center;
-
-	}
-}
-
-
-.window.error {
-	width: 400px;
-	left: 50%;
-	margin-left: -200px;
-	top: 10vh;
-
-	.header {
-		background-color: #007aff;
-	}
-	h2,
-	p {
-		text-align: center;
-	}
-
-	p {
-		font-size: 20px;
-		margin: 30px 40px;
-		line-height: 1.4em;
-	}
-}
-
-@include not-phone() {
-	.ui.window.error {
-		display: none;
-	}
-}
-
-@include phone() {
-	.ui.window {
-		display: none;
-	}
-	.ui.window.error {
-		display: flex;
-	}
-	.system.icon,
-	.clock.icon,
-	.sleeping.paulie {
-		display: none;
-	}
-}
-
-
-
-.window.error {
-	width: 90vw;
-	left: 5vw;
-	top: 20vh;
-	margin-left: 0;
-
-	.header {
-		background-color: #007aff;
-	}
-	h2,
-	p,
-	h1 {
-		text-align: center;
-		margin: 0;
-	}
-	h1 {
-		font-size: 50px;
-		line-height: 1em;
-		margin: 20px 0 10px 0;
-	}
-	h2 {
-		margin: 20px 0 0 0;
-	}
-	p {
-		font-size: 20px;
-		margin: 0px 30px 20px 30px;
-		line-height: 1.4em;
 	}
 }

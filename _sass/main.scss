@@ -3,6 +3,7 @@
 //  COLORS
 
 $green: #68ffbb;
+$red: #FF0000;
 $grey: #eeeeee;
 
 $power-red: #ff0067;
@@ -26,4 +27,5 @@ $background-color: $green;
 
 @import "shared";
 @import "base", "layout";
-@import "icons";
+@import "devices";
+@import "icons", "windows";

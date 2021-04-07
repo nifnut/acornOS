@@ -12,11 +12,6 @@
 	flex-direction: $fd;
 }
 
-.disable-dbl-tap-zoom {
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
-}
-
 // ROTATE
 @mixin rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0) {
 	@include css3-prefix("transform", rotate($deg + deg));
@@ -61,15 +56,5 @@
 @mixin for-tablet-landscape-only() {
 	@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
 		@content;
-	}
-}
-
-@mixin disableMobileZoom {
-	body {
-		touch-action: pan-x pan-y;
-	}
-	* {
-		-ms-touch-action: manipulation;
-		touch-action: manipulation;
 	}
 }

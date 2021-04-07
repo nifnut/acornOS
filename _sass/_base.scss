@@ -52,15 +52,3 @@ a {
 audio {
 	display: none;
 }
-
-@include disableMobileZoom;
-
-/* light blue at 80% opacity */
-html {
-	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-}
-
-/* change it for a div that has a similar background-color to the light blue tap color */
-// .blueDiv {
-//     -webkit-tap-highlight-color: rgba(251, 185, 250, 0.9);
-// }
