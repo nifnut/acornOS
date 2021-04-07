@@ -1,31 +1,28 @@
 @charset "utf-8";
 
-
 //  COLORS
 
 $green: #68ffbb;
 $grey: #eeeeee;
 
-$power-red: #FF0067;
-$nifty-yellow: #F1FF5C;
-$music-red: #CC4A00;
-$notepad-brown: #C97F00;
+$power-red: #ff0067;
+$nifty-yellow: #f1ff5c;
+$music-red: #cc4a00;
+$notepad-brown: #c97f00;
+
+$shadow-grey: #c3c3c3;
 
 $text-color: #111 !default;
 $background-color: $green;
 
-
-@font-face { 
-	font-family: terminal; 
-	src: url('/nft/font/terminal-grotesque.ttf'); 
-} 
-
-
+@font-face {
+	font-family: terminal;
+	src: url("/nft/font/terminal-grotesque.ttf");
+}
 
 .debug {
 	border: solid 1px red;
 }
-
 
 @import "shared";
 @import "base", "layout";

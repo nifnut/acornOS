@@ -5,49 +5,82 @@
 	}
 }
 
+.lifted {
+	@include transform(translateY(-15px));
+
+	&::after {
+		content: "";
+		position: absolute;
+		background-color: $shadow-grey;
+		width: 100%;
+		height: 25px;
+		left: 0px;
+		bottom: 0px;
+		border-radius: 20px;
+		transform: translateZ(-1px) translateY(20px) scale(1) !important;
+	}
+}
+
+.fat-border {
+	// box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+}
+
 button.icon {
 	border: solid 4px black;
 	border-radius: 15px;
 	max-width: 60px;
 	height: 60px;
 	margin: 0 3px;
-
 	display: flex;
 	flex: 1;
 	justify-content: center;
 	align-items: center;
 
+	@include transition(transform 100ms ease-in);
+
 	&:hover {
-		background-color: #f0f0f0;
+		@extend .lifted;
 	}
 
 	&:active {
-		background-color: #e0e0e0;
+		// background-color: #e0e0e0;
+		// background-color: red!important;
+	}
+	&:focus {
+		@extend .lifted;
 	}
 
-	&.power {
-		background-color: $power-red;
+	transform-style: preserve-3d;
+
+	&::after {
+		content: "";
+		position: absolute;
+		background-color: $shadow-grey;
+		width: 100%;
+		height: 25px;
+		left: 0px;
+		bottom: 0px;
+		border-radius: 20px;
+		transform: translateZ(-1px) translateY(10px) scale(0.3);
+		@include transition(transform 100ms ease-in);
 	}
 }
-// .fart.icon {
-// 	@include icon("fart.gif", "../images/icon-fart.png");
-// }
-// .power.icon {
-// 	@include icon("power", "../images/icon-power.png");
-// }
-// .paint.icon {
-// 	@include icon("paint", "../images/icon-paint.png");
-// }
-// .netsurf.icon {
-// 	@include icon("netsurf", "../images/icon-netsurf.png");
-// }
-// .niftydex.icon {
-// 	@include icon("niftydex", "../images/icon-niftydex.png");
-// }
-// .updater.icon {
-// 	@include icon("updater", "../images/icon-updater.png");
-// }
-// .spacer.icon {
-// 	flex: 1;
-// 	opacity: 0;
-// }
+
+.power.icon {
+	background-color: $power-red;
+}
+.niftydeck.icon {
+	background-color: $nifty-yellow;
+}
+.notepad.icon {
+	background-color: $notepad-brown;
+}
+.music.icon {
+	background-color: $music-red;
+}
+.paint.icon {
+	background-color: green;
+}
+.snapchat.icon {
+	background-color: yellow;
+}
