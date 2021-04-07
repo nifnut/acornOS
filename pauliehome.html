@@ -5,14 +5,14 @@ layout: nifnut
 
 
 
-<div class="icons container debug">
+<div class="icons container">
 
 	<button class="icon power"></button>
-	<button class="icon niftydeck"></button>
+	<button class="icon niftydex"></button>
 	<button class="icon notepad"></button>
-	<button class="icon music"></button>
+	<button class="icon credenza"></button>
 	<button class="icon paint"></button>
-	<button class="icon snapchat"></button>
+	<!-- <button class="icon snapchat"></button> -->
 
 	<div class="grey background"></div>
 
@@ -29,8 +29,8 @@ layout: nifnut
 
 
 
-{% for portal in site.portals %}
-{{ portal }}
+{% for app_window in site.apps %}
+{{ app_window }}
 {% endfor %}
 
 <!-- <audio controls preload="auto" id="ClickDownSound">

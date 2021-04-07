@@ -1,8 +1,9 @@
 @import "prefixes";
 
-// ================================================
-//      		Flex Box Helper
-// ================================================
+
+@mixin black-border-top() {
+	border-top: black 4px solid;
+}
 
 @mixin flex($jc: center, $ai: center, $fd: column) {
 	display: flex;

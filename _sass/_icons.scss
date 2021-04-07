@@ -17,20 +17,15 @@
 		left: 0px;
 		bottom: 0px;
 		border-radius: 20px;
-		transform: translateZ(-1px) translateY(20px) scale(1) !important;
+		transform: translateZ(-1px) translateY(15px) scale(1) !important;
 	}
 }
 
-.fat-border {
-	// box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
-}
-
 button.icon {
-	border: solid 4px black;
-	border-radius: 15px;
+
 	max-width: 60px;
 	height: 60px;
-	margin: 0 3px;
+	margin: 0 5px;
 	display: flex;
 	flex: 1;
 	justify-content: center;
@@ -39,7 +34,7 @@ button.icon {
 	@include transition(transform 100ms ease-in);
 
 	&:hover {
-		@extend .lifted;
+		// @extend .lifted;
 	}
 
 	&:active {
@@ -47,6 +42,10 @@ button.icon {
 		// background-color: red!important;
 	}
 	&:focus {
+		// @extend .lifted;
+	}
+
+	&.selected {
 		@extend .lifted;
 	}
 
@@ -61,26 +60,33 @@ button.icon {
 		left: 0px;
 		bottom: 0px;
 		border-radius: 20px;
-		transform: translateZ(-1px) translateY(10px) scale(0.3);
+		transform: translateZ(-1px) translateY(5px) scale(0.3);
 		@include transition(transform 100ms ease-in);
 	}
+
+
+	border: none;
+	background-color: transparent;
+	background-size: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .power.icon {
-	background-color: $power-red;
+	background-image: url(/nft/icons/icon-power.png);
 }
-.niftydeck.icon {
-	background-color: $nifty-yellow;
+.niftydex.icon {
+	background-image: url(/nft/icons/icon-nifty.png);
 }
 .notepad.icon {
-	background-color: $notepad-brown;
+	background-image: url(/nft/icons/icon-notepad.png);
 }
-.music.icon {
-	background-color: $music-red;
+.credenza.icon {
+	background-image: url(/nft/icons/icon-music.png);
 }
 .paint.icon {
-	background-color: green;
+	background-image: url(/nft/icons/icon-paint.png);
 }
 .snapchat.icon {
-	background-color: yellow;
+	background-image: url(/nft/icons/icon-snap.png);
 }

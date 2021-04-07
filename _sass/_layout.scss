@@ -1,34 +1,25 @@
-
-
-
 body {
 	background-color: $background-color;
-
 	width: 100%;
 	min-width: 100vw;
-
 	height: 100%;
 	min-height: 100%;
-	// max-height: 100vh;
-
 	position: absolute;
 	overflow: hidden;
 }
 
-
+// Bottom navbar
 .icons.container {
-
 	position: absolute;
-
 	height: 100px;
 	width: 100%;
-	// top: 80vh;
-	bottom:0;
+	bottom: 0;
 	left: 0;
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	// z-index: 10;
 
 	.grey.background {
 		background-color: $grey;
@@ -39,5 +30,58 @@ body {
 		left: 0px;
 		z-index: -1;
 		border-top: black 4px solid;
+	}
+}
+
+.app.window {
+	position: absolute;
+
+	img {
+		max-width: 100%;
+	}
+}
+
+body .overlay {
+	display: none;
+}
+
+body.poweredOff {
+	.overlay {
+		cursor: default !important;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+
+		// transition: 100ms background-color ease-out;
+
+		opacity: 1;
+		background-color: black;
+		z-index: 100;
+
+		color: white;
+		font-family: Courier;
+		text-align: center;
+		font-weight: 100;
+		margin: 0;
+		font-size: 2vw;
+	}
+
+	.power.icon {
+		background-image: url(/nft/icons/icon-power-off.png);
+		z-index: 200;
+		&::after {
+			display: none;
+		}
+	}
+	img.paulie-zzz {
+		width: 80px;
 	}
 }

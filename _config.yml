@@ -12,5 +12,8 @@ collections:
   windows:
     output: true
     permalink: /:path/
+  apps:
+    output: true
+    permalink: /:path/
 
 version: 4 
