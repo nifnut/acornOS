@@ -22,6 +22,9 @@ body {
 	@include not-phone() {
 		padding-left:20px;
 	}
+	@include phone() {
+	justify-content: center;
+	}
 
 	// z-index: 10;
 

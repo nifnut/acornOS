@@ -1,16 +1,21 @@
 ---
-layout: app_window
 src: /nft/apps/niftydex.png
-window_id: Niftydeck
 ---
 
 
-<img src="{{ page.src }}" />
+
+<div class="app window {{ page.slug }}">
+	<img src="{{ page.src }}" />
+</div>
+
+
+
 
 
 <script>
 	$(function () {
 		$(".niftydex.window").css({top: "10%",left: "10%",});
 		$(".niftydex.window").hide()
+		$(".niftydex.window").draggable()
 	})
 </script>

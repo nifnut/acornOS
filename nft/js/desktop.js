@@ -3,10 +3,10 @@
 
 let topWindowZ = 5;
 let appInFocus = null;
-
+let windowLayers = [];
 
 function initialize() {
-	focusApp("niftydex");
+	focusApp("credenza");
 }
 
 
@@ -16,6 +16,7 @@ function focusApp(appName) {
 	const $window = $(".window." + appName);
 	$icon.addClass("selected");
 	$window.show();
+	windowLayers.push(appName);
 	topWindowZ++;
 	$window.css("zIndex", topWindowZ);
 }
@@ -25,12 +26,12 @@ function closeApp(appName) {
 	const $window = $(".window." + appName);
 	$icon.removeClass("selected");
 	$window.hide();
-	appInFocus = null;
+	windowLayers.pop();
+	appInFocus = windowLayers[windowLayers.length-1];
 }
 
 
 function handleIconClick(e) {
-
 
 	const appName = $(this)
 		.attr('class')
@@ -49,9 +50,6 @@ function handleIconClick(e) {
 	} else {
 		focusApp(appName);
 	}
-
-
-
 
 }
 

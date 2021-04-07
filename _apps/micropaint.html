@@ -1,21 +1,20 @@
 ---
 layout: app_window
 src: /nft/apps/micropaint.png
+header: micropaint
 ---
 
-<canvas id="MicropaintTouchCanvas" width="250" height="260"></canvas>
-<canvas id="MicropaintCursorCanvas" width="330" height="350"></canvas>
 
 
+<canvas id="MicropaintCanvas" style="border:solid black 1px;"></canvas>
 
-<pre id="out"></pre>
+
 
 <script>
+	// ========= Cursor Drawing ===================
 
 
 	$(function () {
-
-
 
 		let prevX = 0;
 		let prevY = 0;
@@ -25,7 +24,7 @@ src: /nft/apps/micropaint.png
 		let size = 6;
 
 		const $canvas = $(".app.{{ page.slug }} canvas");
-		var canvas = document.getElementById("MicropaintCursorCanvas")
+		var canvas = document.getElementById("MicropaintCanvas")
 		var ctx = canvas.getContext('2d');
 
 		function drawLine(x, y) {
@@ -89,40 +88,50 @@ src: /nft/apps/micropaint.png
 		// 		height: 407, // !important
 		// 		width: 413 // !important
 		// 	})
-		// 	.draggable({
-		// 		handle: '.header',
-		// 		containment: "body",
-		// 		// cursor: "none"
-		// 	});
 
 
+
+		$('.micropaint.window').draggable({
+				handle: '.header',
+				containment: "body",
+				// cursor: "none"
+			});
 
 		$(".micropaint.window").hide()
 	});
+
 </script>
 
 <script>
 
+	// ========= Mobile Drawing ===================
+
 	var ongoingTouches = [];
-	var canvas = document.getElementById("MicropaintTouchCanvas")
+	var canvas = document.getElementById("MicropaintCanvas");
+
+	canvas.width = canvas.parentNode.clientWidth;
+	canvas.height = canvas.parentNode.clientHeight;
 	var ctx = canvas.getContext("2d");
 
+	let color = "blue"
+	let strokeWidth = 15;
+
 	function handleStart(evt) {
-		log("touchstart")
+
 		evt.preventDefault();
-		console.log("touchstart.");
+
 
 		var touches = evt.changedTouches;
 
 		for (var i = 0; i < touches.length; i++) {
-			console.log("touchstart:" + i + "...");
+
 			ongoingTouches.push(copyTouch(touches[i]));
-			var color = colorForTouch(touches[i]);
+
 			ctx.beginPath();
-			ctx.arc(touches[i].pageX, touches[i].pageY, 4, 0, 2 * Math.PI, false);  // a circle at the start
+			ctx.arc(touches[i].pageX, touches[i].pageY, (strokeWidth / 2), 0, 2 * Math.PI, false);
 			ctx.fillStyle = color;
 			ctx.fill();
-			console.log("touchstart:" + i + ".");
+
 		}
 	}
 	function handleMove(evt) {
@@ -131,44 +140,44 @@ src: /nft/apps/micropaint.png
 		var touches = evt.changedTouches;
 
 		for (var i = 0; i < touches.length; i++) {
-			var color = colorForTouch(touches[i]);
+
 			var idx = ongoingTouchIndexById(touches[i].identifier);
 
 			if (idx >= 0) {
-				console.log("continuing touch " + idx);
+
 				ctx.beginPath();
-				console.log("ctx.moveTo(" + ongoingTouches[idx].pageX + ", " + ongoingTouches[idx].pageY + ");");
 				ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
-				console.log("ctx.lineTo(" + touches[i].pageX + ", " + touches[i].pageY + ");");
 				ctx.lineTo(touches[i].pageX, touches[i].pageY);
-				ctx.lineWidth = 4;
+
+				ctx.lineJoin = "round";
+				ctx.lineWidth = strokeWidth;
 				ctx.strokeStyle = color;
+				ctx.closePath();
 				ctx.stroke();
 
 				ongoingTouches.splice(idx, 1, copyTouch(touches[i]));  // swap in the new touch record
-				console.log(".");
+
 			} else {
 				console.log("can't figure out which touch to continue");
 			}
 		}
 	}
-
 	function handleEnd(evt) {
 		evt.preventDefault();
-		log("touchend");
+
 		var touches = evt.changedTouches;
 
 		for (var i = 0; i < touches.length; i++) {
-			var color = colorForTouch(touches[i]);
+			// var color = colorForTouch(touches[i]);
 			var idx = ongoingTouchIndexById(touches[i].identifier);
 
 			if (idx >= 0) {
-				ctx.lineWidth = 4;
+				ctx.lineWidth = 5;
 				ctx.fillStyle = color;
 				ctx.beginPath();
 				ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
 				ctx.lineTo(touches[i].pageX, touches[i].pageY);
-				ctx.fillRect(touches[i].pageX - 4, touches[i].pageY - 4, 8, 8);  // and a square at the end
+				ctx.arc(touches[i].pageX, touches[i].pageY, (strokeWidth / 2), 0, 2 * Math.PI, false);
 				ongoingTouches.splice(idx, 1);  // remove it; we're done
 			} else {
 				console.log("can't figure out which touch to end");
@@ -177,7 +186,7 @@ src: /nft/apps/micropaint.png
 	}
 	function handleCancel(evt) {
 		evt.preventDefault();
-		console.log("touchcancel.");
+
 		var touches = evt.changedTouches;
 
 		for (var i = 0; i < touches.length; i++) {
@@ -185,19 +194,6 @@ src: /nft/apps/micropaint.png
 			ongoingTouches.splice(idx, 1);  // remove it; we're done
 		}
 	}
-
-	function colorForTouch(touch) {
-		var r = touch.identifier % 16;
-		var g = Math.floor(touch.identifier / 3) % 16;
-		var b = Math.floor(touch.identifier / 7) % 16;
-		r = r.toString(16); // make it a hex digit
-		g = g.toString(16); // make it a hex digit
-		b = b.toString(16); // make it a hex digit
-		var color = "#" + r + g + b;
-		console.log("color for touch with identifier " + touch.identifier + " = " + color);
-		return color;
-	}
-
 	function copyTouch({ identifier, pageX, pageY }) {
 		return { identifier, pageX, pageY };
 	}
@@ -212,11 +208,6 @@ src: /nft/apps/micropaint.png
 		return -1;    // not found
 	}
 
-	function log(msg) {
-		$("#out").text(msg)
-		// var p = document.getElementById('out');
-		// p.innerHTML = msg + "\n" + p.innerHTML;
-	}
 	function startup() {
 		// var el = document.getElementById("canvas");
 		var el = document.querySelector(".micropaint.window canvas");

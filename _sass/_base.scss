@@ -49,6 +49,38 @@ a {
 	}
 }
 
-audio {
+audio.sounds {
 	display: none;
 }
+
+// ========= Mobile Crap =========
+
+.disable-text-highlight {
+	-webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+	-webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+	-webkit-user-select: none;
+	user-select: none;
+}
+.disable-dbl-tap-zoom {
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+}
+.disable-press-highlight {
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+* {
+	@extend .disable-dbl-tap-zoom;
+}
+html {
+	@extend .disable-press-highlight;
+}
+body {
+	@extend .disable-text-highlight;
+	// touch-action: pan-x pan-y;
+}
+
+/* change it for a div that has a similar background-color to the light blue tap color */
+// .blueDiv {
+//     -webkit-tap-highlight-color: rgba(251, 185, 250, 0.9);
+// }

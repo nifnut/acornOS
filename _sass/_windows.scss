@@ -2,16 +2,65 @@ $header: #eeeeee;
 $content: #d8d8d8;
 $close: #ff0000;
 
-.app.window {
-	z-index: 10;
-	position: absolute;
-}
+$header-height: 50px;
+$content-height: calc(100% - #{$header-height});
 
 .app.window {
+	// z-index: 10;
+	// max-width: 100%;
 	position: absolute;
 
+	h1.header {
+		margin: 0;
+		background: $grey;
+		// z-index: 100;
+		position: absolute;
+		width: 100%;
+		line-height: $header-height;
+
+		font-size: 22px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.close {
+		// $size: 27px;
+		// width: $size !important;
+		// height: $size !important;
+		// min-width: $size !important;
+		// min-height: $size !important;
+		// z-index: 100;
+		// border-color: black;
+		// border-style: solid;
+		// border-width: 5px;
+		// background: $red;
+		// margin: 4px;
+		// margin: 0 10px;
+		// @include border-radius(40px);
+		// @include transition(all 100ms);
+		// &:hover {
+		// 	@include transform(scale(1.1));
+		// }
+	}
+
+	$grey: #d8d8d8;
+
+	.content {
+		// position: absolute;
+		// top: 0px;
+		width: 100%;
+		height: 100%;
+		background: white;
+	}
 	img {
 		max-width: 100%;
+	}
+}
+
+.window.border {
+	border: solid 5px black;
+	h1.header {
+		border-bottom: 5px black solid;
 	}
 }
 
@@ -22,111 +71,44 @@ $close: #ff0000;
 		width: 70%;
 	}
 }
+.credenza.window {
+	audio {
+		position: absolute;
+		left: 5%;
+		bottom: 5%;
+		width: 90%;
+		height: 20%;
+		&::-webkit-media-controls-panel {
+			background-color: #d8d8d8;
+		}
+	}
+}
+
+.notepad.window {
+	left: 5%;
+	bottom: 5%;
+	width: 90%;
+	height: 20%;
+}
+
 
 .micropaint.window {
 	width: 390px;
+	height: 400px;
 	background-image: url(/nft/apps/micropaint.png);
-	background-size: contain;
-	background-repeat: no-repeat;
+	// background-size: contain;
+	// background-repeat: no-repeat;
 	// background-color: blue;
-
-	left: 10%;
-	top: 10%;
 
 	canvas {
 		// border: solid 5px red;
-		float: right;
-		margin-top: 40px;
-	}
-
-	pre {
-		margin-top: 60vh;
-		margin-left: 10vw;
+		// float: right;
+		// margin-top: 40px;
 	}
 
 	@include phone() {
-		width: 80%;
-	}
-}
-
-#MicropaintTouchCanvas {
-	// border: solid 5px green;
-	@include not-phone() {
-		display: none;
-	}
-}
-#MicropaintCursorCanvas {
-	@include phone() {
-		display: none;
-	}
-}
-
-.ui.window {
-	z-index: 10;
-	position: absolute;
-	display: flex;
-	flex-direction: column;
-
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-
-	.header {
-		margin: 0;
-		background: $header;
-		height: 52px;
-		width: 100%;
-		display: flex;
-		align-items: center;
-		border-left: solid 5px black;
-		border-top: solid 5px black;
-		border-bottom: 5px black solid;
-		border-right: solid 5px black;
-		border-top-left-radius: 10px;
-		border-top-right-radius: 10px;
-
-		.text {
-			font-size: 22px;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-	}
-	.close {
-		$size: 27px;
-		width: $size !important;
-		height: $size !important;
-		min-width: $size !important;
-		min-height: $size !important;
-		z-index: 100;
-		border-color: black;
-		border-style: solid;
-		border-width: 5px;
-		background: $red;
-		margin: 4px;
-		margin: 0 10px;
-		@include border-radius(40px);
-		@include transition(all 100ms);
-		&:hover {
-			@include transform(scale(1.1));
-		}
-	}
-
-	$grey: #d8d8d8;
-
-	.body {
-		border-right: solid 5px black;
-		border-bottom: solid 5px black;
-		border-left: solid 5px black;
-		border-bottom-left-radius: 10px;
-		border-bottom-right-radius: 10px;
-		background: $grey;
-
-		// height: 100%;
-		flex: 1;
-
-		.content {
-			height: 100%;
-		}
+		// width: 90%;
+		// left: 2%;
+		// top: 5%;
 	}
 }

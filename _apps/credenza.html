@@ -1,16 +1,47 @@
 ---
-layout: app_window
 src: /nft/apps/credenza.png
 ---
 
+<div class="app window {{ page.slug }}">
+	<img src="{{ page.src }}" />
 
-<img src="{{ page.src }}" />
+
+<!-- <audio controls preload="auto" id="ClickDownSound">
+	<source src="/assets/sounds/click_down.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" id="ClickUpSound">
+	<source src="/assets/sounds/click_up.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" id="FartSound">
+	<source src="/assets/sounds/fart.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" id="TadaSound">
+	<source src="/assets/sounds/tada.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" id="PowerSound">
+	<source src="/assets/sounds/power.mp3" type="audio/mpeg">
+</audio> -->
+
+<audio controls volume="0.4" preload="auto" id="Music">
+	<source src="/nft/Amaretto-Stumble.mp3" type="audio/mpeg">
+</audio>
+</div>
+
 
 
 <script>
+
+	var sounds = document.querySelectorAll("audio");
+
+	sounds.forEach(function (sound) {
+		sound.load();
+		sound.volume = 0.3
+	})
+
 	$(function () {
 		$(".credenza.window").css({ top: "30%", left: "20%" })
 		$(".credenza.window img").css({ height: 200, })
-		$(".credenza.window").hide()
+		$(".credenza.window").hide();
+		$(".credenza.window").draggable()
 	})
 </script>
