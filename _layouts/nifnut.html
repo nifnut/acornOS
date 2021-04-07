@@ -1,13 +1,15 @@
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: " en" }}">
+{% assign cachedz = site.time | date: '%M%S' %}
 
-{% assign version = site.version %}
-{% assign timestamp = site.time | date: '%M%S' %}
-{% capture cachedz %}v{{ version }}{{ timestamp }}{% endcapture %}
+<!DOCTYPE html>
+<html>
 
 <head>
+	<title>{{page.title}}</title>
+	{%- include google-analytics.html -%}
 
-	{% include head.html %}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 	<!-- Javascript -->
 	<script src="/assets/scripts/lib/jquery-1.10.2.js"></script>
@@ -16,10 +18,7 @@
 
 	<!-- Style -->
 	<link rel="preload" as="style" href="/nft/font/terminal-grotesque.ttf" />
-
 	<link rel="stylesheet" href="/nft/stylesheets/main.css?cachedz={{ cachedz}}">
-
-	<title>{{page.title}}</title>
 
 </head>
 
