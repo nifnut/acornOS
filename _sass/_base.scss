@@ -53,8 +53,5 @@ audio {
 	display: none;
 }
 
-// Disable double tap to zoom
 
-* {
-	@extend .disable-dbl-tap-zoom;
-}
+@include disableMobileZoom;

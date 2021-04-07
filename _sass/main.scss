@@ -4,21 +4,16 @@
 //  COLORS
 
 $green: #68ffbb;
-$red: #ff0000;
 $grey: #eeeeee;
-$header-bg: #eeeeee;
-$content-bg: b8d8;
-$border: solid #000 4px;
-$content-padding: 5px;
-$blue: #2962ff;
+
+$power-red: #FF0067;
+$nifty-yellow: #F1FF5C;
+$music-red: #CC4A00;
+$notepad-brown: #C97F00;
 
 $text-color: #111 !default;
 $background-color: $green;
-$brand-color: #2a7ae2 !default;
 
-$grey-color: #828282 !default;
-$grey-color-light: lighten($grey-color, 40%) !default;
-$grey-color-dark: darken($grey-color, 25%) !default;
 
 @font-face { 
 	font-family: terminal; 
