@@ -1,0 +1,51 @@
+* {
+	box-sizing: border-box;
+	font-family: terminal;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+:focus {
+	outline: none;
+}
+
+*::selection {
+	background-color: transparent;
+}
+
+html {
+	box-sizing: border-box;
+	height: 100%;
+}
+
+body {
+	background-color: $background-color;
+	// -webkit-text-size-adjust: 100%;
+	// -webkit-font-feature-settings: "kern" 1;
+	// -moz-font-feature-settings: "kern" 1;
+	// -o-font-feature-settings: "kern" 1;
+	// font-feature-settings: "kern" 1;
+	// font-kerning: normal;
+
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	cursor: none;
+	@include transition(100ms);
+	padding: 5px;
+	margin: -5px;
+
+	&:hover {
+		text-decoration: underline;
+		color: red;
+	}
+}
+
+audio {
+	display: none;
+}

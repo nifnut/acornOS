@@ -1,31 +1,47 @@
 ---
-title: nutview
-layout: empty
+title: paulie's home
+layout: nifnut
 ---
 
 
+<!-- <div id='Paulie' class="cursor paulie">
+	<img class="shadow" src="/assets/paulie/shadow.svg" />
+	<img class="body" src="/assets/paulie/body.svg" />
+	<img class="face smirk" src="/assets/paulie/body-smirk.svg" />
+	<img class="face small asleep" src="/assets/paulie/face-sleep-small-o.png" />
+	<img class="face big asleep" src="/assets/paulie/face-sleep-big-o.png" />
+</div> -->
 
 
 
-<link rel="stylesheet" href="//os.nifnut.com/assets/stylesheets/main.css">
+{% for portal in site.portals %}
+{{ portal }}
+{% endfor %}
+
+<!-- <audio controls preload="auto" id="ClickDownSound">
+	<source src="/assets/sounds/click_down.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" id="ClickUpSound">
+	<source src="/assets/sounds/click_up.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" id="FartSound">
+	<source src="/assets/sounds/fart.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" id="TadaSound">
+	<source src="/assets/sounds/tada.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" id="PowerSound">
+	<source src="/assets/sounds/power.mp3" type="audio/mpeg">
+</audio> -->
 
 
-<!-- Javascript Libraries -->
-<script src="//os.nifnut.com/assets/scripts/lib/jquery-1.10.2.js"></script>
-<script src="//os.nifnut.com/assets/scripts/lib/jquery-ui-1.10.4.js"></script>
-<script src="//os.nifnut.com/assets/scripts/lib/jquery.scrollbar.js"></script>
+<!-- <div class="desktop icon fart" data-filename="fart.gif"></div> -->
 
 
-
-{%- include cursor.html -%}
-	{%- include windows.html -%}
-
-{%- include audio.html -%}
-{%- include icons.html -%}
 
 <div class="system navbar">
-	<div class="system icon power"></div>
-	<div class="system icon updater"></div>
+	<!-- <div class="system icon power"></div> -->
+	<!-- <div class="system icon updater"></div>
 	<div class="system icon paint">paint</div>
 	<div class="system icon netsurf"></div>
 	<div class="system icon niftydex">niftydex</div>
@@ -33,29 +49,7 @@ layout: empty
 	<div class="icon clock" style="max-width: 600px;">
 		<span class="temp">74F°</span>
 		<span class="time">4:59pm</span>
-		<img src="//os.nifnut.com/assets/images/icon-wifi.png" />
-	</div>
+		<img src="/assets/images/icon-wifi.png" />
+	</div> -->
 
 </div>
-
-
-
-<script src="//os.nifnut.com/assets/scripts/background.js?cachedz=3"></script>
-
-
-
-<script>
-
-window.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
-
-	main()
-	loadPaulie();
-	loadOS()
-});
-
-window.addEventListener('load', (event) => {
-  console.log('page is fully loaded');
-});
-
-</script>
