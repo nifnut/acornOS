@@ -1,11 +1,3 @@
-const SCREEN_WIDTH = document.body.clientWidth;
-const SCREEN_HEIGHT = document.body.clientHeight;
-const COMPUTED_SCALE = invlerp(900, 2000, document.body.clientWidth);
-const ASPECT_RATIO = 1.410256
-const WIDTH_MIN = 40; // SCALE = 0
-const WIDTH_MAX = 70; // SCALE = 1
-const HEIGHT = 200;
-const WIDTH = 126;
 
 
 // =======================================
@@ -82,75 +74,14 @@ $("body").on('mousedown', ".sleeping.paulie", function (e) {
 
 
 
-const mouseUp = e => {
-	if (e.which !== 1) return; // only handle left click
-	$OS.playSound("up")
-	$paulie.isClicking = false;
-	$paulie.removeClass("clicking");
-};
-const mouseDown = e => {
-	if (e.which !== 1) return; // only handle left click
-	$OS.playSound("down")
-	$paulie.isClicking = true;
-	$paulie.addClass("clicking")
-};
 
 
-
-
-const element = document.getElementById('some-element-you-want-to-animate');
-let start;
-
-function step(timestamp) {
-	if (start === undefined)
-		start = timestamp;
-	const elapsed = timestamp - start;
-
-	// `Math.min()` is used here to make sure that the element stops at exactly 200px.
-	element.style.transform = 'translateX(' + Math.min(0.1 * elapsed, 200) + 'px)';
-
-	if (elapsed < 2000) { // Stop the animation after 2 seconds
-		window.requestAnimationFrame(step);
-	}
-}
-
-// window.requestAnimationFrame(step);
-
-
-
-let netStack = [];
-
-$('body').on('click', '.ui.window.netsurf .scroll-content a', function (e) {
-
-	e.preventDefault(e);
-	var destination = $(this).attr('href');
-	console.log(destination)
-	netStack.push(destination);
-	// $("#NetSurf button").attr('disabled', false);
-	var $content = $(".netsurf .scroll-content");
-	$.get(destination, (data) => $content.html(data));
-});
-
-// $('.netsurf button').on('click', function (e) {
-// 	e.preventDefault(e);
-// 	var destination = netStack.shift();
-// 	console.log(destination)
-// 	var $content = $("#NetSurf .content");
-// 	$.get(destination, (data) => {
-// 		console.log(data)
-// 		$content.html(data)
-// 		// $content.html("<h1>gart</h1>")
-// 	});
-// });
 
 // ----- Navbar Icons ------
 
 $(".niftydex.icon").on("click", function () { $(".niftydex.window").show() })
 $(".netsurf.icon").on("click", function () { $(".netsurf.window").show() })
 $(".paint.icon").on("click", function () { $(".paint.window").show() })
-
-$(document).on('mousedown', mouseDown)
-$(document).on('mouseup', mouseUp)
 
 
 $('.scroll-bar').on('mousedown', function (e) { if (e.which === 1) mouseDown(e); })

@@ -22,7 +22,6 @@
 }
 
 button.icon {
-
 	max-width: 60px;
 	height: 60px;
 	margin: 0 5px;
@@ -30,20 +29,15 @@ button.icon {
 	flex: 1;
 	justify-content: center;
 	align-items: center;
-
 	@include transition(transform 100ms ease-in);
 
-	&:hover {
-		// @extend .lifted;
-	}
+	// &:hover {
+	// }
 
-	&:active {
-		// background-color: #e0e0e0;
-		// background-color: red!important;
-	}
-	&:focus {
-		// @extend .lifted;
-	}
+	// &:active {
+	// }
+	// &:focus {
+	// }
 
 	&.selected {
 		@extend .lifted;
@@ -63,7 +57,6 @@ button.icon {
 		transform: translateZ(-1px) translateY(5px) scale(0.3);
 		@include transition(transform 100ms ease-in);
 	}
-
 
 	border: none;
 	background-color: transparent;
@@ -87,17 +80,147 @@ button.icon {
 .micropaint.icon {
 	background-image: url(/nft/icons/icon-paint.png);
 }
-.snapchat.icon {
+.snap.icon {
 	background-image: url(/nft/icons/icon-snap.png);
 }
 .clock.icon {
 	background-image: url(/nft/icons/icon-clock.png);
-    width: 223px;
-    max-width: 300px;
-    flex: unset;
-    right: 20px;
-    position: absolute;
+	width: 223px;
+	max-width: 300px;
+	flex: unset;
+	right: 20px;
+	position: absolute;
 	@include phone() {
 		display: none;
+	}
+}
+
+// ----- Loading Animation -----
+
+$spinnerBackground: yellow;
+$spinnerColor: #ddd;
+$radius: 20px;
+.spinner {
+	display: none;
+	background: $spinnerBackground;
+	overflow: hidden;
+
+	.wrapper {
+		width: $radius * 2;
+		height: $radius * 2;
+		position: relative;
+	}
+
+	.left {
+		width: $radius;
+		height: $radius * 2;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: $spinnerColor;
+		border-radius: 100px 0 0 100px;
+		z-index: 1;
+		opacity: 0;
+		animation: fill 12s steps(1, end) 1;
+		animation-fill-mode: forwards;
+	}
+
+	.right {
+		width: $radius;
+		height: $radius * 2;
+		position: absolute;
+		top: 0;
+		right: 0;
+		background: $spinnerColor;
+		border-radius: 0 $radius $radius 0;
+		z-index: 1;
+		opacity: 1;
+		animation: mask 12s steps(1, end) 1;
+		animation-fill-mode: forwards;
+	}
+
+	.mask {
+		width: $radius + 1;
+		height: ($radius * 2) + 2;
+		position: absolute;
+		top: -1px;
+		right: -1px;
+		background: $spinnerBackground;
+		z-index: 10;
+		transform-origin: 0 50%;
+		animation: rotate 12s linear 1;
+		animation-fill-mode: forwards;
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+@keyframes fill {
+	0% {
+		opacity: 0;
+	}
+	50%,
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes mask {
+	0% {
+		z-index: 10;
+	}
+	50%,
+	100% {
+		z-index: 30;
+	}
+}
+@keyframes appear {
+	0%,
+	94% {
+		opacity: 0;
+		transform: scale(1.2);
+	}
+	99% {
+		transform: scale(0.96);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.wrapper:hover .left,
+.wrapper:hover .right,
+.wrapper:hover .mask {
+	animation-play-state: paused;
+}
+
+.who.let.the.dogs {
+	position: absolute;
+	bottom: 0px;
+	right: -200px;
+
+
+	&.out {
+		right: 200px;
+		animation: moveDog 4s ease-out;
+		animation-fill-mode: forwards;
+	}
+}
+#Dog {
+	width: 60px;
+}
+
+@keyframes moveDog {
+	from {
+		transform: translateX(0vw);
+	}
+	to {
+		transform: translateX(-100vw);
 	}
 }

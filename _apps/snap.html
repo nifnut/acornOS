@@ -1,0 +1,20 @@
+---
+src: /nft/apps/micropaint.png
+---
+
+
+<div class="app window {{ page.slug }}">
+	<img src="/nft/desktop-portal-1.png" />
+	<img src="/nft/desktop-portal-2.png" />
+	<img src="/nft/desktop-portal-3.png" />
+</div>
+
+
+
+<script>
+	$(function () {
+		$(".snap.window").css({top: "22%",left: "3%"});
+		$(".snap.window img").hide()
+		$(".snap.window").draggable()
+	})
+</script>

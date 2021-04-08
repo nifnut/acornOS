@@ -11,6 +11,9 @@ layout: nifnut
 	<img src="/nft/icons/icon-paulie-zzzz.png" class="paulie-zzz" />
 </div>
 
+<div class="who let the dogs">
+	<img id="Dog" src="/nft/doggo.png" />
+</div>
 
 
 <div class="icons container">
@@ -20,7 +23,18 @@ layout: nifnut
 	<button class="icon notepad"></button>
 	<button class="icon credenza"></button>
 	<button class="icon micropaint"></button>
-	<button class="icon snapchat"></button>
+	<button class="icon snap">
+		<div class="spinner">
+			<div class="wrapper">
+				<div class="left"></div>
+				<div class="right"></div>
+				<div class="mask"></div>
+			</div>
+		</div>
+
+	</button>
+
+
 
 	<button class="icon clock"></button>
 
@@ -29,21 +43,6 @@ layout: nifnut
 </div>
 
 
-<!-- <div id='Paulie' class="cursor paulie">
-	<img class="shadow" src="/assets/paulie/shadow.svg" />
-	<img class="body" src="/assets/paulie/body.svg" />
-	<img class="face smirk" src="/assets/paulie/body-smirk.svg" />
-	<img class="face small asleep" src="/assets/paulie/face-sleep-small-o.png" />
-	<img class="face big asleep" src="/assets/paulie/face-sleep-big-o.png" />
-</div> -->
-
-
-
 {% for app_window in site.apps %}
 {{ app_window }}
 {% endfor %}
-
-
-
-
-<!-- <div class="desktop icon fart" data-filename="fart.gif"></div> -->

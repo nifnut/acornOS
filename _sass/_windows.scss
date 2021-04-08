@@ -112,3 +112,12 @@ $content-height: calc(100% - #{$header-height});
 		// top: 5%;
 	}
 }
+
+
+.snap.window {
+	width: 250px;
+
+	@include phone() {
+		width: 70%;
+	}
+}

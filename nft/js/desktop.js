@@ -14,6 +14,7 @@ function focusApp(appName) {
 	const $icon = $(".icon." + appName);
 	const $window = $(".window." + appName);
 	$icon.addClass("selected");
+	// $window.toggle("puff", {duration: 100});
 	$window.show();
 	windowLayers.push(appName);
 	topWindowZ++;
@@ -25,6 +26,8 @@ function closeApp(appName) {
 	const $window = $(".window." + appName);
 	$icon.removeClass("selected");
 	$window.hide();
+
+	// $window.toggle("puff", {duration:100});
 	windowLayers.pop();
 	appInFocus = windowLayers[windowLayers.length - 1];
 }
@@ -43,8 +46,15 @@ function handleIconClick(e) {
 		$("body").toggleClass("poweredOff");
 		return;
 	}
+	if (appName === "clock") {
 
-	if (appInFocus === appName) {
+		$(".who.let.the.dogs").addClass("out");
+
+
+		// return;
+	}
+
+	if ($(this).hasClass("selected")) {
 		closeApp(appName);
 	} else {
 		focusApp(appName);
