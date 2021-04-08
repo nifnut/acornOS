@@ -25,9 +25,9 @@ function createSound(id, filename) {
 let Sounds = {};
 
 Sounds["clickDown"] = createSound("clickDown", '/assets/sounds/click_down.mp3');
-Sounds["clickUp"] = createSound("clickDown", '/assets/sounds/click_up.mp3');
-Sounds["Music"] = createSound("clickDown", 'https://ipfs.fleek.co/ipfs/bafybeiaxogkjfqcfqrrt25kqkxdy3pzcgz7ctchdjjii5ufapw7bkpuh74');
-Sounds["Fart"] = createSound("clickDown", '/assets/sounds/fart.mp3');
+Sounds["clickUp"] = createSound("clickUp", '/assets/sounds/click_up.mp3');
+Sounds["Music"] = createSound("Music", 'https://ipfs.fleek.co/ipfs/bafybeiaxogkjfqcfqrrt25kqkxdy3pzcgz7ctchdjjii5ufapw7bkpuh74');
+Sounds["Fart"] = createSound("Fart", '/assets/sounds/fart.mp3');
 
 Sounds["clickDown"].load();
 Sounds["clickUp"].load();

@@ -96,27 +96,21 @@ const desktopStory = [
 	// updater
 ];
 
-
+// Different plotlines for difference devices
 const storyBeats = mobileAndTabletCheck() ? mobileStory : desktopStory;
 
-
-
-let i = 0;
+let beatIndex = 0;
 
 function nextBeat() {
-	i++;
-	console.log("asdf");
-	const playBeat = storyBeats[i];
-
+	beatIndex++;
+	const playBeat = storyBeats[beatIndex];
 	playBeat();
 }
 
 function startStory() {
 	$("body").removeClass("loading");
-
 	nextBeat();
 }
-
 
 // Initial State
 $('.snap.icon').hide();
