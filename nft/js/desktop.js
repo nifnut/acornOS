@@ -1,4 +1,3 @@
-/** @format */
 
 
 let topWindowZ = 5;
@@ -27,7 +26,7 @@ function closeApp(appName) {
 	$icon.removeClass("selected");
 	$window.hide();
 	windowLayers.pop();
-	appInFocus = windowLayers[windowLayers.length-1];
+	appInFocus = windowLayers[windowLayers.length - 1];
 }
 
 

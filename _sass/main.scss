@@ -21,10 +21,6 @@ $background-color: $green;
 	src: url("/nft/font/terminal-grotesque.ttf");
 }
 
-.debug {
-	border: solid 1px red;
-}
-
 @import "shared";
 @import "base", "layout";
-@import "icons", "windows";
+@import "icons", "windows", "cursor";
