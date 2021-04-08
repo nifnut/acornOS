@@ -32,7 +32,6 @@ $paulie.attr("id", "Paulie");
 $paulie.addClass("cursor");
 
 // $paulie.addClass("floating");
-
 // $paulie.addClass("wandering");
 
 $paulie.append($shadow);
@@ -41,8 +40,8 @@ $paulie.append($body);
 $paulie.width(PAULIE_WIDTH);
 $paulie.height(PAULIE_HEIGHT);
 
-$paulie.offsetX = 2;
-$paulie.offsetY = 0;
+let offsetX = "2px";
+let offsetY = "0px";
 
 // $paulie.offsetX = SCREEN_WIDTH / 2 - WIDTH / 2
 // $paulie.offsetY = SCREEN_HEIGHT / 2 - HEIGHT / 2
@@ -77,14 +76,14 @@ function mouseDown(e) {
 function updatePauliePosition() {
 	$paulie.removeClass("wandering");
 	$paulie.css({
-		left: $paulie.offsetX,
-		top: $paulie.offsetY,
-		transform: `translate(${cursorX}px, ${cursorY}px)`
+		left: offsetX,
+		top: offsetY,
+		transform: `translate(${cursorX}, ${cursorY})`
 	});
 }
 function recordCursorPosition(e) {
-	cursorX = e.pageX;
-	cursorY = e.pageY;
+	cursorX = e.pageX + "px";
+	cursorY = e.pageY + "px";
 };
 function onVisibilityChange() {
 	console.log("window hidden changed");
