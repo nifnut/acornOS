@@ -97,16 +97,22 @@ button.icon {
 
 // ----- Loading Animation -----
 
-$spinnerBackground: yellow;
-$spinnerColor: #ddd;
+$spinnerBackground: black;
+$spinnerColor: yellow;
 $radius: 20px;
-$duration: 10s;
+$duration: 20s;
 .spinner {
-	// display: none;
 	background: $spinnerBackground;
 	overflow: hidden;
+	border-radius: 10px;
+	max-width: 100px;
+	width: 56px;
+    height: 56px;
+	position: absolute;
 
 	.wrapper {
+		left: 7px;
+		top: 7px;
 		width: $radius * 2;
 		height: $radius * 2;
 		position: relative;
@@ -195,17 +201,10 @@ $duration: 10s;
 	}
 }
 
-.wrapper:hover .left,
-.wrapper:hover .right,
-.wrapper:hover .mask {
-	animation-play-state: paused;
-}
-
 .who.let.the.dogs {
 	position: absolute;
 	bottom: 0px;
 	right: -200px;
-
 
 	&.out {
 		right: 200px;

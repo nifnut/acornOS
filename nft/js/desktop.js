@@ -3,11 +3,7 @@
 let topWindowZ = 5;
 let appInFocus = null;
 let windowLayers = [];
-
-function initialize() {
-	focusApp("credenza");
-}
-
+let isMusicPlaying = false;
 
 function focusApp(appName) {
 	appInFocus = appName;
@@ -32,6 +28,22 @@ function closeApp(appName) {
 	appInFocus = windowLayers[windowLayers.length - 1];
 }
 
+function toggleMusic() {
+	if(isMusicPlaying) {
+		Sounds["Music"].pause();
+		$('.credenza.app').removeClass("playing");
+		isMusicPlaying = false;
+	} else {
+		Sounds["Music"].play();
+		$('.credenza.app').addClass("playing");
+		isMusicPlaying = true;
+	}
+	
+}
+
+function stopMusic() {
+	
+}
 
 function handleIconClick(e) {
 
@@ -47,13 +59,12 @@ function handleIconClick(e) {
 		return;
 	}
 	if (appName === "clock") {
-
 		$(".who.let.the.dogs").addClass("out");
-
-
-		// return;
 	}
 
+	if (appName === "credenza") {
+		toggleMusic()
+	}
 	if ($(this).hasClass("selected")) {
 		closeApp(appName);
 	} else {
@@ -63,9 +74,26 @@ function handleIconClick(e) {
 }
 
 
+function handleWindowClick(e) {
+
+	const appName = $(this)
+		.attr('class')
+		.replace("window", "")
+		.replace("ui-draggable", "")
+		.replace("app", "")
+		.trim();
+
+	focusApp(appName);
+}
+
+
+// Initialize State
+
+
+
 $(function () {
 	$(".icon").on("click", handleIconClick);
+	$(".app.window").on("mousedown", handleWindowClick);
 
-
-	initialize();
+	$('.app.window').draggable({ containment: "body" });
 });

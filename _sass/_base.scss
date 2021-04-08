@@ -54,6 +54,12 @@ audio.sounds {
 	display: none;
 }
 
+body.loading {
+	.app.window {
+		display: none;
+	}
+}
+
 // ========= Mobile Crap =========
 
 .disable-text-highlight {

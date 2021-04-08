@@ -1,3 +1,16 @@
+
+
+
+
+
+// ====================================================
+
+
+// ====================================================
+
+
+
+
 // const SCREEN_WIDTH = document.body.clientWidth;
 // const SCREEN_HEIGHT = document.body.clientHeight;
 // const COMPUTED_SCALE = invlerp(900, 2000, document.body.clientWidth);
@@ -63,13 +76,13 @@ $paulie.playSound = function (noise, volume = 0.2) {
 
 function mouseUp(e) {
 	if (e.which !== 1) return;
-	$paulie.playSound("ClickUp");
+	// $paulie.playSound("ClickUp");
 	$paulie.isClicking = false;
 	$paulie.removeClass("clicking");
 };
 function mouseDown(e) {
 	if (e.which !== 1) return;
-	$paulie.playSound("ClickDown");
+	// $paulie.playSound("ClickDown");
 	$paulie.isClicking = true;
 	$paulie.addClass("clicking");
 };
