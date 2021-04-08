@@ -41,19 +41,63 @@ const mobileStory = [
 		}, 2000);
 	},
 	// updater
-	
+
 
 ];
 const desktopStory = [
 	function () { },
-	function () {
 
-		// download complete
+	function () {
+		$(".snap.icon").hide();
+
+
+
+
 		setTimeout(function () {
 			nextBeat();
 		}, 1000);
 	},
+
 	function () {
+
+		$(".snap.icon").show();
+
+		$(".newgame.window").show({ easing: "easeOutBounce", effect: "scale", duration: 500 });
+
+		// $(".snap.window").show();
+		// download complete
+		setTimeout(function () {
+			nextBeat();
+		}, 10000);
+	},
+
+	function () {
+
+
+		// $(".snap.icon").effect("shake", {
+		// 	easing: "easeOutBounce",
+		// 	times: 3,
+		// 	distance: 10,
+		// 	direction: "up"
+		// });
+
+		$('.snap.icon .spinner').hide();
+
+		$('.snap.icon').on("click", function() {
+			nextBeat();
+		})
+
+	},
+	function () {
+		var $img = $(".snap.window img:nth-child(1)");
+		$img.show();
+		$(".snap.window").show({ effect: "scale", duration: 500 });
+
+		setTimeout(function () {
+			nextBeat();
+		}, 1000);
+	},
+	function() {
 		$(".snap.window img:nth-child(1)").show();
 
 		setTimeout(function () {
@@ -77,6 +121,10 @@ const desktopStory = [
 			// nextBeat();
 		}, 2000);
 	},
+
+	function () {
+		$(".updater.window img").show();
+	},
 	// updater
 ];
 
@@ -89,10 +137,13 @@ let i = 0;
 
 function nextBeat() {
 	i++;
-console.log("asdf")
+	console.log("asdf");
 	const playBeat = storyBeats[i];
 
 	playBeat();
 }
 
-nextBeat();
+
+$(function () {
+	nextBeat();
+});

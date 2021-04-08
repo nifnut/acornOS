@@ -5,8 +5,8 @@
 // const WIDTH_MIN = 40; // SCALE = 0
 // const WIDTH_MAX = 70; // SCALE = 1
 
-const PAULIE_HEIGHT = 190;
-const PAULIE_WIDTH = 120;
+const PAULIE_HEIGHT = 95;
+const PAULIE_WIDTH = 60;
 
 let cursorX = null;
 let cursorY = null;

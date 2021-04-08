@@ -1,0 +1,15 @@
+---
+src: /nft/apps/new-game.png
+---
+
+<div class="app window {{ page.slug }}">
+	<img src="{{ page.src }}" />
+</div>
+
+<script>
+	$(function () {
+		$(".newgame.window").css({top: "10%",left: "10%",});
+		$(".newgame.window").hide()
+		$(".newgame.window").draggable()
+	})
+</script>

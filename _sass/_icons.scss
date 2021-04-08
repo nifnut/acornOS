@@ -100,8 +100,9 @@ button.icon {
 $spinnerBackground: yellow;
 $spinnerColor: #ddd;
 $radius: 20px;
+$duration: 10s;
 .spinner {
-	display: none;
+	// display: none;
 	background: $spinnerBackground;
 	overflow: hidden;
 
@@ -121,7 +122,7 @@ $radius: 20px;
 		border-radius: 100px 0 0 100px;
 		z-index: 1;
 		opacity: 0;
-		animation: fill 12s steps(1, end) 1;
+		animation: fill $duration steps(1, end) 1;
 		animation-fill-mode: forwards;
 	}
 
@@ -135,7 +136,7 @@ $radius: 20px;
 		border-radius: 0 $radius $radius 0;
 		z-index: 1;
 		opacity: 1;
-		animation: mask 12s steps(1, end) 1;
+		animation: mask $duration steps(1, end) 1;
 		animation-fill-mode: forwards;
 	}
 
@@ -148,7 +149,7 @@ $radius: 20px;
 		background: $spinnerBackground;
 		z-index: 10;
 		transform-origin: 0 50%;
-		animation: rotate 12s linear 1;
+		animation: rotate $duration linear 1;
 		animation-fill-mode: forwards;
 	}
 }
