@@ -87,10 +87,6 @@ function handleWindowClick(e) {
 }
 
 
-// Initialize State
-
-
-
 $(function () {
 	$(".icon").on("click", handleIconClick);
 	$(".app.window").on("mousedown", handleWindowClick);

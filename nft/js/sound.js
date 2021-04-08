@@ -19,8 +19,6 @@ function createSound(id, filename) {
 	sound.volume = 0.3;
 	sound.style.display = "none";
 
-	document.body.appendChild(sound);
-
 	return sound;
 }
 
@@ -28,7 +26,7 @@ let Sounds = {};
 
 Sounds["clickDown"] = createSound("clickDown", '/assets/sounds/click_down.mp3');
 Sounds["clickUp"] = createSound("clickDown", '/assets/sounds/click_up.mp3');
-Sounds["Music"] = createSound("clickDown", '/nft/Amaretto-Stumble.mp3');
+Sounds["Music"] = createSound("clickDown", 'https://ipfs.fleek.co/ipfs/bafybeiaxogkjfqcfqrrt25kqkxdy3pzcgz7ctchdjjii5ufapw7bkpuh74');
 Sounds["Fart"] = createSound("clickDown", '/assets/sounds/fart.mp3');
 
 Sounds["clickDown"].load();

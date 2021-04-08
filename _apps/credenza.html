@@ -1,8 +1,30 @@
 ---
-src: /nft/apps/credenza.png
+src: /nft/credenza.svg
 ---
 
 <div class="app window {{ page.slug }}">
 	<img src="/nft/images/credenza.gif" class="gif" />
 	<img src="{{ page.src }}" />
+
+	<div class="left link"></div>
+	<div class="right link"></div>
 </div>
+
+<script>
+
+	$(function() {
+		var music = document.querySelector(".credenza.app.window");
+		
+		Sounds["Music"].style.display = "block";
+		music.appendChild(Sounds["Music"]);
+
+		$('.credenza.app .left.link').on("click",function() {
+			window.open("https://beta.catalog.works/gold/pulling-back-the-curtains");
+		})
+
+		$('.credenza.app .left.right').on("click",function() {
+			window.open("https://zora.fm");
+		})
+	})
+	
+</script>
