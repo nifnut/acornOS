@@ -5,6 +5,8 @@ window.mobileAndTabletCheck = function () {
 };
 
 
+const DOWNLOAD_TIME = 29000;
+
 const mobileStory = [
 	function () { },
 	function () {
@@ -44,16 +46,12 @@ const desktopStory = [
 
 	function () {
 		focusApp("niftydex");
-		setTimeout(function () {
-			nextBeat();
-		}, 30000);
-	},
-
-	function () {
 		$(".snap.icon").show();
-		setTimeout(function () {
-			nextBeat();
-		}, 10000);
+		setTimeout(nextBeat, DOWNLOAD_TIME);
+	},
+	function () {
+		// play "down load done sound"
+		setTimeout(nextBeat, 1000);
 	},
 
 	function () {
@@ -70,30 +68,26 @@ const desktopStory = [
 		$(".snap.window img").hide();
 		$(".snap.window img.kevaid").show();
 		focusApp("snap");
-		setTimeout(function () { nextBeat(); }, 3000);
+		setTimeout(nextBeat, 3000);
 	},
 	function () {
 		$(".snap.window img").hide();
 		$(".snap.window img.booting").show();
-		setTimeout(function () { nextBeat(); }, 2000);
+		setTimeout(nextBeat, 2000);
 	},
-
 	function () {
 		$(".snap.window img").hide();
 		$(".snap.window img.scan").show();
-		
-		setTimeout(function () { nextBeat(); }, 2000);
+		setTimeout(nextBeat, 2000);
 	},
 	function () {
 		$(".snap.window .space").css("opacity", 1);
-		setTimeout(function () {nextBeat();}, 4000);
+		setTimeout(nextBeat, 4000);
 	},
-
 	function () {
 		$(".updater.window").show();
-		focusApp("updater")
+		focusApp("updater");
 	},
-	// updater
 ];
 
 // Different plotlines for difference devices
@@ -117,7 +111,4 @@ $('.snap.icon').hide();
 $('.app.window').hide();
 $('.app.window.snap img').hide();
 
-
-$(function () {
-	startStory();
-});
+window.addEventListener('load', startStory);

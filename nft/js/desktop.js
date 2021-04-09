@@ -18,6 +18,7 @@ function focusApp(appName) {
 }
 
 function closeApp(appName) {
+	console.log("close app: " + appName);
 	const $icon = $(".icon." + appName);
 	const $window = $(".window." + appName);
 	$icon.removeClass("selected");
@@ -29,7 +30,7 @@ function closeApp(appName) {
 }
 
 function toggleMusic() {
-	if(isMusicPlaying) {
+	if (isMusicPlaying) {
 		Sounds["Music"].pause();
 		$('.credenza.app').removeClass("playing");
 		isMusicPlaying = false;
@@ -38,11 +39,7 @@ function toggleMusic() {
 		$('.credenza.app').addClass("playing");
 		isMusicPlaying = true;
 	}
-	
-}
 
-function stopMusic() {
-	
 }
 
 function handleIconClick(e) {
@@ -63,7 +60,7 @@ function handleIconClick(e) {
 	}
 
 	if (appName === "credenza") {
-		toggleMusic()
+		toggleMusic();
 	}
 	if ($(this).hasClass("selected")) {
 		closeApp(appName);
@@ -86,10 +83,31 @@ function handleWindowClick(e) {
 	focusApp(appName);
 }
 
+function closeWindow(e) {
+
+
+
+	const CANT_CLOSE = ['updater'];
+
+	const appName = $(this).parent()
+		.attr('class')
+		.replace("window", "")
+		.replace("ui-draggable", "")
+		.replace("app", "")
+		.trim();
+
+	if (CANT_CLOSE.includes(appName)) {
+		alert("nice try, buddy. I'M THE UPDATER");
+	} else {
+		closeApp(appName);
+		e.stopPropagation();
+	}
+}
 
 $(function () {
 	$(".icon").on("click", handleIconClick);
 	$(".app.window").on("mousedown", handleWindowClick);
+	$(".app.window .close").on("click", closeWindow);
 
 	$('.app.window').draggable({ containment: "body" });
 });

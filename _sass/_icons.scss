@@ -1,13 +1,5 @@
-@mixin icon($label, $filename) {
-	background-image: url($filename);
-	&::after {
-		content: $label;
-	}
-}
-
 .lifted {
 	@include transform(translateY(-15px));
-
 	&::after {
 		content: "";
 		position: absolute;
@@ -21,6 +13,11 @@
 	}
 }
 
+.pressed {
+	border-radius: 10px;
+    box-shadow: 0px 0px 10px 7px #4c4c4c2c inset;
+}
+
 button.icon {
 	max-width: 60px;
 	height: 60px;
@@ -29,22 +26,14 @@ button.icon {
 	flex: 1;
 	justify-content: center;
 	align-items: center;
+	transform-style: preserve-3d; // for shadow z-index to work
 	@include transition(transform 100ms ease-in);
-
-	// &:hover {
-	// }
-
-	// &:active {
-	// }
-	// &:focus {
-	// }
-
+	&:active {
+		@extend .pressed;
+	}
 	&.selected {
 		@extend .lifted;
 	}
-
-	transform-style: preserve-3d;
-
 	&::after {
 		content: "";
 		position: absolute;
@@ -57,7 +46,6 @@ button.icon {
 		transform: translateZ(-1px) translateY(5px) scale(0.3);
 		@include transition(transform 100ms ease-in);
 	}
-
 	border: none;
 	background-color: transparent;
 	background-size: 100%;
@@ -82,6 +70,7 @@ button.icon {
 }
 .snap.icon {
 	background-image: url(/nft/icons/icon-snap.png);
+	// border-radius: 15px;
 }
 .clock.icon {
 	background-image: url(/nft/icons/icon-clock.png);
@@ -100,7 +89,8 @@ button.icon {
 $spinnerBackground: black;
 $spinnerColor: yellow;
 $radius: 20px;
-$duration: 10s;
+$duration: 30s;
+$delay: 2s;
 .spinner {
 	background: $spinnerBackground;
 	overflow: hidden;
@@ -130,6 +120,7 @@ $duration: 10s;
 		opacity: 0;
 		animation: fill $duration steps(1, end) 1;
 		animation-fill-mode: forwards;
+		animation-delay: $delay;
 	}
 
 	.right {
@@ -144,6 +135,7 @@ $duration: 10s;
 		opacity: 1;
 		animation: mask $duration steps(1, end) 1;
 		animation-fill-mode: forwards;
+		animation-delay: $delay;
 	}
 
 	.mask {
@@ -157,6 +149,7 @@ $duration: 10s;
 		transform-origin: 0 50%;
 		animation: rotate $duration linear 1;
 		animation-fill-mode: forwards;
+		animation-delay: $delay;
 	}
 }
 

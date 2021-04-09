@@ -6,55 +6,65 @@ $header-height: 50px;
 $content-height: calc(100% - #{$header-height});
 
 .app.window {
-	// z-index: 10;
-	// max-width: 100%;
 	position: absolute;
 
 	h1.header {
 		margin: 0;
 		background: $grey;
-		// z-index: 100;
 		position: absolute;
 		width: 100%;
 		line-height: $header-height;
-
 		font-size: 22px;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
-	.close {
-		// $size: 27px;
-		// width: $size !important;
-		// height: $size !important;
-		// min-width: $size !important;
-		// min-height: $size !important;
-		// z-index: 100;
-		// border-color: black;
-		// border-style: solid;
-		// border-width: 5px;
-		// background: $red;
-		// margin: 4px;
-		// margin: 0 10px;
-		// @include border-radius(40px);
-		// @include transition(all 100ms);
-		// &:hover {
-		// 	@include transform(scale(1.1));
-		// }
-	}
 
 	$grey: #d8d8d8;
 
+	.close {
+		position: absolute;
+		top: 8px;
+		left: 3px;
+		$size: 25px;
+		width: $size !important;
+		height: $size !important;
+		min-width: $size !important;
+		min-height: $size !important;
+		z-index: 100;
+		border-color: black;
+		border-style: solid;
+		border-width: 4px;
+		background: $red;
+		margin: 4px;
+		margin: 0 10px;
+		opacity: 0;
+		@include border-radius(40px);
+		@include transition(all 100ms);
+		&:hover {
+			
+			@include transform(scale(1.1));
+		}
+	}
+
 	.content {
-		// position: absolute;
-		// top: 0px;
 		width: 100%;
 		height: 100%;
 		background: white;
 	}
 	img {
-		max-width: 100%;
+
+		width: 100%;
+		@include transition(all 100ms ease-in);
 	}
+
+	// &:active {
+	// 	img {
+	// 		width: 100.2%;
+	// 		margin-left: -0.1%;
+	// 		margin-top: -0.1%;
+	// 	}	
+	// }
 }
 
 .window.border {
@@ -70,21 +80,6 @@ $content-height: calc(100% - #{$header-height});
 	top: 10%;
 	left: 60%;
 	background-color: black;
-
-	h1.header {
-		position: relative;
-	}
-
-	.content {
-		position: relative;
-		height: auto;
-		background-color: black;
-	}
-	p {
-		text-align: center;
-		color: white;
-		font-size: 20px;
-	}
 
 }
 
@@ -113,21 +108,21 @@ $content-height: calc(100% - #{$header-height});
 
 	img.gif {
 		position: absolute;
-		left: 82px;
-		top: 32px;
 		display: none;
-		width: 80px;
+		left: 113px;
+		top: 42px;
+		width: 114px;
 	}
-
 	.link {
 		position: absolute;
-		width: 69px;
-		height: 51px;
 		border: solid 3px #f5000000;
-		top: 36px;
+
+		width: 97px;
+		height: 71px;
+		top: 50px;
 		
 		&.left {
-			left: 8px;
+			left: 13px;
 		}
 		&.right {
 			right: 8px;
@@ -170,12 +165,12 @@ $content-height: calc(100% - #{$header-height});
 	.space {
 		opacity: 0;
 		position: absolute;
-
-		top: 79px;
-		left: 52px;
 		border-radius: 200px;
-		height: 150px;
-		width: 150px;
+
+		top: 110px;
+		left: 75px;
+		height: 200px;
+		width: 200px;
 
 		// background-color: red;
 		background-image: url(/nft/images/stargate.gif);
@@ -190,6 +185,7 @@ $content-height: calc(100% - #{$header-height});
 	left: 50%;
 	top: 30%;
 	margin-left: -200px;
+	z-index: 900!important;
 }
 
 @include phone() {
@@ -206,3 +202,5 @@ $content-height: calc(100% - #{$header-height});
 		display: none !important;
 	}
 }
+
+
