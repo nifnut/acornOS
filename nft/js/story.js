@@ -10,10 +10,11 @@ const DOWNLOAD_TIME = 29000;
 const mobileStory = [
 	function () { },
 	function () {
-
-		focusApp("niftydex");
+		$('.niftydex.icon').click(nextBeat)
 	},
 	function () {
+		$('.niftydex.icon').click(nextBeat)
+
 		$(".snap.window img:nth-child(1)").show();
 
 		setTimeout(function () {
@@ -103,12 +104,14 @@ function nextBeat() {
 
 function startStory() {
 	$("body").removeClass("loading");
-	nextBeat();
+	// nextBeat();
 }
 
 // Initial State
 $('.snap.icon').hide();
 $('.app.window').hide();
 $('.app.window.snap img').hide();
+
+$('.app.window.micropaint').show();
 
 window.addEventListener('load', startStory);
