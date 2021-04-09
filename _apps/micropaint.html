@@ -4,31 +4,15 @@ header: micropaint
 ---
 
 <div class="swatches">
-	<div class="green"></div>
-	<div class="blue"></div>
+	<button style="background-color: #000000"></button>
+	<button style="background-color:#FF00F0"></button>
+	<button style="background-color: #FFE900"></button>
+	<button style="background-color: #0013FF"></button>
+	<button style="background-color: #00FFFD"></button>
+	<button style="background-color: #00FF19"></button>
+	<button style="background-color: #FF0000"></button>
 </div>
 
-<canvas id="MicropaintCanvas" style="border:solid black 1px;"></canvas>
+<canvas id="MicropaintCanvas" class="drawing"></canvas>
 
-	<button class="mint">mint</button>
-	<!-- <button class="clear">clear</button> -->
-
-<script>
-
-	$(function () {
-
-		$('.mint').on("click",function() {
-			$('.micropaint canvas').css("background", "#91ffcd")
-		})
-
-
-		$('.micropaint.dynamicwindow').draggable({
-			handle: '.header',
-			containment: "body",
-			// cursor: "none"
-		});
-
-		$(".micropaint.window").hide();
-
-	})
-</script>
+<button class="mint">clear</button>

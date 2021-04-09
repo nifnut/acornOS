@@ -16,9 +16,7 @@ function focusApp(appName) {
 	topWindowZ++;
 	$window.css("zIndex", topWindowZ);
 }
-
 function closeApp(appName) {
-	console.log("close app: " + appName);
 	const $icon = $(".icon." + appName);
 	const $window = $(".window." + appName);
 	$icon.removeClass("selected");
@@ -28,7 +26,6 @@ function closeApp(appName) {
 	windowLayers.pop();
 	appInFocus = windowLayers[windowLayers.length - 1];
 }
-
 function toggleMusic() {
 	if (isMusicPlaying) {
 		Sounds["Music"].pause();
@@ -41,7 +38,6 @@ function toggleMusic() {
 	}
 
 }
-
 function handleIconClick(e) {
 
 	const appName = $(this)
@@ -69,8 +65,6 @@ function handleIconClick(e) {
 	}
 
 }
-
-
 function handleWindowClick(e) {
 
 	const appName = $(this)
@@ -82,10 +76,7 @@ function handleWindowClick(e) {
 
 	focusApp(appName);
 }
-
 function closeWindow(e) {
-
-
 
 	const CANT_CLOSE = ['updater'];
 
@@ -93,12 +84,14 @@ function closeWindow(e) {
 		.attr('class')
 		.replace("window", "")
 		.replace("ui-draggable", "")
+		.replace("playing", "")
 		.replace("app", "")
 		.trim();
 
 	if (CANT_CLOSE.includes(appName)) {
 		alert("nice try, buddy. I'M THE UPDATER");
 	} else {
+		console.log('close',appName)
 		closeApp(appName);
 		e.stopPropagation();
 	}
@@ -110,4 +103,6 @@ $(function () {
 	$(".app.window .close").on("click", closeWindow);
 
 	$('.app.window').draggable({ containment: "body" });
+
+	$('.app.window.micropaint').draggable({ containment: "body", handle: '.header',/* cursor: "none"*/ });
 });

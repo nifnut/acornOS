@@ -14,10 +14,9 @@ let size = 6;
 
 var ongoingTouches = [];
 
+canvas.width = 350;
+canvas.height = 350;
 
-canvas.width = canvas.parentNode.clientWidth - 50;
-canvas.height = canvas.parentNode.clientHeight - 50;
-// var ctx = canvas.getContext("2d");
 
 
 let strokeWidth = 15;
@@ -49,6 +48,7 @@ canvas.addEventListener("mousedown", (e) => {
 	prevY = e.offsetY;
 	makeLine = true;
 	drawPoint(e.offsetX, e.offsetY);
+	$('.micropaint button').show();
 });
 
 
@@ -89,6 +89,8 @@ function handleStart(evt) {
 	var { top, left } = offset(canvas);
 	var touches = evt.changedTouches;
 
+	$('.micropaint button').show();
+	
 	for (var i = 0; i < touches.length; i++) {
 
 		ongoingTouches.push(copyTouch(touches[i]));
@@ -183,10 +185,20 @@ function ongoingTouchIndexById(idToFind) {
 }
 
 
-$('.swatches div').on("click", function() {
-	color = $(this).attr("class");
-	console.log(color)
-})
+$('.swatches button').on("click", function () {
+	color = $(this).css("backgroundColor");
+});
+
+$('.micropaint button.mint').on("click", function () {
+	if ($('.micropaint canvas').hasClass("drawing")) {
+		$('.micropaint canvas').removeClass("drawing");
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		$(this).hide()
+		$(this).text("mint")
+	} else {
+		$('.micropaint canvas').css("background", "#91ffcd");
+	}
+});
 
 
 function startup() {

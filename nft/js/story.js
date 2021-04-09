@@ -10,37 +10,47 @@ const DOWNLOAD_TIME = 29000;
 const mobileStory = [
 	function () { },
 	function () {
-		$('.niftydex.icon').click(nextBeat)
+		focusApp("niftydex");
+		setTimeout(nextBeat, 1000);
 	},
 	function () {
-		$('.niftydex.icon').click(nextBeat)
-
-		$(".snap.window img:nth-child(1)").show();
-
-		setTimeout(function () {
-			nextBeat();
-		}, 2000);
+		setTimeout(nextBeat, DOWNLOAD_TIME);
 	},
 
+	function () {
+		// $(".newgame.window").show();
+		focusApp("newgame");
+		$('.snap.icon').removeClass("unloaded");
+		$('.snap.icon .spinner').hide();
+		$('.snap.icon').on("click", function () {
+			nextBeat();
+		});
+	},
+	function () {
+		$(".snap.window").show();
+		$(".snap.window img").hide();
+		$(".snap.window img.kevaid").show();
+		focusApp("snap");
+		setTimeout(nextBeat, 3000);
+	},
 	function () {
 		$(".snap.window img").hide();
-		$(".snap.window img:nth-child(2)").show();
-
-		setTimeout(function () {
-			nextBeat();
-		}, 2000);
+		$(".snap.window img.booting").show();
+		setTimeout(nextBeat, 2000);
 	},
 	function () {
 		$(".snap.window img").hide();
-		$(".snap.window img:nth-child(3)").show();
-
-		setTimeout(function () {
-			// nextBeat();
-		}, 2000);
+		$(".snap.window img.scan").show();
+		setTimeout(nextBeat, 2000);
 	},
-	// updater
-
-
+	function () {
+		$(".snap.window .space").css("opacity", 1);
+		setTimeout(nextBeat, 4000);
+	},
+	function () {
+		$(".updater.window").show();
+		focusApp("updater");
+	},
 ];
 const desktopStory = [
 	function () { },
@@ -54,7 +64,6 @@ const desktopStory = [
 		// play "down load done sound"
 		setTimeout(nextBeat, 1000);
 	},
-
 	function () {
 		$(".newgame.window").show({ easing: "easeOutBounce", effect: "scale", duration: 500 });
 		focusApp("newgame");
@@ -103,15 +112,15 @@ function nextBeat() {
 }
 
 function startStory() {
+
+	// $('.snap.icon').hide();
+	$('.app.window').hide();
+	$('.app.window.snap img').hide();
+
 	$("body").removeClass("loading");
-	// nextBeat();
+	nextBeat();
+
 }
 
-// Initial State
-$('.snap.icon').hide();
-$('.app.window').hide();
-$('.app.window.snap img').hide();
-
-$('.app.window.micropaint').show();
 
 window.addEventListener('load', startStory);
