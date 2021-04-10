@@ -18,7 +18,6 @@ const mobileStory = [
 	},
 
 	function () {
-		// $(".newgame.window").show();
 		focusApp("newgame");
 		$('.snap.icon').removeClass("unloaded");
 		$('.snap.icon .spinner').hide();
@@ -29,28 +28,15 @@ const mobileStory = [
 	function () {
 		$(".snap.window").show();
 		$(".snap.window img").hide();
-		$(".snap.window img.kevaid").show();
-		focusApp("snap");
-		setTimeout(nextBeat, 3000);
-	},
-	function () {
-		$(".snap.window img").hide();
-		$(".snap.window img.booting").show();
-		setTimeout(nextBeat, 2000);
-	},
-	function () {
-		$(".snap.window img").hide();
-		$(".snap.window img.scan").show();
-		setTimeout(nextBeat, 2000);
-	},
-	function () {
 		$(".snap.window .space").css("opacity", 1);
-		setTimeout(nextBeat, 4000);
-	},
-	function () {
+		$(".snap.window img.scan").show();
 		$(".updater.window").show();
 		focusApp("updater");
+		setTimeout(nextBeat, 4000);
 	},
+	function() {
+		window.location = "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=1beaf607b093480f9024be3f1d1f9774&metadata=01"
+	}
 ];
 const desktopStory = [
 	function () { },
