@@ -1,4 +1,10 @@
 ---
-layout: app_window
 src: /nft/images/window-notepad.png
 ---
+
+
+<div class="app window {{ page.slug }}">
+	<div class="close" style="opacity:0"></div>
+	<img class="desktop" src="{{ page.src }}?cachedz=2" />
+	<img class="mobile" src="/nft/images/window-notepad-mobile.png?cachedz=2" />
+</div>
