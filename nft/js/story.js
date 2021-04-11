@@ -35,9 +35,7 @@ const desktopStory = [
 		setTimeout(nextBeat, DOWNLOAD_TIME);
 	},
 	function () {
-		// play "down load done sound"
-		// setTimeout(nextBeat, 1000);
-		window.open('https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=1beaf607b093480f9024be3f1d1f9774&metadata=01', '_blank', 'resizable=yes');
+		setTimeout(nextBeat, 1000);
 	},
 	function () {
 		$(".newgame.window").show({ easing: "easeOutBounce", effect: "scale", duration: 500 });
