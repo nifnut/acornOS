@@ -35,7 +35,7 @@ const mobileStory = [
 		setTimeout(nextBeat, 4000);
 	},
 	function() {
-		window.location = "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=1beaf607b093480f9024be3f1d1f9774&metadata=01"
+		window.location = "https://click.snapchat.com/aVHG?pid=snapchat_download_page&af_dp=https://snapchat.com/unlock/?type%3DSNAPCODE%26uuid%3D1beaf607b093480f9024be3f1d1f9774%26metadata%3D01%26sc_referrer%3Dweb&af_web_dp=https://snapchat.com/download?purpose%3Dweb_stories"
 	}
 ];
 const desktopStory = [
