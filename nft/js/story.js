@@ -35,8 +35,9 @@ const mobileStory = [
 		setTimeout(nextBeat, 4000);
 	},
 	function () {
-		const SNAPCHAT_URL = "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=1beaf607b093480f9024be3f1d1f9774&metadata=01";
-		window.open(SNAPCHAT_URL, "_self");
+		// const SNAPCHAT_URL = "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=1beaf607b093480f9024be3f1d1f9774&metadata=01";
+		// window.open(SNAPCHAT_URL, "_self");
+		window.open('https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=1beaf607b093480f9024be3f1d1f9774&metadata=01','_blank','resizable=yes')
 
 	}
 ];
