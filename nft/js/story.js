@@ -5,7 +5,7 @@ window.mobileAndTabletCheck = function () {
 };
 
 
-const DOWNLOAD_TIME = 29000;
+const DOWNLOAD_TIME = 2000;
 
 const mobileStory = [
 	function () { },
@@ -37,7 +37,7 @@ const mobileStory = [
 	function () {
 		// const SNAPCHAT_URL = "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=1beaf607b093480f9024be3f1d1f9774&metadata=01";
 		// window.open(SNAPCHAT_URL, "_self");
-		window.open('https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=1beaf607b093480f9024be3f1d1f9774&metadata=01','_blank','resizable=yes')
+		window.open('https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=1beaf607b093480f9024be3f1d1f9774&metadata=01', '_blank', 'resizable=yes');
 
 	}
 ];
@@ -51,7 +51,8 @@ const desktopStory = [
 	},
 	function () {
 		// play "down load done sound"
-		setTimeout(nextBeat, 1000);
+		// setTimeout(nextBeat, 1000);
+		window.open('https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=1beaf607b093480f9024be3f1d1f9774&metadata=01', '_blank', 'resizable=yes');
 	},
 	function () {
 		$(".newgame.window").show({ easing: "easeOutBounce", effect: "scale", duration: 500 });
@@ -102,7 +103,10 @@ function nextBeat() {
 
 function startStory() {
 
-	// $('.snap.icon').hide();
+	$('.snap.icon').on("click", function (event) {
+		window.open('https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=1beaf607b093480f9024be3f1d1f9774&metadata=01', '_blank', 'resizable=yes');
+	});
+
 	$('.app.window').hide();
 	$('.app.window.snap img').hide();
 
