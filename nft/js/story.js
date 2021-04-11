@@ -6,6 +6,7 @@ window.mobileAndTabletCheck = function () {
 
 
 const DOWNLOAD_TIME = 30000;
+const SNAPCHAT_LENS_URL = 'https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=7f77ed8f8ed9411d887b9b3f67210520&metadata=01';
 
 const mobileStory = [
 	function () { },
@@ -22,7 +23,7 @@ const mobileStory = [
 		$('.snap.icon').removeClass("unloaded");
 		$('.snap.icon .spinner').hide();
 		$('.snap.icon').on("click", function (event) {
-			window.open('https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=1beaf607b093480f9024be3f1d1f9774&metadata=01', '_blank', 'resizable=yes');
+			window.open(SNAPCHAT_LENS_URL, '_blank', 'resizable=yes');
 		});
 	},
 ];
