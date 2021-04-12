@@ -2,7 +2,6 @@
 	box-sizing: border-box;
 	font-family: terminal;
 }
-
 *,
 *::before,
 *::after {
@@ -11,22 +10,18 @@
 :focus {
 	outline: none;
 }
-
 *::selection {
 	background-color: transparent;
 }
-
 html {
 	box-sizing: border-box;
 	height: 100%;
 }
-
 body {
 	background-color: $background-color;
 	margin: 0;
-	max-width: 100vw;;
+	max-width: 100vw;
 }
-
 h1,
 h2,
 h3,
@@ -36,20 +31,6 @@ li,
 button {
 	font-family: terminal;
 }
-
-a {
-	text-decoration: none;
-	cursor: none;
-	@include transition(100ms);
-	padding: 5px;
-	margin: -5px;
-
-	&:hover {
-		text-decoration: underline;
-		color: red;
-	}
-}
-
 audio.sounds {
 	display: none;
 }

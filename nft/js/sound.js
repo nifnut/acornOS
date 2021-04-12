@@ -16,7 +16,7 @@ function createSound(id, filename) {
 	sound.controls = 'controls';
 	sound.src = filename;
 	sound.type = 'audio/mpeg';
-	sound.volume = 0.3;
+	sound.volume = 1.0;
 	sound.style.display = "none";
 
 	return sound;
@@ -29,8 +29,20 @@ Sounds["clickUp"] = createSound("clickUp", '/assets/sounds/click_up.mp3');
 Sounds["Music"] = createSound("Music", 'https://ipfs.fleek.co/ipfs/bafybeiaxogkjfqcfqrrt25kqkxdy3pzcgz7ctchdjjii5ufapw7bkpuh74');
 Sounds["Fart"] = createSound("Fart", '/assets/sounds/fart.mp3');
 
-Sounds["clickDown"].load();
+Sounds["Bark"] = createSound("Bark", '/assets/sounds/bark.mp3');
+Sounds["alertGood"] = createSound("alertGood", '/assets/sounds/alert_good.mp3');
+Sounds["alertBad"] = createSound("alertBad", '/assets/sounds/alert_bad.mp3');
+Sounds["Portal"] = createSound("Portal", '/assets/sounds/portal.mp3');
+Sounds["Install"] = createSound("Install", '/assets/sounds/install.mp3');
+Sounds["Login"] = createSound("Login", '/assets/sounds/login.mp3');
+Sounds["Mint"] = createSound("Mint", '/assets/sounds/mint.mp3');
+Sounds["Kevaid"] = createSound("Kevaid", '/assets/sounds/kevaid.mp3');
+
+
+Sounds["clickDown"].load();	
 Sounds["clickUp"].load();
+
+// Sounds["Bark"].volume = 2.0
 
 // ==================================
 // 		 Listen for events!
@@ -40,13 +52,10 @@ Sounds["clickUp"].load();
 
 document.body.addEventListener('mousedown', function () {
 	if (mobileAndTabletCheck()) return;
-
 	Sounds["clickDown"].play();
-
 }, false);
 
 document.body.addEventListener('mouseup', function () {
 	if (mobileAndTabletCheck()) return;
 	Sounds["clickUp"].play();
-
 }, false);

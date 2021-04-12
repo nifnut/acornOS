@@ -39,6 +39,7 @@ const desktopStory = [
 		setTimeout(nextBeat, 1000);
 	},
 	function () {
+		Sounds["Install"].play();
 		$(".newgame.window").show({ easing: "easeOutBounce", effect: "scale", duration: 500 });
 		focusApp("newgame");
 		$('.snap.icon').removeClass("unloaded");
@@ -48,11 +49,12 @@ const desktopStory = [
 		});
 	},
 	function () {
+		Sounds["Kevaid"].play();
 		$(".snap.window").show();
 		$(".snap.window img").hide();
 		$(".snap.window img.kevaid").show();
 		focusApp("snap");
-		setTimeout(nextBeat, 3000);
+		setTimeout(nextBeat, 1000);
 	},
 	function () {
 		$(".snap.window img").hide();
@@ -60,15 +62,18 @@ const desktopStory = [
 		setTimeout(nextBeat, 2000);
 	},
 	function () {
+		Sounds["Portal"].play();
 		$(".snap.window img").hide();
 		$(".snap.window img.scan").show();
-		setTimeout(nextBeat, 2000);
+		setTimeout(nextBeat, 200);
 	},
 	function () {
+		// Sounds["Portal"].play();
 		$(".snap.window .space").css("opacity", 1);
 		setTimeout(nextBeat, 4000);
 	},
 	function () {
+		Sounds["alertBad"].play();
 		$(".updater.window").show();
 		focusApp("updater");
 	},

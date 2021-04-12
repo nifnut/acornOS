@@ -52,6 +52,9 @@ function handleIconClick(e) {
 		return;
 	}
 	if (appName === "clock") {
+		if (!$(".who.let.the.dogs").hasClass("out")) {
+			Sounds["Bark"].play();
+		}
 		$(".who.let.the.dogs").addClass("out");
 	}
 
@@ -91,7 +94,7 @@ function closeWindow(e) {
 	if (CANT_CLOSE.includes(appName)) {
 		alert("nice try, buddy. I'M THE UPDATER");
 	} else {
-		console.log('close',appName)
+		console.log('close', appName);
 		closeApp(appName);
 		e.stopPropagation();
 	}
@@ -101,8 +104,6 @@ $(function () {
 	$(".icon").on("click", handleIconClick);
 	$(".app.window").on("mousedown", handleWindowClick);
 	$(".app.window .close").on("click", closeWindow);
-
 	$('.app.window').draggable({ containment: "body" });
-
 	$('.app.window.micropaint').draggable({ containment: "body", handle: '.header',/* cursor: "none"*/ });
 });

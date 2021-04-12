@@ -226,7 +226,7 @@ $content-height: calc(100% - #{$header-height});
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center;
-		@include transition(opacity 3s ease-in);
+		@include transition(opacity 1s ease-in);
 	}
 }
 .updater.window {

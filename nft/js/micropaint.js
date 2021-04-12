@@ -172,6 +172,7 @@ $('.micropaint button.mint').on("click", function () {
 		$(this).hide()
 		$(this).text("mint")
 	} else {
+		Sounds["Mint"].play()
 		$('.micropaint canvas').css("background", "#91ffcd");
 	}
 });
