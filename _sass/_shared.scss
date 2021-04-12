@@ -58,3 +58,10 @@
 		@content;
 	}
 }
+
+@mixin thumbnail-size() {
+	@media only screen and (max-width: 200px) {
+		@content;
+	}
+}
+
