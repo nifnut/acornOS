@@ -43,7 +43,7 @@ $background-color: $green;
 	button.icon::after {
 		content: unset;
 	}
-	body, .icon, * {
+	body.alive, .icon, * {
 		cursor: url("/nft/paulie/paulie_default_small.png"), auto !important;
 	}
 	.app.window {
