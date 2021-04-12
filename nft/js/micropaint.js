@@ -160,6 +160,7 @@ function ongoingTouchIndexById(idToFind) {
 
 
 $('.swatches button').on("click", function () {
+	Sounds["Color"].play()
 	$(".swatches button").removeClass("selected")
 	$(this).addClass("selected")
 	color = $(this).css("backgroundColor");

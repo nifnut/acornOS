@@ -36,9 +36,10 @@ Sounds["Portal"] = createSound("Portal", '/assets/sounds/portal.mp3');
 Sounds["Install"] = createSound("Install", '/assets/sounds/install.mp3');
 Sounds["Login"] = createSound("Login", '/assets/sounds/login.mp3');
 Sounds["Mint"] = createSound("Mint", '/assets/sounds/mint.mp3');
+Sounds["Color"] = createSound("Color", '/assets/sounds/color.mp3');
 Sounds["Kevaid"] = createSound("Kevaid", '/assets/sounds/kevaid.mp3');
 
-
+Sounds.Color.volume = 0.5;
 Sounds["clickDown"].load();	
 Sounds["clickUp"].load();
 
