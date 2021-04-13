@@ -1,6 +1,8 @@
 const PAULIE_HEIGHT = 95;
 const PAULIE_WIDTH = 60;
 
+let clicks = 0;
+
 const $body = $("<img>").attr("src", "/nft/paulie/body-smirk.svg").addClass("body");
 const $shadow = $("<img>").attr("src", "/nft/paulie/shadow.svg").addClass("shadow");
 
@@ -25,6 +27,7 @@ function mouseUp(e) {
 	if (e.which !== 1) return;
 	$paulie.isClicking = false;
 	$paulie.removeClass("clicking");
+	clicks++;
 };
 function mouseDown(e) {
 	if (e.which !== 1) return;
