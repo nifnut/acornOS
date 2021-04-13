@@ -1,17 +1,15 @@
-
 {%- if jekyll.environment == 'production' -%}
 
 <script>
 
 	const trackMe =
-		window.location.hostname === "nifnut.com" &&
 		(
 			window.location.pathname.includes("0x19f6708A09b7F057dfb0B658AAc880Ac197BeF4e") ||
 			window.location.pathname.includes("paulie")
 		)
 
-console.log(window.location.pathname)		
-console.log(trackMe)
+	console.log(window.location.pathname)
+	console.log(trackMe)
 </script>
 
 <!-- Begin Inspectlet Asynchronous Code -->
