@@ -73,10 +73,17 @@ $content-height: calc(100% - #{$header-height});
 // Specific Windows
 
 .micropaint.window {
-	top: 4%;
-	left: 10%;
+	top: 50%;
+	left: 30%;
 	width: 400px;
 	height: 400px;
+
+	@include phone() {
+		width: 90% !important;
+		max-width: 90% !important;
+		top: 5%;
+		left: 5%!important;
+	}
 
 	button.mint {
 		width: 100px;
@@ -117,22 +124,9 @@ $content-height: calc(100% - #{$header-height});
 			}
 		}
 	}
-	@include phone() {
-		width: 90% !important;
-		max-width: 90% !important;
-		top: 5%;
-		left: 5%!important;
-	}
+
 }
 
-.email.window {
-	right: 4%;
-	top: 2%;
-}
-.fart.window {
-	left: 70%;
-	top: 45%;
-}
 .newgame.window {
 	left: 40%;
 	top: 25%;

@@ -11,7 +11,8 @@ const SNAPCHAT_LENS_URL = 'https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=7
 const mobileStory = [
 	function () { },
 	function () {
-		// focusApp("niftydex");
+		$('.app.window').hide();
+		focusApp("niftydex");
 		setTimeout(nextBeat, 1000);
 	},
 	function () {
@@ -31,7 +32,10 @@ const desktopStory = [
 	function () { },
 
 	function () {
-		// focusApp("niftydex");
+		$(".credenza.window").hide()
+		$(".updater.window").hide()
+		$(".newgame.window").hide()
+		focusApp("niftydex");
 		$(".snap.icon").show();
 		setTimeout(nextBeat, DOWNLOAD_TIME);
 	},
@@ -91,15 +95,9 @@ function nextBeat() {
 }
 
 function startStory() {
-
-
-
-	$('.app.window').hide();
 	$('.app.window.snap img').hide();
-
 	$("body").removeClass("loading");
 	nextBeat();
-
 }
 
 
