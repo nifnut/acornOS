@@ -32,10 +32,10 @@ const desktopStory = [
 	function () { },
 
 	function () {
-		$(".credenza.window").hide()
-		$(".updater.window").hide()
-		$(".newgame.window").hide()
+		$('.app.window').hide();
 		focusApp("niftydex");
+		focusApp("micropaint");
+		focusApp("notepad");
 		$(".snap.icon").show();
 		setTimeout(nextBeat, DOWNLOAD_TIME);
 	},

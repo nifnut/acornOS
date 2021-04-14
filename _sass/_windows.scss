@@ -73,8 +73,8 @@ $content-height: calc(100% - #{$header-height});
 // Specific Windows
 
 .micropaint.window {
-	top: 50%;
-	left: 30%;
+	top: 12%;
+	left: 50%;
 	width: 400px;
 	height: 400px;
 
@@ -132,8 +132,8 @@ $content-height: calc(100% - #{$header-height});
 	top: 25%;
 }
 .niftydex.window {
-	left: 20%;
-	top: 5%;
+	left: 12%;
+	top: 38%;
 }
 .credenza.window {
 	top: 60%;
@@ -182,7 +182,7 @@ $content-height: calc(100% - #{$header-height});
 }
 .notepad.window {
 	left: 70%;
-	top: 15%;
+	top: 60%;
 	@include phone() {
 		img.desktop {
 			display: none;
