@@ -3,7 +3,7 @@ $shadowClicked: drop-shadow(0px 2px 0px rgba(0, 0, 0, 0.1));
 $OFFSET: -2px; // Avoid clicking actual cursor image
 
 body.cursor {
-	cursor: url("/nft/paulie/paulie_default.png"), auto !important;
+	cursor: url("/assets/paulie/paulie_default.png"), auto !important;
 }
 body.alive,button {
 	cursor: none !important;
