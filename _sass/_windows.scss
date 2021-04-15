@@ -79,15 +79,16 @@ $content-height: calc(100% - #{$header-height});
 // ---- Micropaint -----
 
 .micropaint.window {
-	bottom: 40%;
-	left: 50%;
+	top: 30%;
+	left: 38%;
 	width: 400px;
 	height: 400px;
 
 	@include phone() {
 		width: 90% !important;
 		max-width: 90% !important;
-		bottom: 35%;
+		top: unset;
+		bottom: 25%;
 		left: 5%;
 	}
 
@@ -139,7 +140,7 @@ $content-height: calc(100% - #{$header-height});
 	bottom: 25%;
 
 	@include phone() {
-		bottom: 40%;
+		bottom: 20%;
 		left: 7%;
 	}
 }
@@ -147,19 +148,23 @@ $content-height: calc(100% - #{$header-height});
 // ---- Niftydex -----
 
 .niftydex.window {
-	left: 12%;
-	bottom: 18%;
+	left: 10%;
+	top: 10%;
+	@include phone() {
+		left: 10%;
+		top: 10%;
+	}
 }
 
 // --- music player ----
 
 .credenza.window {
-	bottom: 70%;
+	top: 60%;
 	left: 5%;
 
 	@include phone() {
-		bottom: 17%;
-		left: 1%;
+		top: 3%;
+		left: 3%;
 	}
 
 	img.gif {
@@ -208,9 +213,9 @@ $content-height: calc(100% - #{$header-height});
 
 .notepad.window {
 	left: 70%;
-	bottom: 10%;
+	top: 10%;
 	@include phone() {
-		bottom: 30%;
+		top: 17%;
 		right: 3%;
 		left: unset;
 		img.desktop {

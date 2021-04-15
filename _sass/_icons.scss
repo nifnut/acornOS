@@ -55,6 +55,9 @@ button.icon {
 
 .power.icon {
 	background-image: url(/assets/icons/icon-power.png);
+	@include phone() {
+		display: none;
+	}
 }
 .niftydex.icon {
 	background-image: url(/assets/icons/icon-nifty.png);
