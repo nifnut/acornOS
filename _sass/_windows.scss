@@ -141,7 +141,7 @@ $content-height: calc(100% - #{$header-height});
 
 	@include phone() {
 		bottom: 20%;
-		left: 7%;
+		left: 12%;
 	}
 }
 
