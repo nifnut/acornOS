@@ -79,7 +79,7 @@ $content-height: calc(100% - #{$header-height});
 // ---- Micropaint -----
 
 .micropaint.window {
-	bottom: 50%;
+	bottom: 40%;
 	left: 50%;
 	width: 400px;
 	height: 400px;
@@ -132,6 +132,8 @@ $content-height: calc(100% - #{$header-height});
 	}
 }
 
+// ---- New Game! -----
+
 .newgame.window {
 	left: 40%;
 	bottom: 25%;
@@ -141,6 +143,9 @@ $content-height: calc(100% - #{$header-height});
 		left: 7%;
 	}
 }
+
+// ---- Niftydex -----
+
 .niftydex.window {
 	left: 12%;
 	bottom: 18%;
@@ -218,6 +223,9 @@ $content-height: calc(100% - #{$header-height});
 		}
 	}
 }
+
+// ---- Snapchat -----
+
 .snap.window {
 	width: 350px;
 	left: 50%;
@@ -258,6 +266,9 @@ $content-height: calc(100% - #{$header-height});
 		}
 	}
 }
+
+// ---- Updater -----
+
 .updater.window {
 	width: 400px;
 	left: 50%;
