@@ -10,6 +10,7 @@
 		bottom: 0px;
 		border-radius: 20px;
 		transform: translateZ(-1px) translateY(15px) scale(1) !important;
+		z-index: 51;
 	}
 }
 
@@ -27,6 +28,7 @@ button.icon {
 	justify-content: center;
 	align-items: center;
 	transform-style: preserve-3d; // for shadow z-index to work
+	z-index: 52;
 	@include transition(transform 100ms ease-in);
 	&:active {
 		@extend .pressed;

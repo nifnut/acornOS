@@ -101,4 +101,4 @@ function startStory() {
 }
 
 
-window.addEventListener('load', startStory);
+window.addEventListener('DOMContentLoaded', startStory);

@@ -1,6 +1,5 @@
 @import "prefixes";
 
-
 @mixin black-border-top() {
 	border-top: black 4px solid;
 }
@@ -31,12 +30,6 @@
 	}
 }
 
-@mixin phone() {
-	@media only screen and (max-width: 600px) {
-		@content;
-	}
-}
-
 @mixin not-phone() {
 	@media only screen and (min-width: 600px) {
 		@content;
@@ -61,6 +54,20 @@
 
 @mixin thumbnail-size() {
 	@media only screen and (max-width: 200px) {
+		@content;
+	}
+}
+
+$SMALL_PHONE_WIDTH: 600px;
+
+@mixin phone() {
+	@media only screen and (max-width: 600px)  {
+		@content;
+	}
+}
+
+@mixin small-phone() {
+	@media only screen and (min-width: 300px) and (max-width: 414px) {
 		@content;
 	}
 }

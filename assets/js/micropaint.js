@@ -21,7 +21,7 @@ let strokeWidth = 6;
 
 var ongoingTouches = [];
 
-canvas.width = mobileAndTabletCheck() ? 300 : 350;
+canvas.width = mobileAndTabletCheck() ? 300 : 340;
 canvas.height = 350;
 
 
