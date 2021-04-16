@@ -18,10 +18,8 @@ function createSound(id, filename) {
 	sound.controls = 'controls';
 	sound.src = filename;
 	sound.type = 'audio/mpeg';
-	sound.volume = 1.0;
+	sound.volume = vw ? 1.0 : 0; // mute exploded view
 	sound.style.display = "none";
-
-	if (!vw) sound.volume = 0; // exploded view
 
 	return sound;
 }
@@ -43,9 +41,14 @@ Sounds["Mint"] = createSound("Mint", '/assets/sounds/mint.mp3');
 Sounds["Color"] = createSound("Color", '/assets/sounds/color.mp3');
 Sounds["Kevaid"] = createSound("Kevaid", '/assets/sounds/kevaid.mp3');
 
-Sounds["Color"].volume = 0.5;
+// Pre-load important sounds that need to play immediately
 Sounds["clickDown"].load();
 Sounds["clickUp"].load();
+
+// Adjust volume for certain sounds
+Sounds["Color"].volume = 0.5;
+Sounds["alertGood"].volume = 0.6;
+
 
 // ==================================
 // 		 Listen for events!
