@@ -4,6 +4,22 @@ window.mobileAndTabletCheck = function () {
 	return check;
 };
 
+function getCanvasWidth() {
+
+	const widthCheck = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+
+	// alert(widthCheck);
+
+	let w = mobileAndTabletCheck() ? 300 : 340;
+
+	if (widthCheck === 375) {
+		w = 270;
+	}
+
+	return w;
+}
+
+
 
 // ========= Cursor Drawing ===================
 
@@ -21,9 +37,15 @@ let strokeWidth = 6;
 
 var ongoingTouches = [];
 
-canvas.width = mobileAndTabletCheck() ? 300 : 340;
+canvas.width = getCanvasWidth();
 canvas.height = 350;
 
+function offset(el) {
+	var rect = el.getBoundingClientRect(),
+		scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+		scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+}
 
 function drawLine(x, y) {
 	ctx.beginPath();
@@ -44,38 +66,38 @@ function drawPoint(x, y) {
 	ctx.lineTo(x, y);
 	ctx.stroke();
 }
-canvas.addEventListener("mousedown", (e) => {
+
+function handleMouseMove(e)  {
+		if (makeLine) {
+			drawLine(e.offsetX, e.offsetY);
+			prevX = e.offsetX;
+			prevY = e.offsetY;
+		} else {
+			$("#out").text("");
+		}
+	}
+
+function handleMouseDown(e) {
 	prevX = e.offsetX;
 	prevY = e.offsetY;
 	makeLine = true;
 	drawPoint(e.offsetX, e.offsetY);
 	$('.micropaint button').show();
-});
-canvas.addEventListener("mouseup", (e) => {
-	makeLine = false;
-});
-document.body.addEventListener("mouseup", (e) => {
-	makeLine = false;
-});
-canvas.addEventListener("mousemove", (e) => {
-	if (makeLine) {
-		// $("#out").text("drawing")
-		drawLine(e.offsetX, e.offsetY);
-		prevX = e.offsetX;
-		prevY = e.offsetY;
-	} else {
-		$("#out").text("");
-	}
-});
-function offset(el) {
-	var rect = el.getBoundingClientRect(),
-		scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-		scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-	return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
 }
+function handleMouseUp(e) {
+	makeLine = false;
+}
+
+canvas.addEventListener("mousedown", handleMouseDown);
+canvas.addEventListener("mouseup", handleMouseUp);
+
+canvas.addEventListener("mousemove", handleMouseMove);
+
+
 function handleStart(evt) {
 	evt.preventDefault();
 	var { top, left } = offset(canvas);
+	// alert(top)
 	var touches = evt.changedTouches;
 	$('.micropaint button').show();
 	for (var i = 0; i < touches.length; i++) {
@@ -160,9 +182,9 @@ function ongoingTouchIndexById(idToFind) {
 
 
 $('.swatches button').on("click", function () {
-	Sounds["Color"].play()
-	$(".swatches button").removeClass("selected")
-	$(this).addClass("selected")
+	Sounds["Color"].play();
+	$(".swatches button").removeClass("selected");
+	$(this).addClass("selected");
 	color = $(this).css("backgroundColor");
 });
 
@@ -170,10 +192,10 @@ $('.micropaint button.mint').on("click", function () {
 	if ($('.micropaint canvas').hasClass("drawing")) {
 		$('.micropaint canvas').removeClass("drawing");
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		$(this).hide()
-		$(this).text("mint")
+		$(this).hide();
+		$(this).text("mint");
 	} else {
-		Sounds["Mint"].play()
+		Sounds["Mint"].play();
 		$('.micropaint canvas').css("background", "#91ffcd");
 	}
 });

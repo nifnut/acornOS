@@ -22,11 +22,11 @@ function createSound(id, filename) {
 	sound.style.display = "none";
 
 	if (!vw) {
-		console.log("dont log sound");
+		
 		sound.volume = 0;
 	}
 
-	console.log(sound.volume);
+	console.log("create sound: " + id + " with volume=" + sound.volume);
 
 	return sound;
 }

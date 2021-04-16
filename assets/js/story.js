@@ -12,7 +12,7 @@ const mobileStory = [
 	function () { },
 	function () {
 		$('.app.window').hide();
-		focusApp("niftydex");
+		focusApp("micropaint");
 		setTimeout(nextBeat, 1000);
 	},
 	function () {

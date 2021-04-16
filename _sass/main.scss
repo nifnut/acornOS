@@ -1,19 +1,15 @@
 @charset "utf-8";
 
-//  COLORS
-
 $green: #68ffbb;
 $red: #ff0000;
 $grey: #eeeeee;
-
 $power-red: #ff0067;
 $nifty-yellow: #f1ff5c;
 $music-red: #cc4a00;
 $notepad-brown: #c97f00;
-
 $shadow-grey: #c3c3c3;
-
 $text-color: #111 !default;
+
 $background-color: $green;
 
 @font-face {
@@ -22,31 +18,4 @@ $background-color: $green;
 }
 
 @import "shared";
-@import "base", "layout";
-@import "icons", "windows", "cursor";
-
-@include thumbnail-size() {
-	.snap.icon {
-		display: none!important;
-	}
-	.icon.pressed {
-		box-shadow: unset;
-	}
-	.icons.container {
-		height: 40px;
-	}
-	.icons.container .grey.background {
-		height: 20px;
-		border-width: 2px;
-	}
-	.lifted::after,
-	button.icon::after {
-		content: unset;
-	}
-	body.alive ,body, .icon, * {
-		cursor: url("/assets/images/paulie/paulie_default_small.png"), auto !important;
-	}
-	.app.window {
-		display: none !important;
-	}
-}
+@import "base", "layout", "windows";
