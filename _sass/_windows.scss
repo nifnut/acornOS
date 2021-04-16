@@ -14,7 +14,7 @@ $content-height: calc(100% - #{$header-height});
 
 	@include phone() {
 		width: 80%;
-		max-width: 80%;
+		max-width: 90vw;
 		margin-left: 0;
 	}
 
@@ -72,7 +72,7 @@ $content-height: calc(100% - #{$header-height});
 		@include border-radius-separate(0, 0, 15px, 15px);
 	}
 	img {
-		// width: 100%;
+		width: 100%;
 		@include transition(all 100ms ease-in);
 	}
 }
@@ -106,12 +106,13 @@ $content-height: calc(100% - #{$header-height});
 		@include phone() {
 			margin-top: 10px;
 		}
-	
 
 		button {
 			margin: 0px;
 			max-width: 20px !important;
 			max-height: 20px !important;
+			height: 20px;
+			width: 12px;
 			position: relative;
 			display: block;
 
@@ -119,8 +120,7 @@ $content-height: calc(100% - #{$header-height});
 			border-color: white;
 			border-width: 10px;
 			box-sizing: content-box;
-			height: 20px;
-			width: 12px;
+			
 			border-radius: 15px;
 			&.selected {
 				transform: scale(0.9);
@@ -130,10 +130,21 @@ $content-height: calc(100% - #{$header-height});
 				max-height: 30px !important;
 				height: 25px !important;
 				width: 5px !important;
-				margin-left: 20px;
+				margin-left: 20px!important;
 			}
 			@include small-phone() {
-			margin-left: 10px;
+				margin-left: 7px!important;
+			}
+			@include iphone11() {
+				max-width: 30px !important;
+				min-width: 2px !important;
+			height: 30px!important;
+			width: 30px!important;
+			border-width: 1px;
+			box-sizing: border-box;
+			border-radius: 8px;
+			margin-left: 5px!important;
+			margin-bottom: 15px;
 			}
 		}
 	}
@@ -170,8 +181,9 @@ $content-height: calc(100% - #{$header-height});
 	left: 10%;
 	top: 10%;
 	@include phone() {
-		left: 10%;
-		top: 10%;
+		left: 10vw;
+		top: 3%;
+		width: 80vw !important;
 	}
 }
 
@@ -182,7 +194,7 @@ $content-height: calc(100% - #{$header-height});
 	left: 5%;
 
 	@include phone() {
-		top: 3%;
+		top: 45%;
 		left: 3%;
 	}
 
@@ -234,7 +246,7 @@ $content-height: calc(100% - #{$header-height});
 	left: 70%;
 	top: 10%;
 	@include phone() {
-		top: 17%;
+		top: 1%;
 		right: 3%;
 		left: unset;
 		img.desktop {

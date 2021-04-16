@@ -61,7 +61,7 @@
 $SMALL_PHONE_WIDTH: 600px;
 
 @mixin phone() {
-	@media only screen and (max-width: 600px)  {
+	@media only screen and (max-width: 600px) {
 		@content;
 	}
 }
@@ -72,3 +72,8 @@ $SMALL_PHONE_WIDTH: 600px;
 	}
 }
 
+@mixin iphone11() {
+	@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+		@content;
+	}
+}
