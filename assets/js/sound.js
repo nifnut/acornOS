@@ -21,7 +21,12 @@ function createSound(id, filename) {
 	sound.volume = 1.0;
 	sound.style.display = "none";
 
-	if (!vw) sound.volume = 0;
+	if (!vw) {
+		console.log("dont log sound");
+		sound.volume = 0;
+	}
+
+	console.log(sound.volume);
 
 	return sound;
 }
@@ -57,6 +62,8 @@ Sounds["clickUp"].load();
 
 document.body.addEventListener('mousedown', function () {
 	if (mobileAndTabletCheck()) return;
+
+	console.log("mouse down volume", Sounds["clickDown"].volume);
 	Sounds["clickDown"].play();
 }, false);
 

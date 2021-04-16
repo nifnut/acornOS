@@ -3,8 +3,8 @@ const PAULIE_WIDTH = 60;
 
 let clicks = 0;
 
-const $body = $("<img>").attr("src", "/nft/paulie/body-smirk.svg").addClass("body");
-const $shadow = $("<img>").attr("src", "/nft/paulie/shadow.svg").addClass("shadow");
+const $body = $("<img>").attr("src", "/assets/images/paulie/body-smirk.svg").addClass("body");
+const $shadow = $("<img>").attr("src", "/assets/images/paulie/shadow.svg").addClass("shadow");
 
 let $paulie = $("<div>");
 

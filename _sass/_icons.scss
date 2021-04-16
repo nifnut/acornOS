@@ -16,7 +16,7 @@
 
 .pressed {
 	border-radius: 10px;
-    box-shadow: 0px 0px 10px 7px #4c4c4c2c inset;
+	box-shadow: 0px 0px 10px 7px #4c4c4c2c inset;
 }
 
 button.icon {
@@ -28,7 +28,7 @@ button.icon {
 	justify-content: center;
 	align-items: center;
 	transform-style: preserve-3d; // for shadow z-index to work
-	z-index: 52;
+	z-index: 53;
 	@include transition(transform 100ms ease-in);
 	&:active {
 		@extend .pressed;
@@ -56,28 +56,29 @@ button.icon {
 }
 
 .power.icon {
-	background-image: url(/nft/icons/icon-power.png);
+	background-image: url(/assets/icons/icon-power.png);
 	@include phone() {
 		display: none;
 	}
 }
 .niftydex.icon {
-	background-image: url(/nft/icons/icon-nifty.png);
+	background-image: url(/assets/icons/icon-nifty.png);
 }
 .notepad.icon {
-	background-image: url(/nft/icons/icon-notepad.png);
+	background-image: url(/assets/icons/icon-notepad.png);
 }
 .credenza.icon {
-	background-image: url(/nft/icons/icon-music.png);
+	background-image: url(/assets/icons/icon-music.png);
 }
 .micropaint.icon {
-	background-image: url(/nft/icons/icon-paint.png);
+	background-image: url(/assets/icons/icon-paint.png);
 }
 .snap.icon {
-	background-image: url(/nft/icons/icon-snap.png);
+	background-image: url(/assets/icons/icon-snap.png);
+	// border-radius: 15px;
 }
 .clock.icon {
-	background-image: url(/nft/icons/icon-clock.png);
+	background-image: url(/assets/icons/icon-clock.png);
 	width: 223px;
 	max-width: 300px;
 	flex: unset;
@@ -101,7 +102,7 @@ $delay: 2s;
 	border-radius: 10px;
 	max-width: 100px;
 	width: 56px;
-    height: 56px;
+	height: 56px;
 	position: absolute;
 
 	.wrapper {
@@ -202,6 +203,7 @@ $delay: 2s;
 	position: absolute;
 	bottom: 0px;
 	right: -200px;
+	z-index: 52;
 
 	&.out {
 		right: 200px;
