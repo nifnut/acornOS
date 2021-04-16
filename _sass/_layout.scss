@@ -19,13 +19,11 @@ body {
 	align-items: center;
 
 	@include not-phone() {
-		padding-left:20px;
+		padding-left: 20px;
 	}
 	@include phone() {
-	justify-content: center;
+		justify-content: center;
 	}
-
-	// z-index: 10;
 
 	.grey.background {
 		background-color: $grey;
@@ -36,6 +34,7 @@ body {
 		left: 0px;
 		z-index: -1;
 		border-top: black 4px solid;
+		z-index: 50;
 	}
 }
 
@@ -81,5 +80,16 @@ body.poweredOff {
 	}
 	img.paulie-zzz {
 		width: 80px;
+	}
+}
+
+@include small-phone() {
+	body {
+		// background-color: red !important;
+	}
+}
+@include phone() {
+	body {
+		// background-color: blue;
 	}
 }

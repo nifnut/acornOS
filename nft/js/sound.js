@@ -4,6 +4,8 @@ window.mobileAndTabletCheck = function () {
 	return check;
 };
 
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+
 
 // for legacy browsers
 const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -18,6 +20,8 @@ function createSound(id, filename) {
 	sound.type = 'audio/mpeg';
 	sound.volume = 1.0;
 	sound.style.display = "none";
+
+	if (!vw) sound.volume = 0;
 
 	return sound;
 }
@@ -40,7 +44,7 @@ Sounds["Color"] = createSound("Color", '/assets/sounds/color.mp3');
 Sounds["Kevaid"] = createSound("Kevaid", '/assets/sounds/kevaid.mp3');
 
 Sounds.Color.volume = 0.5;
-Sounds["clickDown"].load();	
+Sounds["clickDown"].load();
 Sounds["clickUp"].load();
 
 // Sounds["Bark"].volume = 2.0

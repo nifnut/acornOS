@@ -10,6 +10,7 @@
 		bottom: 0px;
 		border-radius: 20px;
 		transform: translateZ(-1px) translateY(15px) scale(1) !important;
+		z-index: 51;
 	}
 }
 
@@ -27,6 +28,7 @@ button.icon {
 	justify-content: center;
 	align-items: center;
 	transform-style: preserve-3d; // for shadow z-index to work
+	z-index: 52;
 	@include transition(transform 100ms ease-in);
 	&:active {
 		@extend .pressed;
@@ -55,6 +57,9 @@ button.icon {
 
 .power.icon {
 	background-image: url(/nft/icons/icon-power.png);
+	@include phone() {
+		display: none;
+	}
 }
 .niftydex.icon {
 	background-image: url(/nft/icons/icon-nifty.png);
@@ -70,7 +75,6 @@ button.icon {
 }
 .snap.icon {
 	background-image: url(/nft/icons/icon-snap.png);
-	// border-radius: 15px;
 }
 .clock.icon {
 	background-image: url(/nft/icons/icon-clock.png);
