@@ -21,12 +21,7 @@ function createSound(id, filename) {
 	sound.volume = 1.0;
 	sound.style.display = "none";
 
-	if (!vw) {
-		
-		sound.volume = 0;
-	}
-
-	console.log("create sound: " + id + " with volume=" + sound.volume);
+	if (!vw) sound.volume = 0; // exploded view
 
 	return sound;
 }
@@ -48,11 +43,9 @@ Sounds["Mint"] = createSound("Mint", '/assets/sounds/mint.mp3');
 Sounds["Color"] = createSound("Color", '/assets/sounds/color.mp3');
 Sounds["Kevaid"] = createSound("Kevaid", '/assets/sounds/kevaid.mp3');
 
-Sounds.Color.volume = 0.5;
+Sounds["Color"].volume = 0.5;
 Sounds["clickDown"].load();
 Sounds["clickUp"].load();
-
-// Sounds["Bark"].volume = 2.0
 
 // ==================================
 // 		 Listen for events!

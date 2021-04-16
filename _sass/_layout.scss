@@ -950,12 +950,9 @@ $z-updater2overlay: 200;
 
 
 @include thumbnail-size() {
-	body {
-		// background: red;
-	}
 	button.icon {
-		width: 20px!important;
-		max-width: 20px!important;
+		width: 25px;
+		max-width: 25px;
 	}
 	.snap.icon {
 		display: none!important;
