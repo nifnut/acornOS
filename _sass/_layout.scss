@@ -92,7 +92,7 @@ body.poweredOff {
 	}
 
 	.power.icon {
-		background-image: url(/assets/icons/icon-power-off.png);
+		background-image: url(/acornOS/assets/icons/icon-power-off.png);
 		z-index: 200;
 		&::after {
 			display: none;
@@ -117,7 +117,7 @@ body.poweredOff {
 
 
 body.cursor {
-	cursor: url("/acornOS/assets/paulie/paulie_default.png"), auto !important;
+	cursor: url("/acornOS/acornOS/assets/paulie/paulie_default.png"), auto !important;
 }
 body.alive,button {
 	cursor: none !important;
@@ -248,29 +248,29 @@ button.icon {
 }
 
 .power.icon {
-	background-image: url(/assets/icons/icon-power.png);
+	background-image: url(/acornOS/assets/icons/icon-power.png);
 	@include phone() {
 		display: none;
 	}
 }
 .niftydex.icon {
-	background-image: url(/assets/icons/icon-nifty.png);
+	background-image: url(/acornOS/assets/icons/icon-nifty.png);
 }
 .notepad.icon {
-	background-image: url(/assets/icons/icon-notepad.png);
+	background-image: url(/acornOS/assets/icons/icon-notepad.png);
 }
 .credenza.icon {
-	background-image: url(/assets/icons/icon-music.png);
+	background-image: url(/acornOS/assets/icons/icon-music.png);
 }
 .micropaint.icon {
-	background-image: url(/assets/icons/icon-paint.png);
+	background-image: url(/acornOS/assets/icons/icon-paint.png);
 }
 .snap.icon {
-	background-image: url(/assets/icons/icon-snap.png);
+	background-image: url(/acornOS/assets/icons/icon-snap.png);
 	// border-radius: 15px;
 }
 .clock.icon {
-	background-image: url(/assets/icons/icon-clock.png);
+	background-image: url(/acornOS/assets/icons/icon-clock.png);
 	width: 223px;
 	max-width: 300px;
 	flex: unset;
@@ -420,16 +420,16 @@ $delay: 2s;
 
 
 body.paulie {
-	cursor: url("/acornOS/assets/paulie/body-smirk.svg"), auto !important;
+	cursor: url("/acornOS/acornOS/assets/paulie/body-smirk.svg"), auto !important;
 
 	button {
-		cursor: url("/acornOS/assets/paulie/cursor1.png"), auto !important;
+		cursor: url("/acornOS/acornOS/assets/paulie/cursor1.png"), auto !important;
 	}
 	#Desktop {
-		cursor: url("/acornOS/assets/paulie/cursor1.png"), auto !important;
+		cursor: url("/acornOS/acornOS/assets/paulie/cursor1.png"), auto !important;
 	}
 	#PaintCanvas {
-		// cursor: url("/acornOS/assets/paulie/cursor-with-pencil.png") 8 8, auto !important;
+		// cursor: url("/acornOS/acornOS/assets/paulie/cursor-with-pencil.png") 8 8, auto !important;
 	}
 }
 
@@ -769,7 +769,7 @@ $z-updater2overlay: 200;
 			border-left: solid 3px #ccc;
 			border-bottom: solid 3px #ccc;
 			&.drawing {
-				background-image: url(/assets/images/mspaint.png);
+				background-image: url(/acornOS/assets/images/mspaint.png);
 				background-size: contain;
 				background-repeat: no-repeat;
 			}
@@ -901,7 +901,7 @@ $z-updater2overlay: 200;
 		width: 200px;
 
 		// background-color: red;
-		background-image: url(/assets/images/stargate.gif);
+		background-image: url(/acornOS/assets/images/stargate.gif);
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center;
@@ -967,7 +967,7 @@ $z-updater2overlay: 200;
 		content: unset;
 	}
 	body.alive ,body, .icon, * {
-		cursor: url("/acornOS/assets/images/paulie/paulie_default_small.png"), auto !important;
+		cursor: url("/acornOS/acornOS/assets/images/paulie/paulie_default_small.png"), auto !important;
 	}
 	.app.window {
 		display: none !important;
