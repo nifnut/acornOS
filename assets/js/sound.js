@@ -26,20 +26,20 @@ function createSound(id, filename) {
 
 let Sounds = {};
 
-Sounds["clickDown"] = createSound("clickDown", "/acornOS/assets/sounds/click_down.mp3');
-Sounds["clickUp"] = createSound("clickUp", "/acornOS/assets/sounds/click_up.mp3');
+Sounds["clickDown"] = createSound("clickDown", '/acornOS/assets/sounds/click_down.mp3');
+Sounds["clickUp"] = createSound("clickUp", '/acornOS/assets/sounds/click_up.mp3');
 Sounds["Music"] = createSound("Music", 'https://ipfs.fleek.co/ipfs/bafybeiaxogkjfqcfqrrt25kqkxdy3pzcgz7ctchdjjii5ufapw7bkpuh74');
-Sounds["Fart"] = createSound("Fart", "/acornOS/assets/sounds/fart.mp3');
+Sounds["Fart"] = createSound("Fart", '/acornOS/assets/sounds/fart.mp3');
 
-Sounds["Bark"] = createSound("Bark", "/acornOS/assets/sounds/bark.mp3');
-Sounds["alertGood"] = createSound("alertGood", "/acornOS/assets/sounds/alert_good.mp3');
-Sounds["alertBad"] = createSound("alertBad", "/acornOS/assets/sounds/alert_bad.mp3');
-Sounds["Portal"] = createSound("Portal", "/acornOS/assets/sounds/portal.mp3');
-Sounds["Install"] = createSound("Install", "/acornOS/assets/sounds/install.mp3');
-Sounds["Login"] = createSound("Login", "/acornOS/assets/sounds/login.mp3');
-Sounds["Mint"] = createSound("Mint", "/acornOS/assets/sounds/mint.mp3');
-Sounds["Color"] = createSound("Color", "/acornOS/assets/sounds/color.mp3');
-Sounds["Kevaid"] = createSound("Kevaid", "/acornOS/assets/sounds/kevaid.mp3');
+Sounds["Bark"] = createSound("Bark", '/acornOS/assets/sounds/bark.mp3');
+Sounds["alertGood"] = createSound("alertGood", '/acornOS/assets/sounds/alert_good.mp3');
+Sounds["alertBad"] = createSound("alertBad", '/acornOS/assets/sounds/alert_bad.mp3');
+Sounds["Portal"] = createSound("Portal", '/acornOS/assets/sounds/portal.mp3');
+Sounds["Install"] = createSound("Install", '/acornOS/assets/sounds/install.mp3');
+Sounds["Login"] = createSound("Login", '/acornOS/assets/sounds/login.mp3');
+Sounds["Mint"] = createSound("Mint", '/acornOS/assets/sounds/mint.mp3');
+Sounds["Color"] = createSound("Color", '/acornOS/assets/sounds/color.mp3');
+Sounds["Kevaid"] = createSound("Kevaid", '/acornOS/assets/sounds/kevaid.mp3');
 
 // Pre-load important sounds that need to play immediately
 Sounds["clickDown"].load();
