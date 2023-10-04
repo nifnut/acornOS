@@ -117,7 +117,7 @@ body.poweredOff {
 
 
 body.cursor {
-	cursor: url("/assets/paulie/paulie_default.png"), auto !important;
+	cursor: url("/acornOS/assets/paulie/paulie_default.png"), auto !important;
 }
 body.alive,button {
 	cursor: none !important;
@@ -420,16 +420,16 @@ $delay: 2s;
 
 
 body.paulie {
-	cursor: url("/assets/paulie/body-smirk.svg"), auto !important;
+	cursor: url("/acornOS/assets/paulie/body-smirk.svg"), auto !important;
 
 	button {
-		cursor: url("/assets/paulie/cursor1.png"), auto !important;
+		cursor: url("/acornOS/assets/paulie/cursor1.png"), auto !important;
 	}
 	#Desktop {
-		cursor: url("/assets/paulie/cursor1.png"), auto !important;
+		cursor: url("/acornOS/assets/paulie/cursor1.png"), auto !important;
 	}
 	#PaintCanvas {
-		// cursor: url("/assets/paulie/cursor-with-pencil.png") 8 8, auto !important;
+		// cursor: url("/acornOS/assets/paulie/cursor-with-pencil.png") 8 8, auto !important;
 	}
 }
 
@@ -967,7 +967,7 @@ $z-updater2overlay: 200;
 		content: unset;
 	}
 	body.alive ,body, .icon, * {
-		cursor: url("/assets/images/paulie/paulie_default_small.png"), auto !important;
+		cursor: url("/acornOS/assets/images/paulie/paulie_default_small.png"), auto !important;
 	}
 	.app.window {
 		display: none !important;

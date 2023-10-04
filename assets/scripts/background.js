@@ -49,7 +49,7 @@ function eraseCookie(name)
 function createSound(filename, callback = function () { })
 {
 
-	var src = "/assets/sounds/" + filename;
+	var src = "/acornOS/assets/sounds/" + filename;
 
 	var sound = document.createElement('audio');
 	sound.controls = 'controls';
